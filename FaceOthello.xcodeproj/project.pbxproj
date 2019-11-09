@@ -99,13 +99,11 @@
 		0511A9A423768DBA008944D1 /* FaceOthello */ = {
 			isa = PBXGroup;
 			children = (
-				0511A9A523768DBA008944D1 /* AppDelegate.swift */,
-				0511A9A723768DBA008944D1 /* SceneDelegate.swift */,
-				0511A9A923768DBA008944D1 /* ViewController.swift */,
-				0511A9AB23768DBA008944D1 /* Main.storyboard */,
-				0511A9AE23768DBC008944D1 /* Assets.xcassets */,
-				0511A9B023768DBC008944D1 /* LaunchScreen.storyboard */,
+				0511A9D7237691D4008944D1 /* Views */,
+				0511A9D523769199008944D1 /* Delegate */,
+				0511A9D6237691B0008944D1 /* StoryBoard */,
 				0511A9B323768DBC008944D1 /* Info.plist */,
+				0511A9AE23768DBC008944D1 /* Assets.xcassets */,
 			);
 			path = FaceOthello;
 			sourceTree = "<group>";
@@ -126,6 +124,32 @@
 				0511A9C923768DBD008944D1 /* Info.plist */,
 			);
 			path = FaceOthelloUITests;
+			sourceTree = "<group>";
+		};
+		0511A9D523769199008944D1 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				0511A9A523768DBA008944D1 /* AppDelegate.swift */,
+				0511A9A723768DBA008944D1 /* SceneDelegate.swift */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		0511A9D6237691B0008944D1 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				0511A9AB23768DBA008944D1 /* Main.storyboard */,
+				0511A9B023768DBC008944D1 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		0511A9D7237691D4008944D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0511A9A923768DBA008944D1 /* ViewController.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
