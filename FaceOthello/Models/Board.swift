@@ -9,30 +9,32 @@
 import Foundation
 
 class Board {
-    var SIZE: Int = 0
-    let DIRECTIONS_XY = [[-1, -1], [+0, -1], [+1, -1],
-                         [-1, +0],           [+1, +0],
-                         [-1, +1], [+0, +1], [+1, +1]]
-    let BLACK = -1
-    let WHITE = 1
-    let BLANK = 0
-    var square:[[Int]] = []
+    let Directions = [
+        [-1, -1], [+0, -1], [+1, -1],
+        [-1, +0],           [+1, +0],
+        [-1, +1], [+0, +1], [+1, +1]
+    ]
+    let Black = -1
+    let White = 1
+    let Blank = 0
+    var Size: Int = 0
+    var Square:[[Int]] = []
 
     // オセロを開始する際に呼ばれ、オセロ盤を初期化する
     func start(size: Int){
-        self.SIZE = size
+        self.Size = size
         let center = size / 2
-        for _ in 0..<self.SIZE{
+        for _ in 0..<self.Size{
             var array:[Int] = []
-            for _ in 0..<self.SIZE{
-                array += [BLANK]
+            for _ in 0..<self.Size{
+                array += [Blank]
             }
-            square += [array]
+            Square += [array]
         }
-        square[center-1][center-1] = self.WHITE
-        square[center-1][center] = self.BLACK
-        square[center][center-1] = self.BLACK
-        square[center][center] = self.WHITE
+        Square[center-1][center-1] = self.White
+        Square[center-1][center] = self.Black
+        Square[center][center-1] = self.Black
+        Square[center][center] = self.White
     }
 
     // 盤上にある石の個数を返す
@@ -40,12 +42,12 @@ class Board {
         var black = 0
         var white = 0
         var blank = 0
-        for y in 0..<SIZE{
-            for x in 0..<SIZE{
-                switch square[y][x]{
-                case BLACK:
+        for y in 0..<Size{
+            for x in 0..<Size{
+                switch Square[y][x]{
+                case Black:
                     black += 1
-                case WHITE:
+                case White:
                     white += 1
                 default:
                     blank += 1
@@ -58,25 +60,25 @@ class Board {
     // 対戦終了時もう一度対戦する際にボード板をリセットする
     func reset(){
         var _square:[[Int]] = []
-        let size = SIZE
+        let size = Size
         let center = size / 2
-        for _ in 0..<SIZE{
+        for _ in 0..<Size{
             var array:[Int] = []
-            for _ in 0..<SIZE{
-                array += [BLANK]
+            for _ in 0..<Size{
+                array += [Blank]
             }
             _square += [array]
         }
-        _square[center-1][center-1] = self.WHITE
-        _square[center-1][center] = self.BLACK
-        _square[center][center-1] = self.BLACK
-        _square[center][center] = self.WHITE
-        square = _square
+        _square[center-1][center-1] = self.White
+        _square[center-1][center] = self.Black
+        _square[center][center-1] = self.Black
+        _square[center][center] = self.White
+        Square = _square
     }
 
     // ボード盤を返す
     func return_board() -> [[Int]]{
-        return square
+        return Square
     }
 
     // 呼ばれた段階で Game Over　であるかどうかを判定する
@@ -84,12 +86,12 @@ class Board {
         var black = 0
         var white = 0
         var blank = 0
-        for y in 0..<SIZE{
-            for x in 0..<SIZE{
-                switch square[y][x]{
-                case BLACK:
+        for y in 0..<Size{
+            for x in 0..<Size{
+                switch Square[y][x]{
+                case Black:
                     black += 1
-                case WHITE:
+                case White:
                     white += 1
                 default:
                     blank += 1
@@ -99,19 +101,19 @@ class Board {
         if( blank == 0 || black == 0 || white == 0 ){
             return true
         }
-        if( self.available(stone: BLACK).count == 0 && self.available(stone: WHITE).count == 0){
+        if( self.available(stone: Black).count == 0 && self.available(stone: White).count == 0){
             return true
         }
         return false
     }
 
     func is_available( x: Int, y:Int, stone: Int) -> Bool {
-        if ( square[x][y] != BLANK ){
+        if ( Square[x][y] != Blank ){
             return false
         }
         for i in 0..<8 {
-            let dx = DIRECTIONS_XY[i][0]
-            let dy = DIRECTIONS_XY[i][1]
+            let dx = Directions[i][0]
+            let dy = Directions[i][1]
             if( self.count_reversible(x: x, y: y, dx: dx, dy: dy, stone: stone) > 0 ){
                 return true
             }
@@ -122,8 +124,8 @@ class Board {
     // 引数で与えられた石の次に打てる場所を返す
     func available(stone: Int) -> [[Int]]{
         var return_array:[[Int]] = []
-        for x in 0..<SIZE{
-            for y in 0..<SIZE{
+        for x in 0..<Size{
+            for y in 0..<Size{
                 if( self.is_available( x: x, y: y, stone: stone) ){
                     return_array += [[x,y]]
                 }
@@ -134,13 +136,13 @@ class Board {
 
     // ボードに石を置く
     func put( x: Int, y:Int, stone: Int){
-        square[x][y] = stone
+        Square[x][y] = stone
         for i in 0..<8 {
-            let dx = DIRECTIONS_XY[i][0]
-            let dy = DIRECTIONS_XY[i][1]
+            let dx = Directions[i][0]
+            let dy = Directions[i][1]
             let n = self.count_reversible( x: x, y: y, dx: dx, dy: dy, stone: stone)
             for j in 1..<(n+1){
-                square[x + j * dx][y + j * dy] = stone
+                Square[x + j * dx][y + j * dy] = stone
             }
         }
     }
@@ -148,17 +150,17 @@ class Board {
     func count_reversible( x: Int, y: Int, dx: Int, dy: Int, stone: Int) -> Int {
         var _x = x
         var _y = y
-        for i in 0..<SIZE{
+        for i in 0..<Size{
             _x = _x + dx
             _y = _y + dy
             // 0 <= x < 4 : can't write <- Annoying!!!!
-            if !( 0 <= _x && _x < SIZE && 0 <= _y && _y < SIZE ){
+            if !( 0 <= _x && _x < Size && 0 <= _y && _y < Size ){
                 return 0
             }
-            if (square[_x][_y] == BLANK){
+            if (Square[_x][_y] == Blank){
                 return 0
             }
-            if (square[_x][_y] == stone){
+            if (Square[_x][_y] == stone){
                 return i
             }
         }
