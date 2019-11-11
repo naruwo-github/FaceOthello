@@ -33,22 +33,13 @@ class ViewController: UIViewController {
     var resetButton = UIButton()
     var passButton = UIButton()
     var viewStoneCount = UILabel()
-
-    // オセロ盤を表現するボタン
-    class buttonClass: UIButton{
-        let x: Int
-        let y: Int
-        init( x:Int, y:Int, frame: CGRect ) {
-            self.x = x
-            self.y = y
-            super.init(frame:frame)
-        }
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("error")
-        }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.createUI()
     }
 
-    // ボタンなどを生成
     func createUI(){
         board.start(size: BOARDSIZE)
         var y = 83
@@ -100,14 +91,12 @@ class ViewController: UIViewController {
         drawBoard()
     }
 
-    // passButton を押された時の処理
     @objc func pushPassButton() {
         CpuTurn()
         passButton.isEnabled = false
         passButton.isHidden = true
     }
 
-    // resetButton を押された時の処理
     @objc func pushResetButton() {
         board.reset()
         drawBoard()
@@ -117,7 +106,6 @@ class ViewController: UIViewController {
         passButton.isHidden = true
     }
 
-    // ボード盤をタッチされた時の処理
     @objc func pushed(mybtn: buttonClass){
         mybtn.isEnabled = false
         board.put(x: mybtn.x, y: mybtn.y, stone: User_color)
@@ -129,7 +117,6 @@ class ViewController: UIViewController {
         self.CpuTurn()
     }
 
-    // CPU
     func CpuTurn() {
         if( board.available(stone: Cpu_color).count != 0 ){
             let xy = player.play(board: board, stone: Cpu_color)
@@ -150,12 +137,11 @@ class ViewController: UIViewController {
         }
     }
 
-    // 画面にオセロ盤を表示させる
     func drawBoard(){
         let stonecount = board.returnStone()
         viewStoneCount.text = "● Uer: " + String(stonecount.0) + "     ○ CPU: " + String(stonecount.1)
         var count = 0
-        var _board = board.return_board()
+        let _board = board.return_board()
         for y in 0..<BOARDSIZE{
             for x in 0..<BOARDSIZE{
                 if( _board[y][x] == User_color ){
@@ -176,12 +162,19 @@ class ViewController: UIViewController {
             buttonArray[x*BOARDSIZE+y].isEnabled = true
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.createUI()
-    }
-
 }
 
+extension ViewController {
+    class buttonClass: UIButton{
+        let x: Int
+        let y: Int
+        init( x:Int, y:Int, frame: CGRect ) {
+            self.x = x
+            self.y = y
+            super.init(frame:frame)
+        }
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("error")
+        }
+    }
+}
