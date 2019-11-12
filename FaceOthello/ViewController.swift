@@ -116,12 +116,22 @@ class ViewController: UIViewController {
     func CpuTurn() {
         if( board.available(stone: Cpu_color).count != 0 ){
             let xy = player.play(board: board, stone: Cpu_color)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+                self.board.put(x: xy.0, y: xy.1, stone: self.Cpu_color)
+                self.drawBoard()
+                if( self.board.gameOver() == true ){
+                    self.resetButton.isHidden = false
+                    self.resetButton.isEnabled = true
+                }
+            }
+            /*
             board.put(x: xy.0, y: xy.1, stone: Cpu_color)
             drawBoard()
             if( board.gameOver() == true ){
                 resetButton.isHidden = false
                 resetButton.isEnabled = true
             }
+ */
         }
         if( board.gameOver() == true ){
             resetButton.isHidden = false
