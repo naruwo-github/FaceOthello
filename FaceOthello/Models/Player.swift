@@ -9,10 +9,12 @@
 import Foundation
 
 class Player {
+    //execute random play
     func play(board: Board, stone: Int) -> (Int,Int) {
         return Random(available: board.available(stone: stone))
     }
 
+    //random playing
     func Random(available: [[Int]]) -> (Int,Int) {
         let int = Int.random(in: 0..<available.count)
         return (available[int][0], available[int][1])

@@ -117,6 +117,7 @@ class Board {
         return false
     }
 
+    //return weather blank or not
     func is_available( x: Int, y:Int, stone: Int) -> Bool {
         if ( Square[x][y] != Blank ){
             return false
@@ -163,6 +164,7 @@ class Board {
         }
     }
 
+    //return reversible stone position
     func count_reversible( x: Int, y: Int, dx: Int, dy: Int, stone: Int) -> Int {
         var _x = x
         var _y = y

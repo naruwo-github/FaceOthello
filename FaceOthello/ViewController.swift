@@ -17,13 +17,9 @@ class ViewController: UIViewController {
     var player_name = "Random"
     var Stone_count = 0
 
-    // -1: 黒
-    //  1: 白
-    let User_color = -1
-    let Cpu_color = 1
-
-    // ボードはボタンを行列配置して表現される
-    var buttonArray: [UIButton] = []
+    let User_color = -1 //Black
+    let Cpu_color = 1   //white
+    var buttonArray: [UIButton] = [] //board is composed of many buttons
 
     // board.png, white.png, black.png
     let baseBoard = UIImage(named: "board")
@@ -71,7 +67,7 @@ class ViewController: UIViewController {
         resetButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         resetButton.setTitleColor(.white, for: .normal)
         resetButton.backgroundColor = UIColor(red: 0.3, green: 0.7, blue: 0.6, alpha: 1)
-        resetButton.layer.cornerRadius = 25
+        resetButton.layer.cornerRadius = 20
         resetButton.layer.shadowOpacity = 0.5
         resetButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.view.addSubview(resetButton)
@@ -84,7 +80,7 @@ class ViewController: UIViewController {
         passButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         passButton.setTitleColor(.white, for: .normal)
         passButton.backgroundColor = UIColor(red: 0.3, green: 0.7, blue: 0.6, alpha: 1)
-        passButton.layer.cornerRadius = 25
+        passButton.layer.cornerRadius = 20
         passButton.layer.shadowOpacity = 0.5
         passButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.view.addSubview(passButton)
