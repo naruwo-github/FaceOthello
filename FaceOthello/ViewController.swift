@@ -33,17 +33,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.createUI()
+        let width = self.view.frame.width
+        let height = self.view.frame.height
+        self.createUI(w: width, h: height)
     }
 
-    func createUI(){
+    func createUI(w: CGFloat, h: CGFloat){
         board.start(size: BOARDSIZE)
         var y = 83
         let boxSize = 84 / (BOARDSIZE/4)
-        viewStoneCount.frame = CGRect(x: 18, y: 430, width: 330, height: 60)
+        
+        //stone count label
+        viewStoneCount.frame = CGRect(x: 0, y: 0, width: w, height: 100)
         viewStoneCount.textAlignment = NSTextAlignment.center
         viewStoneCount.font = UIFont.systemFont(ofSize: 25)
+        viewStoneCount.center = CGPoint(x: w/2, y: h-200)
         self.view.addSubview(viewStoneCount)
+        
         for i in 0..<BOARDSIZE{
             var x = 19
             for j in 0..<BOARDSIZE{
@@ -59,6 +65,7 @@ class ViewController: UIViewController {
             }
             y = y + boxSize + 1
         }
+        
         resetButton.frame = CGRect(x: 125, y: 575, width: 125, height: 45)
         resetButton.addTarget(self, action: #selector(ViewController.pushResetButton), for: .touchUpInside)
         resetButton.isEnabled = false
@@ -76,7 +83,7 @@ class ViewController: UIViewController {
         passButton.addTarget(self, action: #selector(ViewController.pushPassButton), for: .touchUpInside)
         passButton.isEnabled = false
         passButton.isHidden = true
-        passButton.setTitle("Pass", for: .normal)
+        passButton.setTitle("PASS", for: .normal)
         passButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         passButton.setTitleColor(.white, for: .normal)
         passButton.backgroundColor = UIColor(red: 0.3, green: 0.7, blue: 0.6, alpha: 1)
@@ -84,6 +91,7 @@ class ViewController: UIViewController {
         passButton.layer.shadowOpacity = 0.5
         passButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.view.addSubview(passButton)
+        
         drawBoard()
     }
 
