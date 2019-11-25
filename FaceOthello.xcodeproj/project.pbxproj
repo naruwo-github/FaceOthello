@@ -17,6 +17,7 @@
 		0511A9C823768DBD008944D1 /* FaceOthelloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9C723768DBD008944D1 /* FaceOthelloUITests.swift */; };
 		0511A9DA2376924F008944D1 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9D92376924E008944D1 /* Board.swift */; };
 		0511A9DC2376925E008944D1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9DB2376925E008944D1 /* Player.swift */; };
+		05B5D2B3238BCAA200B1B082 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5D2B2238BCAA200B1B082 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		0511A9C923768DBD008944D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0511A9D92376924E008944D1 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		0511A9DB2376925E008944D1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		05B5D2B2238BCAA200B1B082 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				0511A9A923768DBA008944D1 /* ViewController.swift */,
+				05B5D2B2238BCAA200B1B082 /* SettingViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				0511A9DA2376924F008944D1 /* Board.swift in Sources */,
 				0511A9DC2376925E008944D1 /* Player.swift in Sources */,
 				0511A9A823768DBA008944D1 /* SceneDelegate.swift in Sources */,
+				05B5D2B3238BCAA200B1B082 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

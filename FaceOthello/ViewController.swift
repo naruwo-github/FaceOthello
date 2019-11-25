@@ -40,7 +40,7 @@ class ViewController: UIViewController {
 
     func createUI(w: CGFloat, h: CGFloat){
         board.start(size: BOARDSIZE)
-        var y = 83
+        var y = 183
         let boxSize = 84 / (BOARDSIZE/4)
         
         //stone count label
@@ -48,6 +48,7 @@ class ViewController: UIViewController {
         viewStoneCount.textAlignment = NSTextAlignment.center
         viewStoneCount.font = UIFont.systemFont(ofSize: 25)
         viewStoneCount.center = CGPoint(x: w/2, y: h-200)
+        //viewStoneCount.center = self.view.center
         self.view.addSubview(viewStoneCount)
         
         for i in 0..<BOARDSIZE{
