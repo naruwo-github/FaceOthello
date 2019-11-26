@@ -10,4 +10,14 @@ import Foundation
 import UIKit
 
 class SettingViewController: UIViewController {
+    @IBOutlet weak var playButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    @IBAction func playButtonTapped(_ sender: Any) {
+    }
+    
 }

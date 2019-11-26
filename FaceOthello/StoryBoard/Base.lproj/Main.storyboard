@@ -15,19 +15,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-Zg-aU7">
-                                <rect key="frame" x="177" y="418" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-Zg-aU7">
+                                <rect key="frame" x="132" y="398" width="150" height="100"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="J9I-Zg-aU7" secondAttribute="height" multiplier="3:2" id="DY0-KD-Ghr"/>
+                                    <constraint firstAttribute="height" constant="100" id="VI3-y0-6gT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="xPB-li-dnU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <state key="normal" title="Play!">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="playButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="MYK-bp-U6C"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="aUV-6C-XE5"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="J9I-Zg-aU7" firstAttribute="centerY" secondItem="Z2g-J1-fv8" secondAttribute="centerY" id="XuS-5H-ggs"/>
+                            <constraint firstItem="J9I-Zg-aU7" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="zAX-Oq-9WV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VBI-4n-Fb9"/>
                     </view>
                     <navigationItem key="navigationItem" id="N1A-rd-6ei"/>
+                    <connections>
+                        <outlet property="playButton" destination="J9I-Zg-aU7" id="ZhT-2J-9GQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0LS-TZ-9rF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,7 +61,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Oz8-kc-2AL"/>
@@ -68,4 +89,5 @@
             <point key="canvasLocation" x="-723.1884057971015" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>
