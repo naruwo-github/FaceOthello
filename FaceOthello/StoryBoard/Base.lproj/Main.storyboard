@@ -15,47 +15,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-Zg-aU7" userLabel="CPU Button">
-                                <rect key="frame" x="112.5" y="517" width="150" height="100"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="J9I-Zg-aU7" secondAttribute="height" multiplier="3:2" id="DY0-KD-Ghr"/>
-                                    <constraint firstAttribute="height" constant="100" id="VI3-y0-6gT"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="xPB-li-dnU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <state key="normal" title="CPU">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
-                                        <integer key="value" value="40"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="playButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="MYK-bp-U6C"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="aUV-6C-XE5"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-3K-KG6">
-                                <rect key="frame" x="87.5" y="64" width="200" height="200"/>
+                                <rect key="frame" x="137.5" y="64" width="100" height="100"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="D0E-c1-xhf"/>
-                                    <constraint firstAttribute="width" constant="200" id="oGH-VK-U9g"/>
+                                    <constraint firstAttribute="height" constant="100" id="D0E-c1-xhf"/>
+                                    <constraint firstAttribute="width" constant="100" id="oGH-VK-U9g"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
-                                        <integer key="value" value="100"/>
+                                        <integer key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-7g-sHq">
-                                <rect key="frame" x="87.5" y="274" width="200" height="20"/>
+                                <rect key="frame" x="143.5" y="174" width="88" height="20"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0vm-d5-Lcf"/>
-                                    <constraint firstAttribute="width" constant="200" id="3Xq-ZZ-0yx"/>
                                 </constraints>
                                 <state key="normal" title="Select Photo">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -80,11 +57,33 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
-                                        <integer key="value" value="30"/>
+                                        <integer key="value" value="40"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="browseButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="92i-Cf-5rv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-Zg-aU7" userLabel="CPU Button">
+                                <rect key="frame" x="112.5" y="517" width="150" height="100"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="J9I-Zg-aU7" secondAttribute="height" multiplier="3:2" id="DY0-KD-Ghr"/>
+                                    <constraint firstAttribute="height" constant="100" id="VI3-y0-6gT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="xPB-li-dnU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="CPU">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="playButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="MYK-bp-U6C"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="aUV-6C-XE5"/>
                                 </connections>
                             </button>
                         </subviews>
