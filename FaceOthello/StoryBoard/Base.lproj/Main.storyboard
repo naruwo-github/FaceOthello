@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JHN-Cd-ph9">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Setting View Controller-->
+        <!--Setting-->
         <scene sceneID="BG1-ft-e5I">
             <objects>
                 <viewController id="3tn-jy-om1" customClass="SettingViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z2g-J1-fv8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-Zg-aU7">
-                                <rect key="frame" x="132" y="398" width="150" height="100"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-Zg-aU7" userLabel="CPU Button">
+                                <rect key="frame" x="112.5" y="517" width="150" height="100"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="J9I-Zg-aU7" secondAttribute="height" multiplier="3:2" id="DY0-KD-Ghr"/>
                                     <constraint firstAttribute="height" constant="100" id="VI3-y0-6gT"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="xPB-li-dnU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <state key="normal" title="Play!">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="CPU">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -37,15 +37,65 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="aUV-6C-XE5"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-3K-KG6">
+                                <rect key="frame" x="87.5" y="64" width="200" height="200"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="D0E-c1-xhf"/>
+                                    <constraint firstAttribute="width" constant="200" id="oGH-VK-U9g"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-7g-sHq">
+                                <rect key="frame" x="87.5" y="274" width="200" height="20"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="0vm-d5-Lcf"/>
+                                    <constraint firstAttribute="width" constant="200" id="3Xq-ZZ-0yx"/>
+                                </constraints>
+                                <state key="normal" title="Select Photo">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="10"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaz-Fj-X54" userLabel="Browse Button">
+                                <rect key="frame" x="112.5" y="367" width="150" height="100"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="CRF-pA-TE6"/>
+                                    <constraint firstAttribute="width" constant="150" id="Y24-r9-grd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Browse">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="J9I-Zg-aU7" firstAttribute="centerY" secondItem="Z2g-J1-fv8" secondAttribute="centerY" id="XuS-5H-ggs"/>
-                            <constraint firstItem="J9I-Zg-aU7" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="zAX-Oq-9WV"/>
+                            <constraint firstItem="Lxu-7g-sHq" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="Cxx-2p-spJ"/>
+                            <constraint firstItem="Lxu-7g-sHq" firstAttribute="top" secondItem="Q1k-3K-KG6" secondAttribute="bottom" constant="10" id="DxR-QD-SRh"/>
+                            <constraint firstItem="Q1k-3K-KG6" firstAttribute="top" secondItem="VBI-4n-Fb9" secondAttribute="top" constant="20" id="Ei2-td-tby"/>
+                            <constraint firstItem="J9I-Zg-aU7" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="UGa-Hm-BRe"/>
+                            <constraint firstItem="Uaz-Fj-X54" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="YgG-8a-YmO"/>
+                            <constraint firstItem="J9I-Zg-aU7" firstAttribute="top" secondItem="Uaz-Fj-X54" secondAttribute="bottom" constant="50" id="bDc-rq-fP4"/>
+                            <constraint firstItem="VBI-4n-Fb9" firstAttribute="bottom" secondItem="J9I-Zg-aU7" secondAttribute="bottom" constant="50" id="ivi-hY-DUh"/>
+                            <constraint firstItem="Q1k-3K-KG6" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="vKR-Nn-Z1d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VBI-4n-Fb9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="N1A-rd-6ei"/>
+                    <navigationItem key="navigationItem" title="Setting" id="N1A-rd-6ei"/>
                     <connections>
                         <outlet property="playButton" destination="J9I-Zg-aU7" id="ZhT-2J-9GQ"/>
                     </connections>
@@ -59,9 +109,9 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Oz8-kc-2AL"/>
@@ -76,7 +126,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JHN-Cd-ph9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9yg-aU-tU7">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
