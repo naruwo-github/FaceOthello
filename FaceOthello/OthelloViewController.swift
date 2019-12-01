@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class OthelloViewController: UIViewController {
     
     let BOARDSIZE = 8
     var board = Board()
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
                     x: i,
                     y: j,
                     frame:CGRect(x: x,y: y, width: boxSize,height: boxSize))
-                button.addTarget(self, action: #selector(ViewController.pushed), for: .touchUpInside)
+                button.addTarget(self, action: #selector(OthelloViewController.pushed), for: .touchUpInside)
                 self.view.addSubview(button)
                 button.isEnabled = false
                 buttonArray.append(button)
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         }
         
         resetButton.frame = CGRect(x: 125, y: 575, width: 125, height: 45)
-        resetButton.addTarget(self, action: #selector(ViewController.pushResetButton), for: .touchUpInside)
+        resetButton.addTarget(self, action: #selector(OthelloViewController.pushResetButton), for: .touchUpInside)
         resetButton.isEnabled = false
         resetButton.isHidden = true
         resetButton.setTitle("RESET", for: .normal)
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         self.view.addSubview(resetButton)
 
         passButton.frame = CGRect(x: 150, y: 500, width: 80, height: 30)
-        passButton.addTarget(self, action: #selector(ViewController.pushPassButton), for: .touchUpInside)
+        passButton.addTarget(self, action: #selector(OthelloViewController.pushPassButton), for: .touchUpInside)
         passButton.isEnabled = false
         passButton.isHidden = true
         passButton.setTitle("PASS", for: .normal)
@@ -169,7 +169,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension OthelloViewController {
     class buttonClass: UIButton{
         let x: Int
         let y: Int
