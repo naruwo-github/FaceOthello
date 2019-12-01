@@ -63,6 +63,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="10"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="selectPhotoButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="Sdn-qZ-Vbz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaz-Fj-X54" userLabel="Browse Button">
                                 <rect key="frame" x="112.5" y="367" width="150" height="100"/>
@@ -80,6 +83,9 @@
                                         <integer key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="browseButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="92i-Cf-5rv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -97,7 +103,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="N1A-rd-6ei"/>
                     <connections>
+                        <outlet property="browseButton" destination="Uaz-Fj-X54" id="VMk-o6-qqz"/>
                         <outlet property="playButton" destination="J9I-Zg-aU7" id="ZhT-2J-9GQ"/>
+                        <outlet property="profileImageView" destination="Q1k-3K-KG6" id="cOe-Q0-Yuy"/>
+                        <outlet property="selectPhotoButton" destination="Lxu-7g-sHq" id="2Ct-Cm-yGL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0LS-TZ-9rF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

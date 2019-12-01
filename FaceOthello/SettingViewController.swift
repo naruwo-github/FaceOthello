@@ -10,11 +10,20 @@ import Foundation
 import UIKit
 
 class SettingViewController: UIViewController {
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var selectPhotoButton: UIButton!
+    @IBOutlet weak var browseButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    @IBAction func selectPhotoButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func browseButtonTapped(_ sender: Any) {
     }
     
     @IBAction func playButtonTapped(_ sender: Any) {
