@@ -47,7 +47,7 @@ class OthelloViewController: UIViewController {
         viewStoneCount.frame = CGRect(x: 0, y: 0, width: w, height: 100)
         viewStoneCount.textAlignment = NSTextAlignment.center
         viewStoneCount.font = UIFont.systemFont(ofSize: 25)
-        viewStoneCount.center = CGPoint(x: w/2, y: h-200)
+        viewStoneCount.center = CGPoint(x: w/2, y: h-100)
         //viewStoneCount.center = self.view.center
         self.view.addSubview(viewStoneCount)
         
