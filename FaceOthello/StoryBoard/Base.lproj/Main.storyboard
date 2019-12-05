@@ -83,7 +83,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="playButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="MYK-bp-U6C"/>
+                                    <action selector="cpuButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="MYK-bp-U6C"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="aUV-6C-XE5"/>
                                 </connections>
                             </button>
@@ -104,7 +104,7 @@
                     <navigationItem key="navigationItem" title="Setting" id="N1A-rd-6ei"/>
                     <connections>
                         <outlet property="browseButton" destination="Uaz-Fj-X54" id="VMk-o6-qqz"/>
-                        <outlet property="playButton" destination="J9I-Zg-aU7" id="ZhT-2J-9GQ"/>
+                        <outlet property="cpuButton" destination="J9I-Zg-aU7" id="PKc-Js-Bfg"/>
                         <outlet property="profileImageView" destination="Q1k-3K-KG6" id="cOe-Q0-Yuy"/>
                         <outlet property="selectPhotoButton" destination="Lxu-7g-sHq" id="2Ct-Cm-yGL"/>
                     </connections>

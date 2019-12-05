@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 class SettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var selectPhotoButton: UIButton!
-    @IBOutlet weak var browseButton: UIButton!
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var profileImageView: UIImageView!   //Profile Image
+    @IBOutlet weak var selectPhotoButton: UIButton!     //Select Button
+    @IBOutlet weak var browseButton: UIButton!          //Browse User to Connect
+    @IBOutlet weak var cpuButton: UIButton!            //Play with CPU
     
     let userDefaults = UserDefaults.standard
     
@@ -37,7 +37,7 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func browseButtonTapped(_ sender: Any) {
     }
     
-    @IBAction func playButtonTapped(_ sender: Any) {
+    @IBAction func cpuButtonTapped(_ sender: Any) {
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
