@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CropViewController
 
 class SettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var profileImageView: UIImageView!   //Profile Image
@@ -22,6 +23,14 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Do any additional setup after loading the view, typically from a nib.
         if let savedImage = self.userDefaults.image(forKey: "image") {
             self.profileImageView.image = savedImage
+        }
+    }
+    
+    @IBAction func imageViewTapped(_ sender: Any) {
+        if let image = self.profileImageView.image {
+            let cropViewController = CropViewController(image: image)
+            cropViewController.delegate = self
+            present(cropViewController, animated: true, completion: nil)
         }
     }
     
@@ -44,6 +53,7 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         self.profileImageView.image = image
         userDefaults.setUIImageToData(image: image, forKey: "image")
+        
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -62,4 +72,18 @@ extension UserDefaults {
         }
     }
 
+}
+
+extension SettingViewController: CropViewControllerDelegate {
+
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        //加工した画像が取得できる
+        self.profileImageView.image = image
+        cropViewController.dismiss(animated: true, completion: nil)
+    }
+
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+        // キャンセル時
+        cropViewController.dismiss(animated: true, completion: nil)
+    }
 }
