@@ -18,6 +18,9 @@
 		0511A9DA2376924F008944D1 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9D92376924E008944D1 /* Board.swift */; };
 		0511A9DC2376925E008944D1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9DB2376925E008944D1 /* Player.swift */; };
 		05B5D2B3238BCAA200B1B082 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5D2B2238BCAA200B1B082 /* SettingViewController.swift */; };
+		58E0BDE5A10352CFE3016A5E /* Pods_FaceOthelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55198A559A15B8A4778D0868 /* Pods_FaceOthelloTests.framework */; };
+		811B8916881648AD56F16499 /* Pods_FaceOthello_FaceOthelloUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2838C37A695F78A313D1E01 /* Pods_FaceOthello_FaceOthelloUITests.framework */; };
+		BE1C13534C8F4623F4560C5A /* Pods_FaceOthello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44320264D7A4338A5355DD3 /* Pods_FaceOthello.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,15 @@
 		0511A9D92376924E008944D1 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		0511A9DB2376925E008944D1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		05B5D2B2238BCAA200B1B082 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		20275B75FE0C86DF619DFFF6 /* Pods-FaceOthello-FaceOthelloUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceOthello-FaceOthelloUITests.release.xcconfig"; path = "Target Support Files/Pods-FaceOthello-FaceOthelloUITests/Pods-FaceOthello-FaceOthelloUITests.release.xcconfig"; sourceTree = "<group>"; };
+		29FCE6F5A0547406F53FAA7A /* Pods-FaceOthello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceOthello.release.xcconfig"; path = "Target Support Files/Pods-FaceOthello/Pods-FaceOthello.release.xcconfig"; sourceTree = "<group>"; };
+		55198A559A15B8A4778D0868 /* Pods_FaceOthelloTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceOthelloTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		593AD650458716D67401CC6D /* Pods-FaceOthello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceOthello.debug.xcconfig"; path = "Target Support Files/Pods-FaceOthello/Pods-FaceOthello.debug.xcconfig"; sourceTree = "<group>"; };
+		7BB89099794D46D8C5BAF736 /* Pods-FaceOthello-FaceOthelloUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceOthello-FaceOthelloUITests.debug.xcconfig"; path = "Target Support Files/Pods-FaceOthello-FaceOthelloUITests/Pods-FaceOthello-FaceOthelloUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7CDC2C60C0EDF332CF83A8C4 /* Pods-FaceOthelloTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceOthelloTests.debug.xcconfig"; path = "Target Support Files/Pods-FaceOthelloTests/Pods-FaceOthelloTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C188D148A8091DBFF333E57B /* Pods-FaceOthelloTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceOthelloTests.release.xcconfig"; path = "Target Support Files/Pods-FaceOthelloTests/Pods-FaceOthelloTests.release.xcconfig"; sourceTree = "<group>"; };
+		E2838C37A695F78A313D1E01 /* Pods_FaceOthello_FaceOthelloUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceOthello_FaceOthelloUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F44320264D7A4338A5355DD3 /* Pods_FaceOthello.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceOthello.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1C13534C8F4623F4560C5A /* Pods_FaceOthello.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58E0BDE5A10352CFE3016A5E /* Pods_FaceOthelloTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				811B8916881648AD56F16499 /* Pods_FaceOthello_FaceOthelloUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +104,8 @@
 				0511A9BB23768DBD008944D1 /* FaceOthelloTests */,
 				0511A9C623768DBD008944D1 /* FaceOthelloUITests */,
 				0511A9A323768DBA008944D1 /* Products */,
+				2C95AF2B3FFE19D3774BDA8B /* Pods */,
+				4D07730EE08013F81CBCC1AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +186,30 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2C95AF2B3FFE19D3774BDA8B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				593AD650458716D67401CC6D /* Pods-FaceOthello.debug.xcconfig */,
+				29FCE6F5A0547406F53FAA7A /* Pods-FaceOthello.release.xcconfig */,
+				7BB89099794D46D8C5BAF736 /* Pods-FaceOthello-FaceOthelloUITests.debug.xcconfig */,
+				20275B75FE0C86DF619DFFF6 /* Pods-FaceOthello-FaceOthelloUITests.release.xcconfig */,
+				7CDC2C60C0EDF332CF83A8C4 /* Pods-FaceOthelloTests.debug.xcconfig */,
+				C188D148A8091DBFF333E57B /* Pods-FaceOthelloTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4D07730EE08013F81CBCC1AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F44320264D7A4338A5355DD3 /* Pods_FaceOthello.framework */,
+				E2838C37A695F78A313D1E01 /* Pods_FaceOthello_FaceOthelloUITests.framework */,
+				55198A559A15B8A4778D0868 /* Pods_FaceOthelloTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0511A9CC23768DBD008944D1 /* Build configuration list for PBXNativeTarget "FaceOthello" */;
 			buildPhases = (
+				EEE7FE3E3716014179BC2428 /* [CP] Check Pods Manifest.lock */,
 				0511A99E23768DB9008944D1 /* Sources */,
 				0511A99F23768DB9008944D1 /* Frameworks */,
 				0511A9A023768DB9008944D1 /* Resources */,
+				E024693DE10757A7DA519F3D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,6 +236,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0511A9CF23768DBD008944D1 /* Build configuration list for PBXNativeTarget "FaceOthelloTests" */;
 			buildPhases = (
+				AF425E020E8AFEA3F78D90B6 /* [CP] Check Pods Manifest.lock */,
 				0511A9B423768DBD008944D1 /* Sources */,
 				0511A9B523768DBD008944D1 /* Frameworks */,
 				0511A9B623768DBD008944D1 /* Resources */,
@@ -211,9 +255,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0511A9D223768DBD008944D1 /* Build configuration list for PBXNativeTarget "FaceOthelloUITests" */;
 			buildPhases = (
+				B7833A8617A886A3A085E444 /* [CP] Check Pods Manifest.lock */,
 				0511A9BF23768DBD008944D1 /* Sources */,
 				0511A9C023768DBD008944D1 /* Frameworks */,
 				0511A9C123768DBD008944D1 /* Resources */,
+				68EC71F987AF1BF0059AD50D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,6 +340,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68EC71F987AF1BF0059AD50D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FaceOthello-FaceOthelloUITests/Pods-FaceOthello-FaceOthelloUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FaceOthello-FaceOthelloUITests/Pods-FaceOthello-FaceOthelloUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FaceOthello-FaceOthelloUITests/Pods-FaceOthello-FaceOthelloUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF425E020E8AFEA3F78D90B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FaceOthelloTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7833A8617A886A3A085E444 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FaceOthello-FaceOthelloUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E024693DE10757A7DA519F3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FaceOthello/Pods-FaceOthello-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FaceOthello/Pods-FaceOthello-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FaceOthello/Pods-FaceOthello-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEE7FE3E3716014179BC2428 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FaceOthello-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0511A99E23768DB9008944D1 /* Sources */ = {
@@ -476,6 +625,7 @@
 		};
 		0511A9CD23768DBD008944D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 593AD650458716D67401CC6D /* Pods-FaceOthello.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -494,6 +644,7 @@
 		};
 		0511A9CE23768DBD008944D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29FCE6F5A0547406F53FAA7A /* Pods-FaceOthello.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -512,6 +663,7 @@
 		};
 		0511A9D023768DBD008944D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CDC2C60C0EDF332CF83A8C4 /* Pods-FaceOthelloTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -534,6 +686,7 @@
 		};
 		0511A9D123768DBD008944D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C188D148A8091DBFF333E57B /* Pods-FaceOthelloTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -556,6 +709,7 @@
 		};
 		0511A9D323768DBD008944D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BB89099794D46D8C5BAF736 /* Pods-FaceOthello-FaceOthelloUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -576,6 +730,7 @@
 		};
 		0511A9D423768DBD008944D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20275B75FE0C86DF619DFFF6 /* Pods-FaceOthello-FaceOthelloUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
