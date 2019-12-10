@@ -22,22 +22,22 @@ You can arrange your image.
 <img src="src/step4.jpg" alt="step4" title="step4" width="100px">
 
 Step5.
-Press "Select Photo" and choice your image.
+If you finished the arrangement, please press "Done"(or "Cancel").
 
 <img src="src/step5.jpg" alt="step5" title="step5" width="100px">
 
 Step6.
-Press "Select Photo" and choice your image.
+Are you ready?
 
 <img src="src/step6.jpg" alt="step6" title="step6" width="100px">
 
 Step7.
-Press "Select Photo" and choice your image.
+Press "CPU" or "Browse" button and play Othello!
 
 <img src="src/step7.jpg" alt="step7" title="step7" width="100px">
 
 Step8.
-Press "Select Photo" and choice your image.
+How do you feel? It's a nice Othello, isn't it? :)
 
 <img src="src/step8.jpg" alt="step8" title="step8" width="100px">
 
