@@ -4,7 +4,7 @@ This is an app of Othello. In this game, we can use our photo as othello pieces.
 Step1.
 Open this app.
 
-<img src="src/step1.jpg" alt="step1" title="step1" width="100px">
+<img src="src/step1.jpg" alt="step1" title="step1" width="100px" align="center">
 
 Step2.
 Press "Select Photo" and choice your image.
