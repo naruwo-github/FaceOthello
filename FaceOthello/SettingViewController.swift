@@ -49,6 +49,15 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func cpuButtonTapped(_ sender: Any) {
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OthelloViewSegue" {
+            let othelloViewController: OthelloViewController = segue.destination as! OthelloViewController
+            if let image = self.profileImageView.image {
+                othelloViewController.black = image
+            }
+        }
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         self.profileImageView.image = image

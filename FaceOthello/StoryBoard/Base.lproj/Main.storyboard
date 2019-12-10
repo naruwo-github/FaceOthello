@@ -88,7 +88,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="cpuButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="MYK-bp-U6C"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="aUV-6C-XE5"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="OthelloViewSegue" id="aUV-6C-XE5"/>
                                 </connections>
                             </button>
                         </subviews>

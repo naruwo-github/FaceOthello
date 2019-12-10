@@ -24,7 +24,7 @@ class OthelloViewController: UIViewController {
     // board.png, white.png, black.png
     let baseBoard = UIImage(named: "board")
     let white = UIImage(named: "white")
-    let black = UIImage(named: "black")
+    var black = UIImage(named: "black")
 
     var resetButton = UIButton()
     var passButton = UIButton()
