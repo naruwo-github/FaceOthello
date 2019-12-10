@@ -1,10 +1,11 @@
 # FaceOthello
 This is an app of Othello. In this game, we can use our photo as othello pieces.
 
+<div align="center">
+
 Step1.
 Open this app.
 
-<div align="center">
 <img src="src/step1.jpg" alt="step1" title="step1" width="100px">
 
 Step2.
@@ -42,6 +43,6 @@ How do you feel? It's a nice Othello, isn't it? :)
 
 <img src="src/step8.jpg" alt="step8" title="step8" width="100px">
 
-</div>
-
 Then, we can start this app and pick a photo from liblary and play!
+
+</div>
