@@ -62,7 +62,6 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         self.profileImageView.image = image
         userDefaults.setUIImageToData(image: image, forKey: "image")
-        
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -88,6 +87,7 @@ extension SettingViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         //加工した画像が取得できる
         self.profileImageView.image = image
+        userDefaults.setUIImageToData(image: image, forKey: "image")
         cropViewController.dismiss(animated: true, completion: nil)
     }
 
