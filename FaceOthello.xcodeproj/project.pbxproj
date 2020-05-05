@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -124,8 +124,8 @@
 			children = (
 				0511A9D823769231008944D1 /* Models */,
 				0511A9D7237691D4008944D1 /* Views */,
-				0511A9D523769199008944D1 /* Delegate */,
 				0511A9D6237691B0008944D1 /* StoryBoard */,
+				0511A9D523769199008944D1 /* Delegate */,
 				0511A9B323768DBC008944D1 /* Info.plist */,
 				0511A9AE23768DBC008944D1 /* Assets.xcassets */,
 			);
@@ -196,7 +196,6 @@
 				7CDC2C60C0EDF332CF83A8C4 /* Pods-FaceOthelloTests.debug.xcconfig */,
 				C188D148A8091DBFF333E57B /* Pods-FaceOthelloTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
