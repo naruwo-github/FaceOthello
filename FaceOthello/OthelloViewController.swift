@@ -22,9 +22,9 @@ class OthelloViewController: UIViewController {
     var buttonArray: [UIButton] = [] //board is composed of many buttons
 
     // board.png, white.png, black.png
-    let baseBoard = UIImage(named: "board")
-    let white = UIImage(named: "white")
-    var black = UIImage(named: "black")
+    let baseBoard = R.image.board()
+    let white = R.image.white()
+    var black = R.image.black()
 
     var resetButton = UIButton()
     var passButton = UIButton()
