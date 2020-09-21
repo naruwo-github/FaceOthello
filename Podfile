@@ -7,6 +7,7 @@ target 'FaceOthello' do
 
   # Pods for FaceOthello
   pod 'CropViewController'
+  pod 'R.swift'
 
   target 'FaceOthelloTests' do
     inherit! :search_paths
