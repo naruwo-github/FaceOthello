@@ -1,24 +1,28 @@
 PODS:
+  - Alamofire (5.2.2)
   - CropViewController (2.5.2)
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
 
 DEPENDENCIES:
+  - Alamofire
   - CropViewController
   - R.swift
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - CropViewController
     - R.swift
     - R.swift.Library
 
 SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
 
-PODFILE CHECKSUM: f01ab8e44cad07cb7a644c24c2718b7bcba12c07
+PODFILE CHECKSUM: 8451b0f2b292b689d150c77db7350481872ab7f6
 
 COCOAPODS: 1.8.4
