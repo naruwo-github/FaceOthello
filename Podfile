@@ -9,6 +9,7 @@ target 'FaceOthello' do
   pod 'CropViewController'
   pod 'R.swift'
   pod 'Alamofire'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
 
   target 'FaceOthelloTests' do
     inherit! :search_paths
