@@ -49,7 +49,6 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction private func cpuButtonTapped(_ sender: Any) {
     }
     
-    // TODO: segueを使わずに画面遷移したい
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OthelloViewSegue" {
             let othelloViewController: OthelloViewController = segue.destination as! OthelloViewController
