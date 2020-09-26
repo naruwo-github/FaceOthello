@@ -10,32 +10,29 @@ import UIKit
 
 class OthelloViewController: UIViewController {
     
-    let BOARDSIZE = 8
-    var board = Board()
-    var player = Player()
+    private let screenSize: CGSize = UIScreen.main.bounds.size
+    private let BOARDSIZE = 8
+    private let USER_COLOR = -1
+    private let CPU_COLOR = 1
+    
+    private let board = Board()
+    private let player = Player()
 
-    var player_name = "Random"
-    var Stone_count = 0
-
-    let User_color = -1 //Black
-    let Cpu_color = 1   //white
-    var buttonArray: [UIButton] = [] //board is composed of many buttons
-
-    // board.png, white.png, black.png
-    let baseBoard = UIImage(named: "board")
-    let white = UIImage(named: "white")
-    var black = UIImage(named: "black")
-
-    var resetButton = UIButton()
-    var passButton = UIButton()
-    var viewStoneCount = UILabel()
+    private let resetButton = UIButton()
+    private let passButton = UIButton()
+    private let viewStoneCount = UILabel()
+    
+    private let baseBoard = R.image.board()
+    private let white = R.image.white()
+    var black = R.image.black()
+    
+    private var buttonArray: [UIButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let width = self.view.frame.width
-        let height = self.view.frame.height
-        self.createUI(w: width, h: height)
+        
+        self.navigationItem.hidesBackButton = true
+        self.createUI(w: self.screenSize.width, h: self.screenSize.height)
     }
 
     func createUI(w: CGFloat, h: CGFloat){
@@ -43,12 +40,10 @@ class OthelloViewController: UIViewController {
         var y = 183
         let boxSize = 84 / (BOARDSIZE/4)
         
-        //stone count label
         viewStoneCount.frame = CGRect(x: 0, y: 0, width: w, height: 100)
         viewStoneCount.textAlignment = NSTextAlignment.center
         viewStoneCount.font = UIFont.systemFont(ofSize: 25)
         viewStoneCount.center = CGPoint(x: w/2, y: h-100)
-        //viewStoneCount.center = self.view.center
         self.view.addSubview(viewStoneCount)
         
         for i in 0..<BOARDSIZE{
@@ -113,7 +108,7 @@ class OthelloViewController: UIViewController {
 
     @objc func pushed(mybtn: buttonClass){
         mybtn.isEnabled = false
-        board.put(x: mybtn.x, y: mybtn.y, stone: User_color)
+        board.put(x: mybtn.x, y: mybtn.y, stone: USER_COLOR)
         drawBoard()
         if( board.gameOver() == true ){
             resetButton.isEnabled = true
@@ -123,9 +118,9 @@ class OthelloViewController: UIViewController {
     }
 
     func CpuTurn() {
-        if( board.available(stone: Cpu_color).count != 0 ){
-            let xy = player.play(board: board, stone: Cpu_color)
-            board.put(x: xy.0, y: xy.1, stone: Cpu_color)
+        if( board.available(stone: CPU_COLOR).count != 0 ){
+            let xy = player.play(board: board, stone: CPU_COLOR)
+            board.put(x: xy.0, y: xy.1, stone: CPU_COLOR)
             drawBoard()
             if( board.gameOver() == true ){
                 resetButton.isHidden = false
@@ -135,8 +130,9 @@ class OthelloViewController: UIViewController {
         if( board.gameOver() == true ){
             resetButton.isHidden = false
             resetButton.isEnabled = true
+            self.navigationItem.hidesBackButton = false
         }
-        if( board.available(stone: User_color).count == 0){
+        if( board.available(stone: USER_COLOR).count == 0){
             passButton.isHidden = false
             passButton.isEnabled = true
         }
@@ -149,9 +145,9 @@ class OthelloViewController: UIViewController {
         let _board = board.return_board()
         for y in 0..<BOARDSIZE{
             for x in 0..<BOARDSIZE{
-                if( _board[y][x] == User_color ){
+                if( _board[y][x] == USER_COLOR ){
                     buttonArray[count].setImage(black, for: .normal)
-                } else if( _board[y][x] == Cpu_color ){
+                } else if( _board[y][x] == CPU_COLOR ){
                     buttonArray[count].setImage(white, for: .normal)
                 } else {
                     buttonArray[count].setImage(baseBoard, for: .normal)
@@ -160,7 +156,7 @@ class OthelloViewController: UIViewController {
                 count += 1
             }
         }
-        let availableList = board.available(stone: User_color)
+        let availableList = board.available(stone: USER_COLOR)
         for i in 0..<(availableList.count){
             let x = availableList[i][0]
             let y = availableList[i][1]
@@ -170,7 +166,7 @@ class OthelloViewController: UIViewController {
 }
 
 extension OthelloViewController {
-    class buttonClass: UIButton{
+    class buttonClass: UIButton {
         let x: Int
         let y: Int
         init( x:Int, y:Int, frame: CGRect ) {
