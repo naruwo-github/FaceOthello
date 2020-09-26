@@ -10,18 +10,16 @@ import UIKit
 
 class OthelloViewController: UIViewController {
     
-    let BOARDSIZE = 8
-    var board = Board()
-    var player = Player()
+    private let BOARDSIZE = 8
+    private let board = Board()
+    private let player = Player()
 
-    var player_name = "Random"
-    var Stone_count = 0
+    private let player_name = "Random"
 
-    let User_color = -1 //Black
-    let Cpu_color = 1   //white
-    var buttonArray: [UIButton] = [] //board is composed of many buttons
+    private let User_color = -1
+    private let Cpu_color = 1
+    var buttonArray: [UIButton] = []
 
-    // board.png, white.png, black.png
     let baseBoard = R.image.board()
     let white = R.image.white()
     var black = R.image.black()
@@ -30,12 +28,13 @@ class OthelloViewController: UIViewController {
     var passButton = UIButton()
     var viewStoneCount = UILabel()
     
+    let screenSize: CGSize = UIScreen.main.bounds.size
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let width = self.view.frame.width
-        let height = self.view.frame.height
-        self.createUI(w: width, h: height)
+        
+        self.navigationItem.hidesBackButton = true
+        self.createUI(w: self.screenSize.width, h: self.screenSize.height)
     }
 
     func createUI(w: CGFloat, h: CGFloat){
@@ -135,6 +134,7 @@ class OthelloViewController: UIViewController {
         if( board.gameOver() == true ){
             resetButton.isHidden = false
             resetButton.isEnabled = true
+            self.navigationItem.hidesBackButton = false
         }
         if( board.available(stone: User_color).count == 0){
             passButton.isHidden = false
@@ -170,7 +170,7 @@ class OthelloViewController: UIViewController {
 }
 
 extension OthelloViewController {
-    class buttonClass: UIButton{
+    class buttonClass: UIButton {
         let x: Int
         let y: Int
         init( x:Int, y:Int, frame: CGRect ) {
