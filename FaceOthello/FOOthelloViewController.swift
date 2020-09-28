@@ -21,9 +21,9 @@ class FOOthelloViewController: UIViewController {
     private let passButton = UIButton()
     private let viewStoneCount = UILabel()
     
-    private let baseBoard = R.image.board()
-    private let white = R.image.white()
-    var black = R.image.black()
+    private let baseBoardImage = R.image.board()
+    private let whiteImage = R.image.white()
+    var blackImage = R.image.black()
     
     private var buttonArray: [UIButton] = []
     
@@ -145,11 +145,11 @@ class FOOthelloViewController: UIViewController {
         for y in 0..<BOARDSIZE{
             for x in 0..<BOARDSIZE{
                 if (_board[y][x] == USER_COLOR) {
-                    buttonArray[count].setImage(black, for: .normal)
+                    buttonArray[count].setImage(blackImage, for: .normal)
                 } else if (_board[y][x] == CPU_COLOR ) {
-                    buttonArray[count].setImage(white, for: .normal)
+                    buttonArray[count].setImage(whiteImage, for: .normal)
                 } else {
-                    buttonArray[count].setImage(baseBoard, for: .normal)
+                    buttonArray[count].setImage(baseBoardImage, for: .normal)
                 }
                 buttonArray[count].isEnabled = false
                 count += 1

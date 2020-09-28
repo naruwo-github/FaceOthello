@@ -23,7 +23,7 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedImage = self.userDefaults.image(forKey: "image") {
+        if let savedImage = self.userDefaults.getImage(forKey: "image") {
             self.profileImageView.image = savedImage
         }
     }
@@ -44,22 +44,20 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
             self.present(picker, animated: true, completion: nil)
         }
     }
+    
     @IBAction private func playWithCpuButtonTapped(_ sender: Any) {
+        if let othelloVC = R.storyboard.main.foOthelloViewController() {
+            if let image = self.profileImageView.image {
+                othelloVC.blackImage = image
+            }
+            self.navigationController?.pushViewController(othelloVC, animated: true)
+        }
     }
     
     @IBAction private func bluetoothButtonTapped(_ sender: Any) {
     }
     
     @IBAction func playOnlineButtonTapped(_ sender: Any) {
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OthelloViewSegue" {
-            let othelloViewController: FOOthelloViewController = segue.destination as! FOOthelloViewController
-            if let image = self.profileImageView.image {
-                othelloViewController.black = image
-            }
-        }
     }
     
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -71,19 +69,18 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
 }
 
 extension UserDefaults {
-    func setUIImageToData(image: UIImage, forKey: String) {
+    fileprivate func setUIImageToData(image: UIImage, forKey: String) {
         let nsdata = image.pngData()
         self.set(nsdata, forKey: forKey)
     }
     
-    func image(forKey: String) -> UIImage? {
+    fileprivate func getImage(forKey: String) -> UIImage? {
         if let data = self.data(forKey: forKey) {
             return UIImage(data: data)
         } else {
             return nil
         }
     }
-
 }
 
 extension FOSettingViewController: CropViewControllerDelegate {

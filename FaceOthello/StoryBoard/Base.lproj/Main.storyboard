@@ -12,7 +12,7 @@
         <!--Setting-->
         <scene sceneID="BG1-ft-e5I">
             <objects>
-                <viewController id="3tn-jy-om1" customClass="FOSettingViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FOSettingViewController" id="3tn-jy-om1" customClass="FOSettingViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z2g-J1-fv8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,7 +102,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="playWithCpuButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="MYK-bp-U6C"/>
-                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="OthelloViewSegue" id="aUV-6C-XE5"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -221,7 +220,7 @@
         <!--Othello View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FOOthelloViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FOOthelloViewController" id="BYZ-38-t0r" customClass="FOOthelloViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
