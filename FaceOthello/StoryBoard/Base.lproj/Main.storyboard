@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JHN-Cd-ph9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JHN-Cd-ph9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,42 +17,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-3K-KG6">
-                                <rect key="frame" x="132" y="108" width="150" height="150"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <gestureRecognizers/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFR-fe-dfL" userLabel="Top Image View">
+                                <rect key="frame" x="0.0" y="88" width="414" height="244"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-3K-KG6">
+                                        <rect key="frame" x="132" y="20" width="150" height="150"/>
+                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="D0E-c1-xhf"/>
+                                            <constraint firstAttribute="width" constant="150" id="oGH-VK-U9g"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                <integer key="value" value="75"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Fo4-l3-Jci" appends="YES" id="KKG-wR-rmt"/>
+                                        </connections>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-7g-sHq">
+                                        <rect key="frame" x="132" y="190" width="150" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Select Photo">
+                                            <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="10"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectPhotoButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="Sdn-qZ-Vbz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="D0E-c1-xhf"/>
-                                    <constraint firstAttribute="width" constant="150" id="oGH-VK-U9g"/>
+                                    <constraint firstItem="Lxu-7g-sHq" firstAttribute="top" secondItem="Q1k-3K-KG6" secondAttribute="bottom" constant="20" id="4Lf-Ua-DTb"/>
+                                    <constraint firstItem="Lxu-7g-sHq" firstAttribute="centerX" secondItem="cFR-fe-dfL" secondAttribute="centerX" id="LkS-XC-X3a"/>
+                                    <constraint firstItem="Q1k-3K-KG6" firstAttribute="top" secondItem="cFR-fe-dfL" secondAttribute="top" constant="20" id="Lqw-iv-vtl"/>
+                                    <constraint firstItem="Lxu-7g-sHq" firstAttribute="width" secondItem="Q1k-3K-KG6" secondAttribute="width" id="XxB-pU-era"/>
+                                    <constraint firstItem="Q1k-3K-KG6" firstAttribute="centerX" secondItem="cFR-fe-dfL" secondAttribute="centerX" id="hcy-Wg-bko"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lxu-7g-sHq" secondAttribute="bottom" constant="20" id="lm5-u9-477"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
-                                        <integer key="value" value="75"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Fo4-l3-Jci" appends="YES" id="KKG-wR-rmt"/>
-                                </connections>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-7g-sHq">
-                                <rect key="frame" x="163" y="268" width="88" height="20"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="0vm-d5-Lcf"/>
-                                </constraints>
-                                <state key="normal" title="Select Photo">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="10"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="selectPhotoButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="Sdn-qZ-Vbz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaz-Fj-X54" userLabel="Browse Button">
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaz-Fj-X54" userLabel="Browse Button">
                                 <rect key="frame" x="132" y="562" width="150" height="100"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="3g7-yk-WMe"/>
                                     <constraint firstAttribute="width" secondItem="Uaz-Fj-X54" secondAttribute="height" multiplier="3:2" id="Zcg-rt-REv"/>
@@ -58,7 +72,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <state key="normal" title="Browse">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
@@ -69,9 +83,9 @@
                                     <action selector="browseButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="92i-Cf-5rv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-Zg-aU7" userLabel="CPU Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-Zg-aU7" userLabel="CPU Button">
                                 <rect key="frame" x="132" y="712" width="150" height="100"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="J9I-Zg-aU7" secondAttribute="height" multiplier="3:2" id="DY0-KD-Ghr"/>
                                     <constraint firstAttribute="height" constant="100" id="VI3-y0-6gT"/>
@@ -79,7 +93,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <state key="normal" title="CPU">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
@@ -92,18 +106,17 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="VBI-4n-Fb9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Lxu-7g-sHq" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="Cxx-2p-spJ"/>
-                            <constraint firstItem="Lxu-7g-sHq" firstAttribute="top" secondItem="Q1k-3K-KG6" secondAttribute="bottom" constant="10" id="DxR-QD-SRh"/>
-                            <constraint firstItem="Q1k-3K-KG6" firstAttribute="top" secondItem="VBI-4n-Fb9" secondAttribute="top" constant="20" id="Ei2-td-tby"/>
+                            <constraint firstItem="cFR-fe-dfL" firstAttribute="leading" secondItem="VBI-4n-Fb9" secondAttribute="leading" id="48q-PU-X0Q"/>
                             <constraint firstItem="J9I-Zg-aU7" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="UGa-Hm-BRe"/>
+                            <constraint firstItem="cFR-fe-dfL" firstAttribute="top" secondItem="VBI-4n-Fb9" secondAttribute="top" id="WJp-Ih-XXZ"/>
                             <constraint firstItem="Uaz-Fj-X54" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="YgG-8a-YmO"/>
                             <constraint firstItem="J9I-Zg-aU7" firstAttribute="top" secondItem="Uaz-Fj-X54" secondAttribute="bottom" constant="50" id="bDc-rq-fP4"/>
                             <constraint firstItem="VBI-4n-Fb9" firstAttribute="bottom" secondItem="J9I-Zg-aU7" secondAttribute="bottom" constant="50" id="ivi-hY-DUh"/>
-                            <constraint firstItem="Q1k-3K-KG6" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="vKR-Nn-Z1d"/>
+                            <constraint firstItem="VBI-4n-Fb9" firstAttribute="trailing" secondItem="cFR-fe-dfL" secondAttribute="trailing" id="pkq-qv-GGy"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="VBI-4n-Fb9"/>
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="N1A-rd-6ei"/>
                     <connections>
@@ -129,8 +142,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Oz8-kc-2AL"/>
                 </viewController>
@@ -157,5 +170,25 @@
             <point key="canvasLocation" x="-723.1884057971015" y="137.94642857142856"/>
         </scene>
     </scenes>
-    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+    <color key="tintColor" systemColor="labelColor"/>
+    <resources>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

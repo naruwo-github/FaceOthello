@@ -9,7 +9,6 @@
 import UIKit
 
 class OthelloViewController: UIViewController {
-    
     private let screenSize: CGSize = UIScreen.main.bounds.size
     private let BOARDSIZE = 8
     private let USER_COLOR = -1
@@ -35,20 +34,20 @@ class OthelloViewController: UIViewController {
         self.createUI(w: self.screenSize.width, h: self.screenSize.height)
     }
 
-    func createUI(w: CGFloat, h: CGFloat){
+    func createUI(w: CGFloat, h: CGFloat) {
         board.start(size: BOARDSIZE)
         var y = 183
-        let boxSize = 84 / (BOARDSIZE/4)
+        let boxSize = 84 / (BOARDSIZE / 4)
         
         viewStoneCount.frame = CGRect(x: 0, y: 0, width: w, height: 100)
         viewStoneCount.textAlignment = NSTextAlignment.center
         viewStoneCount.font = UIFont.systemFont(ofSize: 25)
-        viewStoneCount.center = CGPoint(x: w/2, y: h-100)
+        viewStoneCount.center = CGPoint(x: w / 2, y: h - 100)
         self.view.addSubview(viewStoneCount)
         
-        for i in 0..<BOARDSIZE{
+        for i in 0..<BOARDSIZE {
             var x = 19
-            for j in 0..<BOARDSIZE{
+            for j in 0..<BOARDSIZE {
                 let button: UIButton = buttonClass(
                     x: i,
                     y: j,
@@ -110,7 +109,7 @@ class OthelloViewController: UIViewController {
         mybtn.isEnabled = false
         board.put(x: mybtn.x, y: mybtn.y, stone: USER_COLOR)
         drawBoard()
-        if( board.gameOver() == true ){
+        if (board.isGameOver() == true) {
             resetButton.isEnabled = true
             resetButton.isHidden = false
         }
@@ -118,36 +117,36 @@ class OthelloViewController: UIViewController {
     }
 
     func CpuTurn() {
-        if( board.available(stone: CPU_COLOR).count != 0 ){
+        if (board.available(stone: CPU_COLOR).count != 0) {
             let xy = player.play(board: board, stone: CPU_COLOR)
             board.put(x: xy.0, y: xy.1, stone: CPU_COLOR)
             drawBoard()
-            if( board.gameOver() == true ){
+            if (board.isGameOver() == true) {
                 resetButton.isHidden = false
                 resetButton.isEnabled = true
             }
         }
-        if( board.gameOver() == true ){
+        if (board.isGameOver() == true) {
             resetButton.isHidden = false
             resetButton.isEnabled = true
             self.navigationItem.hidesBackButton = false
         }
-        if( board.available(stone: USER_COLOR).count == 0){
+        if (board.available(stone: USER_COLOR).count == 0) {
             passButton.isHidden = false
             passButton.isEnabled = true
         }
     }
 
     func drawBoard(){
-        let stonecount = board.returnStone()
-        viewStoneCount.text = "● Uer: " + String(stonecount.0) + "     ○ CPU: " + String(stonecount.1)
+        let stonecount = board.returnStoneNumberOnTheBoard()
+        viewStoneCount.text = "○ User: " + String(stonecount.0) + "     ● CPU: " + String(stonecount.1)
         var count = 0
-        let _board = board.return_board()
+        let _board = board.returnBoardState()
         for y in 0..<BOARDSIZE{
             for x in 0..<BOARDSIZE{
-                if( _board[y][x] == USER_COLOR ){
+                if (_board[y][x] == USER_COLOR) {
                     buttonArray[count].setImage(black, for: .normal)
-                } else if( _board[y][x] == CPU_COLOR ){
+                } else if (_board[y][x] == CPU_COLOR ) {
                     buttonArray[count].setImage(white, for: .normal)
                 } else {
                     buttonArray[count].setImage(baseBoard, for: .normal)
@@ -157,7 +156,7 @@ class OthelloViewController: UIViewController {
             }
         }
         let availableList = board.available(stone: USER_COLOR)
-        for i in 0..<(availableList.count){
+        for i in 0..<(availableList.count) {
             let x = availableList[i][0]
             let y = availableList[i][1]
             buttonArray[x*BOARDSIZE+y].isEnabled = true
@@ -169,7 +168,7 @@ extension OthelloViewController {
     class buttonClass: UIButton {
         let x: Int
         let y: Int
-        init( x:Int, y:Int, frame: CGRect ) {
+        init(x:Int, y:Int, frame: CGRect) {
             self.x = x
             self.y = y
             super.init(frame:frame)
