@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Player {
+class FOPlayerModel {
     //execute random play
-    func play(board: Board, stone: Int) -> (Int,Int) {
+    func play(board: FOBoardModel, stone: Int) -> (Int,Int) {
         return Random(available: board.available(stone: stone))
     }
 

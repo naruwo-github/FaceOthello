@@ -10,18 +10,20 @@ import Foundation
 import UIKit
 import CropViewController
 
-class SettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet fileprivate weak var profileImageView: UIImageView!
-    @IBOutlet private weak var selectPhotoButton: UIButton!
-    @IBOutlet private weak var browseButton: UIButton! // Browse User by Bluetooth
-    @IBOutlet private weak var cpuButton: UIButton! // Play with CPU
+    @IBOutlet private weak var selectPhotoButton: FOCustomUIButton!
+    @IBOutlet private weak var playWithCpuButton: FOCustomUIButton!
+    @IBOutlet private weak var bluetoothButton: FOCustomUIButton!
+    @IBOutlet weak var playOnlineButton: FOCustomUIButton!
     
     fileprivate let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedImage = self.userDefaults.image(forKey: "image") {
+        if let savedImage = self.userDefaults.getImage(forKey: "image") {
             self.profileImageView.image = savedImage
         }
     }
@@ -43,56 +45,53 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    @IBAction private func browseButtonTapped(_ sender: Any) {
-    }
-    
-    @IBAction private func cpuButtonTapped(_ sender: Any) {
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OthelloViewSegue" {
-            let othelloViewController: OthelloViewController = segue.destination as! OthelloViewController
+    @IBAction private func playWithCpuButtonTapped(_ sender: Any) {
+        if let othelloVC = R.storyboard.main.foOthelloViewController() {
             if let image = self.profileImageView.image {
-                othelloViewController.black = image
+                othelloVC.blackImage = image
             }
+            self.navigationController?.pushViewController(othelloVC, animated: true)
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    @IBAction private func bluetoothButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func playOnlineButtonTapped(_ sender: Any) {
+    }
+    
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         self.profileImageView.image = image
-        userDefaults.setUIImageToData(image: image, forKey: "image")
+        self.userDefaults.setUIImageToData(image: image, forKey: "image")
         self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension UserDefaults {
-    func setUIImageToData(image: UIImage, forKey: String) {
+    fileprivate func setUIImageToData(image: UIImage, forKey: String) {
         let nsdata = image.pngData()
         self.set(nsdata, forKey: forKey)
     }
     
-    func image(forKey: String) -> UIImage? {
+    fileprivate func getImage(forKey: String) -> UIImage? {
         if let data = self.data(forKey: forKey) {
             return UIImage(data: data)
         } else {
             return nil
         }
     }
-
 }
 
-extension SettingViewController: CropViewControllerDelegate {
-
+extension FOSettingViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-        //加工した画像が取得できる
+        // 加工した画像の取得
         self.profileImageView.image = image
-        userDefaults.setUIImageToData(image: image, forKey: "image")
+        self.userDefaults.setUIImageToData(image: image, forKey: "image")
         cropViewController.dismiss(animated: true, completion: nil)
     }
 
     func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
-        // キャンセル時
         cropViewController.dismiss(animated: true, completion: nil)
     }
 }
