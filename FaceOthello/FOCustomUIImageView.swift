@@ -1,5 +1,5 @@
 //
-//  FOCustomButton.swift
+//  FOCustomUIImageView.swift
 //  FaceOthello
 //
 //  Created by Narumi Nogawa on 2020/09/29.
@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class FOCustomButton: UIButton {
+class FOCustomUIImageView : UIImageView {
     @IBInspectable var borderColor: UIColor = UIColor.clear {
         didSet {
             layer.borderColor = self.borderColor.cgColor
@@ -61,12 +61,12 @@ class FOCustomButton: UIButton {
     @IBInspectable var enableShadow: Bool = false {
         didSet {
             if self.enableShadow {
-                self.setButtonShadow()
+                self.setImageViewShadow()
             }
         }
     }
     
-    private func setButtonShadow() {
+    private func setImageViewShadow() {
         self.clipsToBounds = false
         let layer = self.layer
         layer.masksToBounds = false

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFR-fe-dfL" userLabel="Top Image View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFR-fe-dfL" userLabel="Top Profile Image View">
                                 <rect key="frame" x="0.0" y="88" width="414" height="244"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-3K-KG6">
@@ -29,15 +29,15 @@
                                             <constraint firstAttribute="width" constant="150" id="oGH-VK-U9g"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
-                                                <integer key="value" value="75"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="75"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Fo4-l3-Jci" appends="YES" id="KKG-wR-rmt"/>
                                         </connections>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-7g-sHq" customClass="FOCustomButton" customModule="FaceOthello" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-7g-sHq" customClass="FOCustomUIButton" customModule="FaceOthello" customModuleProvider="target">
                                         <rect key="frame" x="132" y="190" width="150" height="34"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
@@ -70,7 +70,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Lxu-7g-sHq" firstAttribute="top" secondItem="Q1k-3K-KG6" secondAttribute="bottom" constant="20" id="4Lf-Ua-DTb"/>
                                     <constraint firstItem="Lxu-7g-sHq" firstAttribute="centerX" secondItem="cFR-fe-dfL" secondAttribute="centerX" id="LkS-XC-X3a"/>
@@ -80,66 +79,132 @@
                                     <constraint firstAttribute="bottom" secondItem="Lxu-7g-sHq" secondAttribute="bottom" constant="20" id="lm5-u9-477"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaz-Fj-X54" userLabel="Browse Button">
-                                <rect key="frame" x="132" y="562" width="150" height="100"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUe-75-RKq" userLabel="Bottom Options View">
+                                <rect key="frame" x="0.0" y="332" width="414" height="530"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TaM-H2-clB" userLabel="View One">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="176.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-Zg-aU7" userLabel="CPU Button" customClass="FOCustomUIButton" customModule="FaceOthello" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="48" width="207" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="r7h-ba-iI2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <state key="normal" title="Play with CPU">
+                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="playWithCpuButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="MYK-bp-U6C"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="OthelloViewSegue" id="aUV-6C-XE5"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="J9I-Zg-aU7" firstAttribute="centerY" secondItem="TaM-H2-clB" secondAttribute="centerY" id="JJE-Qi-Me6"/>
+                                            <constraint firstItem="J9I-Zg-aU7" firstAttribute="centerX" secondItem="TaM-H2-clB" secondAttribute="centerX" id="dO9-aC-Kaq"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dti-yt-Fgw" userLabel="View Two">
+                                        <rect key="frame" x="0.0" y="176.5" width="414" height="176.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaz-Fj-X54" userLabel="Browse Button" customClass="FOCustomUIButton" customModule="FaceOthello" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="48" width="207" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="QEz-pg-Cod"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <state key="normal" title="Bluetooth Browse">
+                                                    <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="bluetoothButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="92i-Cf-5rv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Uaz-Fj-X54" firstAttribute="centerY" secondItem="dti-yt-Fgw" secondAttribute="centerY" id="KZl-Lh-XWq"/>
+                                            <constraint firstItem="Uaz-Fj-X54" firstAttribute="centerX" secondItem="dti-yt-Fgw" secondAttribute="centerX" id="nHM-df-0Wr"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8j-TI-No7" userLabel="View Three">
+                                        <rect key="frame" x="0.0" y="353" width="414" height="177"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATG-re-uXH" userLabel="Online Button" customClass="FOCustomUIButton" customModule="FaceOthello" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="48.5" width="207" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="ZjQ-8M-h2n"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <state key="normal" title="Play Online">
+                                                    <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="bluetoothButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="Efk-fX-j2r"/>
+                                                    <action selector="playOnlineButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="kG9-Bw-5jd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ATG-re-uXH" firstAttribute="centerY" secondItem="S8j-TI-No7" secondAttribute="centerY" id="Bct-cj-xic"/>
+                                            <constraint firstItem="ATG-re-uXH" firstAttribute="centerX" secondItem="S8j-TI-No7" secondAttribute="centerX" id="LgD-0a-ssT"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="3g7-yk-WMe"/>
-                                    <constraint firstAttribute="width" secondItem="Uaz-Fj-X54" secondAttribute="height" multiplier="3:2" id="Zcg-rt-REv"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="tws-Hs-FoE"/>
+                                    <constraint firstAttribute="trailing" secondItem="S8j-TI-No7" secondAttribute="trailing" id="0bp-kc-8V7"/>
+                                    <constraint firstItem="TaM-H2-clB" firstAttribute="height" secondItem="TUe-75-RKq" secondAttribute="height" multiplier="0.333" id="3N0-6x-VUY"/>
+                                    <constraint firstAttribute="bottom" secondItem="S8j-TI-No7" secondAttribute="bottom" id="BLj-8P-DPm"/>
+                                    <constraint firstAttribute="trailing" secondItem="dti-yt-Fgw" secondAttribute="trailing" id="GtD-p6-JPh"/>
+                                    <constraint firstItem="ATG-re-uXH" firstAttribute="width" secondItem="TUe-75-RKq" secondAttribute="width" multiplier="0.5" id="H3A-5P-Vak"/>
+                                    <constraint firstItem="dti-yt-Fgw" firstAttribute="height" secondItem="TUe-75-RKq" secondAttribute="height" multiplier="0.333" id="Ir5-hi-tQF"/>
+                                    <constraint firstItem="S8j-TI-No7" firstAttribute="leading" secondItem="TUe-75-RKq" secondAttribute="leading" id="Loe-RD-RUz"/>
+                                    <constraint firstAttribute="trailing" secondItem="TaM-H2-clB" secondAttribute="trailing" id="aRD-YH-OKb"/>
+                                    <constraint firstItem="TaM-H2-clB" firstAttribute="leading" secondItem="TUe-75-RKq" secondAttribute="leading" id="cYs-HO-kcD"/>
+                                    <constraint firstItem="Uaz-Fj-X54" firstAttribute="width" secondItem="TUe-75-RKq" secondAttribute="width" multiplier="0.5" id="eDw-g5-HrG"/>
+                                    <constraint firstItem="dti-yt-Fgw" firstAttribute="leading" secondItem="TUe-75-RKq" secondAttribute="leading" id="f7d-bH-9rb"/>
+                                    <constraint firstItem="S8j-TI-No7" firstAttribute="height" secondItem="TUe-75-RKq" secondAttribute="height" multiplier="0.334" id="hPr-24-BTV"/>
+                                    <constraint firstItem="dti-yt-Fgw" firstAttribute="top" secondItem="TaM-H2-clB" secondAttribute="bottom" id="qm1-og-4z6"/>
+                                    <constraint firstItem="TaM-H2-clB" firstAttribute="top" secondItem="TUe-75-RKq" secondAttribute="top" id="rd7-0a-XOM"/>
+                                    <constraint firstItem="J9I-Zg-aU7" firstAttribute="width" secondItem="TUe-75-RKq" secondAttribute="width" multiplier="0.5" id="u2M-54-TZD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <state key="normal" title="Browse">
-                                    <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
-                                        <integer key="value" value="40"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="browseButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="92i-Cf-5rv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-Zg-aU7" userLabel="CPU Button">
-                                <rect key="frame" x="132" y="712" width="150" height="100"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="J9I-Zg-aU7" secondAttribute="height" multiplier="3:2" id="DY0-KD-Ghr"/>
-                                    <constraint firstAttribute="height" constant="100" id="VI3-y0-6gT"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="xPB-li-dnU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <state key="normal" title="CPU">
-                                    <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
-                                        <integer key="value" value="40"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="cpuButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="MYK-bp-U6C"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="OthelloViewSegue" id="aUV-6C-XE5"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VBI-4n-Fb9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cFR-fe-dfL" firstAttribute="leading" secondItem="VBI-4n-Fb9" secondAttribute="leading" id="48q-PU-X0Q"/>
-                            <constraint firstItem="J9I-Zg-aU7" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="UGa-Hm-BRe"/>
+                            <constraint firstItem="VBI-4n-Fb9" firstAttribute="bottom" secondItem="TUe-75-RKq" secondAttribute="bottom" id="FD4-RI-sF6"/>
+                            <constraint firstItem="TUe-75-RKq" firstAttribute="top" secondItem="cFR-fe-dfL" secondAttribute="bottom" id="Mxy-r6-hgz"/>
+                            <constraint firstItem="TUe-75-RKq" firstAttribute="leading" secondItem="VBI-4n-Fb9" secondAttribute="leading" id="Rzx-g4-MJL"/>
                             <constraint firstItem="cFR-fe-dfL" firstAttribute="top" secondItem="VBI-4n-Fb9" secondAttribute="top" id="WJp-Ih-XXZ"/>
-                            <constraint firstItem="Uaz-Fj-X54" firstAttribute="centerX" secondItem="Z2g-J1-fv8" secondAttribute="centerX" id="YgG-8a-YmO"/>
-                            <constraint firstItem="J9I-Zg-aU7" firstAttribute="top" secondItem="Uaz-Fj-X54" secondAttribute="bottom" constant="50" id="bDc-rq-fP4"/>
-                            <constraint firstItem="VBI-4n-Fb9" firstAttribute="bottom" secondItem="J9I-Zg-aU7" secondAttribute="bottom" constant="50" id="ivi-hY-DUh"/>
                             <constraint firstItem="VBI-4n-Fb9" firstAttribute="trailing" secondItem="cFR-fe-dfL" secondAttribute="trailing" id="pkq-qv-GGy"/>
+                            <constraint firstItem="VBI-4n-Fb9" firstAttribute="trailing" secondItem="TUe-75-RKq" secondAttribute="trailing" id="xpg-JZ-gvV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="N1A-rd-6ei"/>
                     <connections>
-                        <outlet property="browseButton" destination="Uaz-Fj-X54" id="VMk-o6-qqz"/>
-                        <outlet property="cpuButton" destination="J9I-Zg-aU7" id="PKc-Js-Bfg"/>
+                        <outlet property="bluetoothButton" destination="Uaz-Fj-X54" id="UCD-fJ-GtY"/>
+                        <outlet property="playOnlineButton" destination="ATG-re-uXH" id="Jqp-Ni-a5a"/>
+                        <outlet property="playWithCpuButton" destination="J9I-Zg-aU7" id="PKc-Js-Bfg"/>
                         <outlet property="profileImageView" destination="Q1k-3K-KG6" id="cOe-Q0-Yuy"/>
                         <outlet property="selectPhotoButton" destination="Lxu-7g-sHq" id="2Ct-Cm-yGL"/>
                     </connections>
@@ -189,14 +254,23 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="ATG-re-uXH">
+            <size key="intrinsicContentSize" width="107" height="36"/>
+        </designable>
+        <designable name="J9I-Zg-aU7">
+            <size key="intrinsicContentSize" width="135" height="36"/>
+        </designable>
         <designable name="Lxu-7g-sHq">
             <size key="intrinsicContentSize" width="110" height="34"/>
+        </designable>
+        <designable name="Uaz-Fj-X54">
+            <size key="intrinsicContentSize" width="171" height="36"/>
         </designable>
     </designables>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
         <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
