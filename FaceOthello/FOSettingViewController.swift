@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CropViewController
 
-class SettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet fileprivate weak var profileImageView: UIImageView!
     @IBOutlet private weak var selectPhotoButton: UIButton!
     @IBOutlet private weak var browseButton: UIButton! // Browse User by Bluetooth
@@ -51,7 +51,7 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OthelloViewSegue" {
-            let othelloViewController: OthelloViewController = segue.destination as! OthelloViewController
+            let othelloViewController: FOOthelloViewController = segue.destination as! FOOthelloViewController
             if let image = self.profileImageView.image {
                 othelloViewController.black = image
             }
@@ -82,7 +82,7 @@ extension UserDefaults {
 
 }
 
-extension SettingViewController: CropViewControllerDelegate {
+extension FOSettingViewController: CropViewControllerDelegate {
 
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         //加工した画像が取得できる

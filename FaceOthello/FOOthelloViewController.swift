@@ -8,14 +8,14 @@
 
 import UIKit
 
-class OthelloViewController: UIViewController {
+class FOOthelloViewController: UIViewController {
     private let screenSize: CGSize = UIScreen.main.bounds.size
     private let BOARDSIZE = 8
     private let USER_COLOR = -1
     private let CPU_COLOR = 1
     
-    private let board = Board()
-    private let player = Player()
+    private let board = FOBoardModel()
+    private let player = FOPlayerModel()
 
     private let resetButton = UIButton()
     private let passButton = UIButton()
@@ -52,7 +52,7 @@ class OthelloViewController: UIViewController {
                     x: i,
                     y: j,
                     frame:CGRect(x: x,y: y, width: boxSize,height: boxSize))
-                button.addTarget(self, action: #selector(OthelloViewController.pushed), for: .touchUpInside)
+                button.addTarget(self, action: #selector(FOOthelloViewController.pushed), for: .touchUpInside)
                 self.view.addSubview(button)
                 button.isEnabled = false
                 buttonArray.append(button)
@@ -62,7 +62,7 @@ class OthelloViewController: UIViewController {
         }
         
         resetButton.frame = CGRect(x: 125, y: 575, width: 125, height: 45)
-        resetButton.addTarget(self, action: #selector(OthelloViewController.pushResetButton), for: .touchUpInside)
+        resetButton.addTarget(self, action: #selector(FOOthelloViewController.pushResetButton), for: .touchUpInside)
         resetButton.isEnabled = false
         resetButton.isHidden = true
         resetButton.setTitle("RESET", for: .normal)
@@ -75,7 +75,7 @@ class OthelloViewController: UIViewController {
         self.view.addSubview(resetButton)
 
         passButton.frame = CGRect(x: 150, y: 500, width: 80, height: 30)
-        passButton.addTarget(self, action: #selector(OthelloViewController.pushPassButton), for: .touchUpInside)
+        passButton.addTarget(self, action: #selector(FOOthelloViewController.pushPassButton), for: .touchUpInside)
         passButton.isEnabled = false
         passButton.isHidden = true
         passButton.setTitle("PASS", for: .normal)
@@ -164,7 +164,7 @@ class OthelloViewController: UIViewController {
     }
 }
 
-extension OthelloViewController {
+extension FOOthelloViewController {
     class buttonClass: UIButton {
         let x: Int
         let y: Int

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Board {
+class FOBoardModel {
     private let DIRECTION = [
         [-1, -1], [+0, -1], [+1, -1],
         [-1, +0],           [+1, +0],

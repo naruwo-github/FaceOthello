@@ -12,7 +12,7 @@
         <!--Setting-->
         <scene sceneID="BG1-ft-e5I">
             <objects>
-                <viewController id="3tn-jy-om1" customClass="SettingViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3tn-jy-om1" customClass="FOSettingViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z2g-J1-fv8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                                             <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="10"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="17"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectPhotoButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="Sdn-qZ-Vbz"/>
@@ -138,7 +138,7 @@
         <!--Othello View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OthelloViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FOOthelloViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
