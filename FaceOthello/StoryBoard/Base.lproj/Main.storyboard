@@ -37,7 +37,7 @@
                                             <outletCollection property="gestureRecognizers" destination="Fo4-l3-Jci" appends="YES" id="KKG-wR-rmt"/>
                                         </connections>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-7g-sHq">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-7g-sHq" customClass="FOCustomButton" customModule="FaceOthello" customModuleProvider="target">
                                         <rect key="frame" x="132" y="190" width="150" height="34"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
@@ -45,7 +45,25 @@
                                             <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="17"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="17"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.40000000000000002"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="enableShadow" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectPhotoButtonTapped:" destination="3tn-jy-om1" eventType="touchUpInside" id="Sdn-qZ-Vbz"/>
@@ -170,6 +188,11 @@
             <point key="canvasLocation" x="-723.1884057971015" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Lxu-7g-sHq">
+            <size key="intrinsicContentSize" width="110" height="34"/>
+        </designable>
+    </designables>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
         <systemColor name="groupTableViewBackgroundColor">
