@@ -13,6 +13,7 @@ class FORoomCreateEnterViewController: UIViewController {
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var roomIdTextField: UITextField!
     private var profileImage: UIImage?
+    private var socket: SocketIOClient!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,24 +40,12 @@ class FORoomCreateEnterViewController: UIViewController {
     }
     
     private func setupSocketIO() {
-        let manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
-        let socket = manager.defaultSocket
-        
-        socket.on(clientEvent: .connect) {data, ack in
-            print("socket connected")
-        }
-
-        socket.on("currentAmount") {data, ack in
-            guard let cur = data[0] as? Double else { return }
-            
-            socket.emitWithAck("canUpdate", cur).timingOut(after: 0) {data in
-                socket.emit("update", ["amount": cur + 2.50])
-            }
-
-            ack.with("Got your currentAmount", "dude")
-        }
-
-        socket.connect()
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        socket = appDelegate.socket
+//        socket.on("") { (data, emitter) in
+//            if let message = data as? [String] {
+//            }
+//        }
     }
     
     @IBAction private func createRoomButtonTapped(_ sender: Any) {

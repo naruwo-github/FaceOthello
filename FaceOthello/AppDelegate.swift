@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import SocketIO
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var socket: SocketIOClient!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
+        socket = manager.defaultSocket
+        socket.on("connect") { data, ack  in
+            print("socket connected!!")
+        }
+        socket.on("disconnect") { data, ack in
+            print("socket disconnected!!")
+        }
+        socket.connect()
         return true
     }
 
