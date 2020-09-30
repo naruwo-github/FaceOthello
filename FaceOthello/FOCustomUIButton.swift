@@ -15,7 +15,7 @@ class FOCustomUIButton: UIButton {
             layer.borderColor = self.borderColor.cgColor
         }
     }
-    
+
     @IBInspectable var borderWidth: CGFloat = 0 {
         didSet {
             layer.borderWidth = self.borderWidth
@@ -42,7 +42,7 @@ class FOCustomUIButton: UIButton {
     
     @IBInspectable var shadowColor: UIColor = UIColor.black {
         didSet {
-            layer.shadowColor = self.borderColor.cgColor
+            layer.shadowColor = self.shadowColor.cgColor
         }
     }
     
