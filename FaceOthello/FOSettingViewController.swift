@@ -58,6 +58,12 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func playOnlineButtonTapped(_ sender: Any) {
+        if let roomCreateEnterVC = R.storyboard.main.foRoomCreateEnterViewController() {
+            if let image = self.profileImageView.image {
+                roomCreateEnterVC.setup(profileImage: image)
+                self.navigationController?.pushViewController(roomCreateEnterVC, animated: true)
+            }
+        }
     }
     
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -68,6 +74,7 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
     }
 }
 
+// UserDefaultsでUIImageを保存できるように拡張
 extension UserDefaults {
     fileprivate func setUIImageToData(image: UIImage, forKey: String) {
         let nsdata = image.pngData()

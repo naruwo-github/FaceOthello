@@ -22,7 +22,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-3K-KG6">
                                         <rect key="frame" x="132" y="20" width="150" height="150"/>
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="D0E-c1-xhf"/>
@@ -263,6 +263,174 @@
             </objects>
             <point key="canvasLocation" x="186.95652173913044" y="137.94642857142856"/>
         </scene>
+        <!--Room Create Enter View Controller-->
+        <scene sceneID="5Qf-lI-F6V">
+            <objects>
+                <viewController storyboardIdentifier="FORoomCreateEnterViewController" id="csu-YF-cyq" customClass="FORoomCreateEnterViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l8w-hQ-DdQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grY-0q-M2R" userLabel="Top Profile Image View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="190"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xnL-aF-Fr8">
+                                        <rect key="frame" x="132" y="20" width="150" height="150"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="5go-nw-fss"/>
+                                            <constraint firstAttribute="height" constant="150" id="T5g-k6-pZM"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="75"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="xnL-aF-Fr8" firstAttribute="centerX" secondItem="grY-0q-M2R" secondAttribute="centerX" id="Yj0-oL-i4x"/>
+                                    <constraint firstAttribute="bottom" secondItem="xnL-aF-Fr8" secondAttribute="bottom" constant="20" id="gQc-v6-ret"/>
+                                    <constraint firstItem="xnL-aF-Fr8" firstAttribute="top" secondItem="grY-0q-M2R" secondAttribute="top" constant="20" id="qnP-na-mB2"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKq-cK-Gga" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="234" width="414" height="628"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXE-l5-C8j" userLabel="Create Room View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="125.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUY-0r-ytI" userLabel="CPU Button" customClass="FOCustomUIButton" customModule="FaceOthello" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="23" width="207" height="80"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="0du-bb-1bX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <state key="normal" title="Create Room">
+                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.40000000000000002"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableShadow" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="createRoomButtonTapped:" destination="csu-YF-cyq" eventType="touchUpInside" id="D3U-C8-2lj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="jUY-0r-ytI" firstAttribute="centerY" secondItem="IXE-l5-C8j" secondAttribute="centerY" id="LnA-f3-UZO"/>
+                                            <constraint firstItem="jUY-0r-ytI" firstAttribute="centerX" secondItem="IXE-l5-C8j" secondAttribute="centerX" id="PQA-YU-a4t"/>
+                                            <constraint firstItem="jUY-0r-ytI" firstAttribute="width" secondItem="IXE-l5-C8j" secondAttribute="width" multiplier="0.5" id="aVg-TF-uxU"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbi-uT-WP8">
+                                        <rect key="frame" x="0.0" y="125.5" width="414" height="251.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room ID" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbA-YG-rJP">
+                                                <rect key="frame" x="144.5" y="20" width="125.5" height="39.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2d-1n-eC1" userLabel="CPU Button" customClass="FOCustomUIButton" customModule="FaceOthello" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="79.5" width="207" height="80"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="QpY-0U-FxK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <state key="normal" title="Enter Room">
+                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.40000000000000002"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableShadow" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="createRoomButtonTapped:" destination="csu-YF-cyq" eventType="touchUpInside" id="Bd3-O9-0wB"/>
+                                                    <action selector="enterRoomButtonTapped:" destination="csu-YF-cyq" eventType="touchUpInside" id="vKc-LR-cKu"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="c2d-1n-eC1" firstAttribute="width" secondItem="lbi-uT-WP8" secondAttribute="width" multiplier="0.5" id="0oX-ZC-ixt"/>
+                                            <constraint firstItem="c2d-1n-eC1" firstAttribute="top" secondItem="jbA-YG-rJP" secondAttribute="bottom" constant="20" id="B8n-kt-d6r"/>
+                                            <constraint firstItem="jbA-YG-rJP" firstAttribute="centerX" secondItem="lbi-uT-WP8" secondAttribute="centerX" id="XMC-rZ-wEQ"/>
+                                            <constraint firstItem="jbA-YG-rJP" firstAttribute="top" secondItem="lbi-uT-WP8" secondAttribute="top" constant="20" id="cHt-hF-ejz"/>
+                                            <constraint firstItem="c2d-1n-eC1" firstAttribute="centerX" secondItem="lbi-uT-WP8" secondAttribute="centerX" id="rzE-Ay-9eu"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="IXE-l5-C8j" firstAttribute="height" secondItem="IKq-cK-Gga" secondAttribute="height" multiplier="0.2" id="33G-9c-dgS"/>
+                                    <constraint firstItem="lbi-uT-WP8" firstAttribute="height" secondItem="IKq-cK-Gga" secondAttribute="height" multiplier="0.4" id="6cU-r1-xue"/>
+                                    <constraint firstItem="IXE-l5-C8j" firstAttribute="top" secondItem="IKq-cK-Gga" secondAttribute="top" id="Pe6-Tg-CJ5"/>
+                                    <constraint firstItem="lbi-uT-WP8" firstAttribute="top" secondItem="IXE-l5-C8j" secondAttribute="bottom" id="QJp-nZ-Zg4"/>
+                                    <constraint firstItem="lbi-uT-WP8" firstAttribute="leading" secondItem="IKq-cK-Gga" secondAttribute="leading" id="RDi-V8-h6v"/>
+                                    <constraint firstItem="IXE-l5-C8j" firstAttribute="leading" secondItem="IKq-cK-Gga" secondAttribute="leading" id="Xzj-df-c41"/>
+                                    <constraint firstAttribute="trailing" secondItem="lbi-uT-WP8" secondAttribute="trailing" id="pdP-YQ-gN1"/>
+                                    <constraint firstAttribute="trailing" secondItem="IXE-l5-C8j" secondAttribute="trailing" id="wLk-Y8-MtQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bf2-7R-eIh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="grY-0q-M2R" firstAttribute="top" secondItem="bf2-7R-eIh" secondAttribute="top" id="AsB-vE-dnr"/>
+                            <constraint firstItem="IKq-cK-Gga" firstAttribute="leading" secondItem="bf2-7R-eIh" secondAttribute="leading" id="Um2-2q-rKu"/>
+                            <constraint firstItem="IKq-cK-Gga" firstAttribute="top" secondItem="grY-0q-M2R" secondAttribute="bottom" id="Zo7-Wo-2F2"/>
+                            <constraint firstItem="bf2-7R-eIh" firstAttribute="trailing" secondItem="IKq-cK-Gga" secondAttribute="trailing" id="a28-cP-mU7"/>
+                            <constraint firstItem="bf2-7R-eIh" firstAttribute="bottom" secondItem="IKq-cK-Gga" secondAttribute="bottom" id="cbm-r1-Cq9"/>
+                            <constraint firstItem="grY-0q-M2R" firstAttribute="trailing" secondItem="bf2-7R-eIh" secondAttribute="trailing" id="gwp-vy-dAy"/>
+                            <constraint firstItem="grY-0q-M2R" firstAttribute="leading" secondItem="bf2-7R-eIh" secondAttribute="leading" id="isa-wf-jfx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="xnL-aF-Fr8" id="4nb-88-WuO"/>
+                        <outlet property="roomIdTextField" destination="jbA-YG-rJP" id="YQe-Dx-Pjy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HbE-y1-ACs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="893" y="138"/>
+        </scene>
         <!--Othello View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -277,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+            <point key="canvasLocation" x="893" y="830"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cS0-iO-rc0">
@@ -311,6 +479,12 @@
         <designable name="Uaz-Fj-X54">
             <size key="intrinsicContentSize" width="171" height="36"/>
         </designable>
+        <designable name="c2d-1n-eC1">
+            <size key="intrinsicContentSize" width="114" height="36"/>
+        </designable>
+        <designable name="jUY-0r-ytI">
+            <size key="intrinsicContentSize" width="127" height="36"/>
+        </designable>
     </designables>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
@@ -328,9 +502,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

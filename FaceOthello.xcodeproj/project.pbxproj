@@ -17,6 +17,7 @@
 		0511A9C823768DBD008944D1 /* FaceOthelloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9C723768DBD008944D1 /* FaceOthelloUITests.swift */; };
 		0511A9DA2376924F008944D1 /* FOBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9D92376924E008944D1 /* FOBoardModel.swift */; };
 		0511A9DC2376925E008944D1 /* FOPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9DB2376925E008944D1 /* FOPlayerModel.swift */; };
+		052762872524BDA2008FF606 /* FORoomCreateEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052762862524BDA2008FF606 /* FORoomCreateEnterViewController.swift */; };
 		052806F12522341A006E9385 /* FOCustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052806F02522341A006E9385 /* FOCustomUIButton.swift */; };
 		052807022522378F006E9385 /* FOCustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052807012522378F006E9385 /* FOCustomUIView.swift */; };
 		05280707252238B4006E9385 /* FOCustomUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05280706252238B4006E9385 /* FOCustomUIImageView.swift */; };
@@ -61,6 +62,7 @@
 		0511A9C923768DBD008944D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0511A9D92376924E008944D1 /* FOBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOBoardModel.swift; sourceTree = "<group>"; };
 		0511A9DB2376925E008944D1 /* FOPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOPlayerModel.swift; sourceTree = "<group>"; };
+		052762862524BDA2008FF606 /* FORoomCreateEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FORoomCreateEnterViewController.swift; sourceTree = "<group>"; };
 		052806F02522341A006E9385 /* FOCustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOCustomUIButton.swift; sourceTree = "<group>"; };
 		052807012522378F006E9385 /* FOCustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOCustomUIView.swift; sourceTree = "<group>"; };
 		05280706252238B4006E9385 /* FOCustomUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOCustomUIImageView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				0511A9A923768DBA008944D1 /* FOOthelloViewController.swift */,
 				05B5D2B2238BCAA200B1B082 /* FOSettingViewController.swift */,
+				052762862524BDA2008FF606 /* FORoomCreateEnterViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				0511A9DA2376924F008944D1 /* FOBoardModel.swift in Sources */,
 				0511A9DC2376925E008944D1 /* FOPlayerModel.swift in Sources */,
 				0511A9A823768DBA008944D1 /* SceneDelegate.swift in Sources */,
+				052762872524BDA2008FF606 /* FORoomCreateEnterViewController.swift in Sources */,
 				05B5D2B3238BCAA200B1B082 /* FOSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
