@@ -10,10 +10,13 @@ import UIKit
 import SocketIO
 
 class FORoomCreateEnterViewController: UIViewController {
+    
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var roomIdTextField: UITextField!
+    
     private var profileImage: UIImage?
     private var socket: SocketIOClient!
+    private var roomId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,15 +52,18 @@ class FORoomCreateEnterViewController: UIViewController {
     }
     
     @IBAction private func createRoomButtonTapped(_ sender: Any) {
-        // TODO: サーバー側にルームID取得をリクエスト
-        // ルームIDを受け取ったらマッチング画面へ遷移する
+        self.getCreateRoomIdAsync()
+        guard let _roomId = self.roomId else { return }
+        if let matchingVC = R.storyboard.main.foMatchingViewController() {
+            matchingVC.setup(roomId: _roomId)
+            self.navigationController?.pushViewController(matchingVC, animated: true)
+        }
     }
     
     @IBAction private func enterRoomButtonTapped(_ sender: Any) {
         // TODO: RoomIdが入力済みならそのIdのルームが存在するかサーバー側にリクエスト
         // 存在する場合はルームに入る＝マッチング画面へ遷移
         if let roomId = self.roomIdTextField.text, !roomId.isEmpty {
-            // ルームidリクエスト処理
         }
     }
     
@@ -67,4 +73,43 @@ class FORoomCreateEnterViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.roomIdTextField.resignFirstResponder()
     }
+    
+    private func getCreateRoomIdAsync() {
+        let url = URL(string: FOHelper.urlType.createRoom.rawValue)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let _data = data else { return }
+            do {
+                let object = try JSONSerialization.jsonObject(with: _data, options: [])
+                print(object)
+            } catch let error {
+                print(error)
+            }
+        }
+        task.resume()
+    }
+    
+    private func postRoomIdAsync(roomId: Int) {
+        let url = URL(string: FOHelper.urlType.enterRoom.rawValue + "/\(roomId)")!
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.httpMethod = "POST"
+        let params: [String: AnyObject] = [
+                    "id": roomId as AnyObject
+                ]
+        request.httpBody = try! JSONSerialization.data(withJSONObject: params, options: JSONSerialization.WritingOptions.sortedKeys)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                let object = try JSONSerialization.jsonObject(with: data, options: [])
+                print(object)
+            } catch let error {
+                print(error)
+            }
+        }
+        task.resume()
+    }
+    
 }

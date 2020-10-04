@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
+        
+        let manager = SocketManager(socketURL: URL(string: FOHelper.urlType.initialUrl.rawValue)!, config: [.log(true), .compress])
         socket = manager.defaultSocket
         socket.on("connect") { data, ack  in
             print("socket connected!!")
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("socket disconnected!!")
         }
         socket.connect()
+        
         return true
     }
 

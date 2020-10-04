@@ -333,7 +333,7 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="enableShadow" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="createRoomButtonTapped:" destination="csu-YF-cyq" eventType="touchUpInside" id="D3U-C8-2lj"/>
+                                                    <action selector="createRoomButtonTapped:" destination="csu-YF-cyq" eventType="touchUpInside" id="T7h-OD-euC"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -388,7 +388,6 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="enableShadow" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="createRoomButtonTapped:" destination="csu-YF-cyq" eventType="touchUpInside" id="Bd3-O9-0wB"/>
                                                     <action selector="enterRoomButtonTapped:" destination="csu-YF-cyq" eventType="touchUpInside" id="vKc-LR-cKu"/>
                                                 </connections>
                                             </button>
@@ -434,6 +433,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HbE-y1-ACs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="893" y="138"/>
+        </scene>
+        <!--Matching View Controller-->
+        <scene sceneID="Oal-jk-BLC">
+            <objects>
+                <viewController storyboardIdentifier="FOMatchingViewController" id="7EZ-DX-Gaw" customClass="FOMatchingViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VDo-7T-a4P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YA6-Xt-WqS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0HD-jE-dJh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="187" y="830"/>
         </scene>
         <!--Othello View Controller-->
         <scene sceneID="tne-QT-ifu">
