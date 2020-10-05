@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SocketIO
 
 class FORoomCreateEnterViewController: UIViewController {
     
@@ -15,15 +14,13 @@ class FORoomCreateEnterViewController: UIViewController {
     @IBOutlet private weak var roomIdTextField: UITextField!
     
     private var profileImage: UIImage?
-    private var socket: SocketIOClient!
-    private var roomId: Int?
+    private var roomId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setProfileImage()
         self.setupTextField()
-        self.setupSocketIO()
     }
 
     func setup(profileImage: UIImage) {
@@ -37,32 +34,22 @@ class FORoomCreateEnterViewController: UIViewController {
     }
     
     private func setupTextField() {
-        // キーボードは数字のみのものを扱う
-        self.roomIdTextField.keyboardType = UIKeyboardType.numberPad
         self.roomIdTextField.attributedPlaceholder = NSAttributedString(string: "Room ID", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-    }
-    
-    private func setupSocketIO() {
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        socket = appDelegate.socket
-//        socket.on("") { (data, emitter) in
-//            if let message = data as? [String] {
-//            }
-//        }
     }
     
     @IBAction private func createRoomButtonTapped(_ sender: Any) {
         self.getCreateRoomIdAsync()
-        guard let _roomId = self.roomId else { return }
-        if let matchingVC = R.storyboard.main.foMatchingViewController() {
-            matchingVC.setup(roomId: _roomId)
-            self.navigationController?.pushViewController(matchingVC, animated: true)
+        // サーバーからroomIdを取得する時間を確保するための遅延処理
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            guard let _roomId = self.roomId else { return }
+            if let matchingVC = R.storyboard.main.foMatchingViewController() {
+                matchingVC.setup(roomId: _roomId)
+                self.navigationController?.pushViewController(matchingVC, animated: true)
+            }
         }
     }
     
     @IBAction private func enterRoomButtonTapped(_ sender: Any) {
-        // TODO: RoomIdが入力済みならそのIdのルームが存在するかサーバー側にリクエスト
-        // 存在する場合はルームに入る＝マッチング画面へ遷移
         if let roomId = self.roomIdTextField.text, !roomId.isEmpty {
         }
     }
@@ -75,17 +62,14 @@ class FORoomCreateEnterViewController: UIViewController {
     }
     
     private func getCreateRoomIdAsync() {
-        let url = URL(string: FOHelper.urlType.createRoom.rawValue)!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let _data = data else { return }
-            do {
-                let object = try JSONSerialization.jsonObject(with: _data, options: [])
-                print(object)
-            } catch let error {
-                print(error)
+        let urlString = FOHelper.urlType.createRoom.rawValue
+        guard let url = URLComponents(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: url.url!) {(data, response, error) in
+            if (error != nil) {
+                print(error!.localizedDescription)
             }
+            guard let _data = data, let _roomId = String(data: _data, encoding: .utf8) else { return }
+            self.roomId = _roomId
         }
         task.resume()
     }

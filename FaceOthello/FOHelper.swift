@@ -11,7 +11,7 @@ import Foundation
 class FOHelper {
     enum urlType: String {
         case initialUrl = "http://localhost:3000"
-        case createRoom = "https://localhost:3000/room/create"
-        case enterRoom = "https://localhost:3000/room/enter"
+        case createRoom = "http://localhost:3000/room/create"
+        case enterRoom = "http://localhost:3000/room/enter"
     }
 }
