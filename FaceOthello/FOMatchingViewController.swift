@@ -17,15 +17,30 @@ class FOMatchingViewController: UIViewController {
     
     private var roomId: String?
     private var profileImage: UIImage?
+    private var manager: SocketManager?
     private var socket: SocketIOClient?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupSocketIO()
         self.setupView()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.setupSocketIO()
+        // TODO: 画像の送信は時間がかかるので、一度だけにしたい
+        // 相手がルームに入っていることを検出し、1, 2度だけ送るように実装する
+        // 画像の送受信の処理が重すぎるため
+        Timer.scheduledTimer(timeInterval: 10.0,
+                             target: self,
+                             selector: #selector(self.sendProfileImageOnce(_:)),
+                             userInfo: nil,
+                             repeats: true
+        )
+    }
+    
     func setup(roomId: String, profileImage: UIImage?) {
         self.roomId = roomId
         if let image = profileImage {
@@ -34,13 +49,21 @@ class FOMatchingViewController: UIViewController {
     }
     
     private func setupSocketIO() {
-        let manager = SocketManager(socketURL: URL(string: FOHelper.urlType.initialUrl.rawValue + "/socket")!, config: [.log(true), .compress])
-        socket = manager.defaultSocket
-        socket!.on("connect") { data, ack  in
-            print("socket connected!!")
-        }
-        socket!.on("disconnect") { data, ack in
+        manager = SocketManager(socketURL: URL(string: FOHelper.urlType.initialUrl.rawValue)!,
+                                config: [.log(true), .forceWebsockets(true), .forcePolling(true)])
+        socket = manager?.defaultSocket
+        socket!.on(clientEvent: .connect) {data, ack in
+               print("socket connected")
+           }
+        socket!.on(clientEvent: .disconnect) { data, ack in
             print("socket disconnected!!")
+        }
+        socket!.on("send image") { data, ack in
+            if let imageDataBase64 = data.first as? String {
+                let imageData = NSData(base64Encoded: imageDataBase64, options: .ignoreUnknownCharacters)
+                self.opponentProfileImageView.image = UIImage(data: imageData! as Data)
+                print("image received!")
+            }
         }
         socket!.connect()
     }
@@ -48,5 +71,13 @@ class FOMatchingViewController: UIViewController {
     private func setupView() {
         self.myProfileImageView.image = self.profileImage
         self.roomIdLabel.text = self.roomId
+    }
+    
+    @objc private func sendProfileImageOnce(_ sender: Timer) {
+        if let image = self.profileImage {
+            let imageData = image.pngData()! as NSData
+            let base64String = imageData.base64EncodedString(options: .lineLength64Characters)
+            socket!.emit("send image", base64String)
+        }
     }
 }
