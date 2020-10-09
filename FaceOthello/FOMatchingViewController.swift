@@ -11,17 +11,26 @@ import SocketIO
 
 class FOMatchingViewController: UIViewController {
     
+    @IBOutlet private weak var myProfileImageView: UIImageView!
+    @IBOutlet private weak var opponentProfileImageView: UIImageView!
+    @IBOutlet private weak var roomIdLabel: UILabel!
+    
     private var roomId: String?
+    private var profileImage: UIImage?
     private var socket: SocketIOClient?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupSocketIO()
+        self.setupView()
     }
 
-    func setup(roomId: String) {
+    func setup(roomId: String, profileImage: UIImage?) {
         self.roomId = roomId
+        if let image = profileImage {
+            self.profileImage = image
+        }
     }
     
     private func setupSocketIO() {
@@ -34,5 +43,10 @@ class FOMatchingViewController: UIViewController {
             print("socket disconnected!!")
         }
         socket!.connect()
+    }
+    
+    private func setupView() {
+        self.myProfileImageView.image = self.profileImage
+        self.roomIdLabel.text = self.roomId
     }
 }
