@@ -46,7 +46,7 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction private func playWithCpuButtonTapped(_ sender: Any) {
-        if let othelloVC = R.storyboard.main.foOthelloViewController() {
+        if let othelloVC = R.storyboard.setting.foOthelloViewController() {
             if let image = self.profileImageView.image {
                 othelloVC.blackImage = image
             }
@@ -58,7 +58,7 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func playOnlineButtonTapped(_ sender: Any) {
-        if let roomCreateEnterVC = R.storyboard.main.foRoomCreateEnterViewController() {
+        if let roomCreateEnterVC = R.storyboard.online.foRoomCreateEnterViewController() {
             if let image = self.profileImageView.image {
                 roomCreateEnterVC.setup(profileImage: image)
                 self.navigationController?.pushViewController(roomCreateEnterVC, animated: true)

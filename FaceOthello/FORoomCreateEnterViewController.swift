@@ -39,8 +39,10 @@ class FORoomCreateEnterViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             guard let _roomId = self.roomId else { return }
             self.postRoomIdAsync(roomId: _roomId)
+            // サーバーへroomIdを使ってルームに入る時間を確保するための遅延処理
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                if self.canEnterFlag, let matchingVC = R.storyboard.main.foMatchingViewController() {
+                if self.canEnterFlag,
+                   let matchingVC = R.storyboard.online.foMatchingViewController() {
                     matchingVC.setup(roomId: _roomId)
                     self.navigationController?.pushViewController(matchingVC, animated: true)
                 }
@@ -51,17 +53,15 @@ class FORoomCreateEnterViewController: UIViewController {
     @IBAction private func enterRoomButtonTapped(_ sender: Any) {
         if let _roomId = self.roomIdTextField.text, !_roomId.isEmpty {
             self.postRoomIdAsync(roomId: _roomId)
+            // サーバーへroomIdを使ってルームに入る時間を確保するための遅延処理
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                if self.canEnterFlag, let matchingVC = R.storyboard.main.foMatchingViewController() {
+                if self.canEnterFlag,
+                   let matchingVC = R.storyboard.online.foMatchingViewController() {
                     matchingVC.setup(roomId: _roomId)
                     self.navigationController?.pushViewController(matchingVC, animated: true)
                 }
             }
         }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.roomIdTextField.resignFirstResponder()
     }
     
     private func getRoomIdAsync() {
@@ -91,6 +91,11 @@ class FORoomCreateEnterViewController: UIViewController {
             print("response data(params.id) = " + paramsId)
         }
         task.resume()
+    }
+    
+    // キーボード外を押した時にキーボードを非表示にする処理
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.roomIdTextField.resignFirstResponder()
     }
     
 }

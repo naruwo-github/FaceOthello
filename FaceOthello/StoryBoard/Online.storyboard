@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Matching View Controller-->
+        <scene sceneID="TeY-Wh-G1T">
+            <objects>
+                <viewController storyboardIdentifier="FOMatchingViewController" id="EXJ-NZ-vP1" customClass="FOMatchingViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o9g-OQ-bHI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Lw4-5E-4hL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pmc-49-DXv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-723" y="881"/>
+        </scene>
+        <!--Room Create Enter View Controller-->
+        <scene sceneID="Dkj-3Y-m0O">
+            <objects>
+                <viewController storyboardIdentifier="FORoomCreateEnterViewController" id="txa-pQ-FYh" customClass="FORoomCreateEnterViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WOP-If-hT5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHs-77-OrP" userLabel="Top Profile Image View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="190"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i58-n7-WTO">
+                                        <rect key="frame" x="132" y="20" width="150" height="150"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="GEh-Jc-66g"/>
+                                            <constraint firstAttribute="height" constant="150" id="WSf-9d-q2l"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="75"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="i58-n7-WTO" secondAttribute="bottom" constant="20" id="1Qm-JU-5yN"/>
+                                    <constraint firstItem="i58-n7-WTO" firstAttribute="top" secondItem="vHs-77-OrP" secondAttribute="top" constant="20" id="1W8-QX-g0w"/>
+                                    <constraint firstItem="i58-n7-WTO" firstAttribute="centerX" secondItem="vHs-77-OrP" secondAttribute="centerX" id="apX-M4-YJ0"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g97-S0-gjT" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="234" width="414" height="628"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sE9-RJ-DXi" userLabel="Create Room View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="125.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c1-IM-cSb" userLabel="CPU Button" customClass="FOCustomUIButton" customModule="FaceOthello" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="23" width="207" height="80"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="Woi-Mb-TqQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <state key="normal" title="Create Room">
+                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.40000000000000002"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableShadow" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="createRoomButtonTapped:" destination="txa-pQ-FYh" eventType="touchUpInside" id="4ED-RK-jRJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="1c1-IM-cSb" firstAttribute="centerY" secondItem="sE9-RJ-DXi" secondAttribute="centerY" id="O2F-Eb-zdM"/>
+                                            <constraint firstItem="1c1-IM-cSb" firstAttribute="centerX" secondItem="sE9-RJ-DXi" secondAttribute="centerX" id="VOn-f2-7ID"/>
+                                            <constraint firstItem="1c1-IM-cSb" firstAttribute="width" secondItem="sE9-RJ-DXi" secondAttribute="width" multiplier="0.5" id="fve-JZ-r4c"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKb-3j-6Zc">
+                                        <rect key="frame" x="0.0" y="125.5" width="414" height="251.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room ID" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AG2-tb-LCJ">
+                                                <rect key="frame" x="144.5" y="20" width="125.5" height="39.5"/>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TH-mu-jQ5" userLabel="CPU Button" customClass="FOCustomUIButton" customModule="FaceOthello" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="79.5" width="207" height="80"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="3B1-F4-g3g"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <state key="normal" title="Enter Room">
+                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.40000000000000002"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableShadow" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="enterRoomButtonTapped:" destination="txa-pQ-FYh" eventType="touchUpInside" id="Pvi-v7-x3e"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="8TH-mu-jQ5" firstAttribute="top" secondItem="AG2-tb-LCJ" secondAttribute="bottom" constant="20" id="4qe-ls-AHY"/>
+                                            <constraint firstItem="AG2-tb-LCJ" firstAttribute="centerX" secondItem="VKb-3j-6Zc" secondAttribute="centerX" id="KgE-Vm-fuI"/>
+                                            <constraint firstItem="8TH-mu-jQ5" firstAttribute="centerX" secondItem="VKb-3j-6Zc" secondAttribute="centerX" id="VQt-zH-EYv"/>
+                                            <constraint firstItem="8TH-mu-jQ5" firstAttribute="width" secondItem="VKb-3j-6Zc" secondAttribute="width" multiplier="0.5" id="tgd-CC-tHX"/>
+                                            <constraint firstItem="AG2-tb-LCJ" firstAttribute="top" secondItem="VKb-3j-6Zc" secondAttribute="top" constant="20" id="zNZ-Xs-BXp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VKb-3j-6Zc" firstAttribute="height" secondItem="g97-S0-gjT" secondAttribute="height" multiplier="0.4" id="850-fs-9lf"/>
+                                    <constraint firstItem="sE9-RJ-DXi" firstAttribute="top" secondItem="g97-S0-gjT" secondAttribute="top" id="8M5-pW-gi2"/>
+                                    <constraint firstItem="sE9-RJ-DXi" firstAttribute="leading" secondItem="g97-S0-gjT" secondAttribute="leading" id="BO4-QG-E0d"/>
+                                    <constraint firstItem="sE9-RJ-DXi" firstAttribute="height" secondItem="g97-S0-gjT" secondAttribute="height" multiplier="0.2" id="XhB-Gx-UVV"/>
+                                    <constraint firstItem="VKb-3j-6Zc" firstAttribute="top" secondItem="sE9-RJ-DXi" secondAttribute="bottom" id="anX-b8-TsJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="sE9-RJ-DXi" secondAttribute="trailing" id="sHJ-0n-1zS"/>
+                                    <constraint firstItem="VKb-3j-6Zc" firstAttribute="leading" secondItem="g97-S0-gjT" secondAttribute="leading" id="yEX-ki-4kJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="VKb-3j-6Zc" secondAttribute="trailing" id="yXN-xo-qy2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fMV-vi-OgW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g97-S0-gjT" firstAttribute="top" secondItem="vHs-77-OrP" secondAttribute="bottom" id="Bp1-bR-NTU"/>
+                            <constraint firstItem="vHs-77-OrP" firstAttribute="top" secondItem="fMV-vi-OgW" secondAttribute="top" id="Fn0-ZF-Rvb"/>
+                            <constraint firstItem="g97-S0-gjT" firstAttribute="leading" secondItem="fMV-vi-OgW" secondAttribute="leading" id="TNa-F4-NXd"/>
+                            <constraint firstItem="fMV-vi-OgW" firstAttribute="bottom" secondItem="g97-S0-gjT" secondAttribute="bottom" id="Up2-84-Wvk"/>
+                            <constraint firstItem="vHs-77-OrP" firstAttribute="leading" secondItem="fMV-vi-OgW" secondAttribute="leading" id="cV4-sg-1va"/>
+                            <constraint firstItem="fMV-vi-OgW" firstAttribute="trailing" secondItem="g97-S0-gjT" secondAttribute="trailing" id="hJj-z3-BHe"/>
+                            <constraint firstItem="vHs-77-OrP" firstAttribute="trailing" secondItem="fMV-vi-OgW" secondAttribute="trailing" id="nCi-G0-TAy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="i58-n7-WTO" id="dkE-jD-27S"/>
+                        <outlet property="roomIdTextField" destination="AG2-tb-LCJ" id="zHv-FQ-K8v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72j-ej-wip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1559" y="881"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="1c1-IM-cSb">
+            <size key="intrinsicContentSize" width="127" height="36"/>
+        </designable>
+        <designable name="8TH-mu-jQ5">
+            <size key="intrinsicContentSize" width="114" height="36"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
