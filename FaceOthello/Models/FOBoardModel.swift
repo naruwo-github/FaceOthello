@@ -19,15 +19,15 @@ class FOBoardModel {
     private let BLANK = 0
     
     var Size: Int = 0
-    var Square:[[Int]] = []
+    var Square: [[Int]] = []
 
     //Initialization method of Othello board
-    func start(size: Int){
+    func start(size: Int) {
         self.Size = size
         let center = size / 2
         
         for _ in 0..<self.Size {
-            var array:[Int] = []
+            var array: [Int] = []
             for _ in 0..<self.Size {
                 array += [BLANK]
             }
@@ -40,7 +40,7 @@ class FOBoardModel {
         Square[center][center] = self.WHITE
     }
 
-    func returnStoneNumberOnTheBoard() -> (Int,Int) {
+    func returnStoneNumberOnTheBoard() -> (Int, Int) {
         var black = 0
         var white = 0
         var blank = 0
@@ -61,14 +61,14 @@ class FOBoardModel {
         return (black, white)
     }
     
-    func reset(){
-        var _square:[[Int]] = []
+    func reset() {
+        var _square: [[Int]] = []
         let size = Size
         let center = size / 2
         
-        for _ in 0..<Size{
-            var array:[Int] = []
-            for _ in 0..<Size{
+        for _ in 0..<Size {
+            var array: [Int] = []
+            for _ in 0..<Size {
                 array += [BLANK]
             }
             _square += [array]
@@ -81,7 +81,7 @@ class FOBoardModel {
         Square = _square
     }
 
-    func returnBoardState() -> [[Int]]{
+    func returnBoardState() -> [[Int]] {
         return Square
     }
 
@@ -103,11 +103,11 @@ class FOBoardModel {
             }
         }
         
-        if (blank == 0 || black == 0 || white == 0 ){
+        if blank == 0 || black == 0 || white == 0 {
             return true
         }
         
-        if (self.available(stone: BLACK).count == 0 && self.available(stone: WHITE).count == 0) {
+        if self.available(stone: BLACK).count == 0 && self.available(stone: WHITE).count == 0 {
             return true
         }
         
@@ -115,8 +115,8 @@ class FOBoardModel {
     }
 
     //return weather blank or not
-    func is_available( x: Int, y:Int, stone: Int) -> Bool {
-        if ( Square[x][y] != BLANK ){
+    func is_available( x: Int, y: Int, stone: Int) -> Bool {
+        if  Square[x][y] != BLANK {
             return false
         }
         

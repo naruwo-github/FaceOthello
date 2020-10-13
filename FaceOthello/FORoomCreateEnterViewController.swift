@@ -67,8 +67,8 @@ class FORoomCreateEnterViewController: UIViewController {
     private func getRoomIdAsync() {
         let urlString = FOHelper.UrlType.createRoom.rawValue
         guard let url = URLComponents(string: urlString) else { return }
-        let task = URLSession.shared.dataTask(with: url.url!) {(data, response, error) in
-            if (error != nil) {
+        let task = URLSession.shared.dataTask(with: url.url!) {(data, _, error) in
+            if error != nil {
                 print(error!.localizedDescription)
             }
             guard let _data = data, let _roomId = String(data: _data, encoding: .utf8) else { return }
@@ -81,8 +81,8 @@ class FORoomCreateEnterViewController: UIViewController {
     private func postRoomIdAsync(roomId: String) {
         let urlString = FOHelper.UrlType.enterRoom.rawValue + "/\(roomId)"
         guard let url = URLComponents(string: urlString) else { return }
-        let task = URLSession.shared.dataTask(with: url.url!) {(data, response, error) in
-            if (error != nil) {
+        let task = URLSession.shared.dataTask(with: url.url!) {(data, _, error) in
+            if error != nil {
                 print(error!.localizedDescription)
                 self.canEnterFlag = false
             }

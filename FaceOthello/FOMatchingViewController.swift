@@ -54,13 +54,13 @@ class FOMatchingViewController: UIViewController {
         manager = SocketManager(socketURL: URL(string: FOHelper.UrlType.initialUrl.rawValue)!,
                                 config: [.log(true), .forceWebsockets(true), .forcePolling(true)])
         socket = manager?.defaultSocket
-        socket!.on(clientEvent: .connect) {data, ack in
+        socket!.on(clientEvent: .connect) {_, _ in
                print("socket connected")
            }
-        socket!.on(clientEvent: .disconnect) { data, ack in
+        socket!.on(clientEvent: .disconnect) { _, _ in
             print("socket disconnected!!")
         }
-        socket!.on("send image") { data, ack in
+        socket!.on("send image") { data, _ in
             if let imageDataBase64 = data.first as? String {
                 let imageData = NSData(base64Encoded: imageDataBase64, options: .ignoreUnknownCharacters)
                 self.opponentProfileImageView.image = UIImage(data: imageData! as Data)

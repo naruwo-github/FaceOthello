@@ -66,7 +66,7 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
-    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         self.profileImageView.image = image
         self.userDefaults.setUIImageToData(image: image, forKey: "image")
