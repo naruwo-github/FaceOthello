@@ -19,15 +19,15 @@ class FOBoardModel {
     private let BLANK = 0
     
     var Size: Int = 0
-    var Square:[[Int]] = []
+    var Square: [[Int]] = []
 
     //Initialization method of Othello board
-    func start(size: Int){
+    func start(size: Int) {
         self.Size = size
         let center = size / 2
         
         for _ in 0..<self.Size {
-            var array:[Int] = []
+            var array: [Int] = []
             for _ in 0..<self.Size {
                 array += [BLANK]
             }
@@ -40,7 +40,7 @@ class FOBoardModel {
         Square[center][center] = self.WHITE
     }
 
-    func returnStoneNumberOnTheBoard() -> (Int,Int) {
+    func returnStoneNumberOnTheBoard() -> (Int, Int) {
         var black = 0
         var white = 0
         var blank = 0
@@ -61,14 +61,14 @@ class FOBoardModel {
         return (black, white)
     }
     
-    func reset(){
-        var _square:[[Int]] = []
+    func reset() {
+        var _square: [[Int]] = []
         let size = Size
         let center = size / 2
         
-        for _ in 0..<Size{
-            var array:[Int] = []
-            for _ in 0..<Size{
+        for _ in 0..<Size {
+            var array: [Int] = []
+            for _ in 0..<Size {
                 array += [BLANK]
             }
             _square += [array]
@@ -81,7 +81,7 @@ class FOBoardModel {
         Square = _square
     }
 
-    func returnBoardState() -> [[Int]]{
+    func returnBoardState() -> [[Int]] {
         return Square
     }
 
@@ -103,11 +103,11 @@ class FOBoardModel {
             }
         }
         
-        if (blank == 0 || black == 0 || white == 0 ){
+        if blank == 0 || black == 0 || white == 0 {
             return true
         }
         
-        if (self.available(stone: BLACK).count == 0 && self.available(stone: WHITE).count == 0) {
+        if self.available(stone: BLACK).count == 0 && self.available(stone: WHITE).count == 0 {
             return true
         }
         
@@ -115,15 +115,15 @@ class FOBoardModel {
     }
 
     //return weather blank or not
-    func is_available( x: Int, y:Int, stone: Int) -> Bool {
-        if ( Square[x][y] != BLANK ){
+    func is_available( x: Int, y: Int, stone: Int) -> Bool {
+        if  Square[x][y] != BLANK {
             return false
         }
         
         for i in 0..<8 {
             let dx = DIRECTION[i][0]
             let dy = DIRECTION[i][1]
-            if (self.count_reversible(x: x, y: y, dx: dx, dy: dy, stone: stone) > 0) {
+            if self.count_reversible(x: x, y: y, dx: dx, dy: dy, stone: stone) > 0 {
                 return true
             }
         }
@@ -133,12 +133,12 @@ class FOBoardModel {
 
     //return available positon
     func available(stone: Int) -> [[Int]] {
-        var return_array:[[Int]] = []
+        var return_array: [[Int]] = []
         
         for x in 0..<Size {
             for y in 0..<Size {
-                if (self.is_available( x: x, y: y, stone: stone)) {
-                    return_array += [[x,y]]
+                if self.is_available( x: x, y: y, stone: stone) {
+                    return_array += [[x, y]]
                 }
             }
         }
@@ -146,7 +146,7 @@ class FOBoardModel {
         return return_array
     }
 
-    func put(x: Int, y:Int, stone: Int) {
+    func put(x: Int, y: Int, stone: Int) {
         Square[x][y] = stone
         
         for i in 0..<8 {
@@ -166,18 +166,18 @@ class FOBoardModel {
         var _y = y
         
         for i in 0..<Size {
-            _x = _x + dx
-            _y = _y + dy
+            _x += dx
+            _y += dy
             // 0 <= x < 4 : can't write <- Annoying!!!!
             if !(0 <= _x && _x < Size && 0 <= _y && _y < Size) {
                 return 0
             }
             
-            if (Square[_x][_y] == BLANK) {
+            if Square[_x][_y] == BLANK {
                 return 0
             }
             
-            if (Square[_x][_y] == stone) {
+            if Square[_x][_y] == stone {
                 return i
             }
         }

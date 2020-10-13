@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class FOCustomUIImageView : UIImageView {
+class FOCustomUIImageView: UIImageView {
     @IBInspectable var borderColor: UIColor = UIColor.clear {
         didSet {
             layer.borderColor = self.borderColor.cgColor

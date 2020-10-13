@@ -46,7 +46,7 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction private func playWithCpuButtonTapped(_ sender: Any) {
-        if let othelloVC = R.storyboard.main.foOthelloViewController() {
+        if let othelloVC = R.storyboard.setting.foOthelloViewController() {
             if let image = self.profileImageView.image {
                 othelloVC.blackImage = image
             }
@@ -58,9 +58,15 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func playOnlineButtonTapped(_ sender: Any) {
+        if let roomCreateEnterVC = R.storyboard.online.foRoomCreateEnterViewController() {
+            if let image = self.profileImageView.image {
+                roomCreateEnterVC.setup(profileImage: image)
+                self.navigationController?.pushViewController(roomCreateEnterVC, animated: true)
+            }
+        }
     }
     
-    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         self.profileImageView.image = image
         self.userDefaults.setUIImageToData(image: image, forKey: "image")
@@ -68,6 +74,7 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
     }
 }
 
+// UserDefaultsでUIImageを保存できるように拡張
 extension UserDefaults {
     fileprivate func setUIImageToData(image: UIImage, forKey: String) {
         let nsdata = image.pngData()
