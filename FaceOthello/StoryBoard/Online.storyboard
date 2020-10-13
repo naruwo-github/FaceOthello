@@ -103,12 +103,45 @@
                                     <constraint firstItem="psD-DL-h4J" firstAttribute="centerY" secondItem="2JR-52-527" secondAttribute="centerY" id="tdO-ek-ZeH"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x4d-kI-rOq" userLabel="Button View">
+                                <rect key="frame" x="0.0" y="402.5" width="414" height="179"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eA3-md-tJG" customClass="FOCustomUIButton" customModule="FaceOthello" customModuleProvider="target">
+                                        <rect key="frame" x="103.5" y="49.5" width="207" height="80"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="tpP-a5-7ZI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                                        <state key="normal" title="Play!">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="playButtonTapped:" destination="EXJ-NZ-vP1" eventType="touchUpInside" id="eRB-WJ-cd9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eA3-md-tJG" firstAttribute="centerX" secondItem="x4d-kI-rOq" secondAttribute="centerX" id="AdQ-m0-DG6"/>
+                                    <constraint firstItem="eA3-md-tJG" firstAttribute="centerY" secondItem="x4d-kI-rOq" secondAttribute="centerY" id="uoy-j6-Y2G"/>
+                                    <constraint firstItem="eA3-md-tJG" firstAttribute="width" secondItem="x4d-kI-rOq" secondAttribute="width" multiplier="0.5" id="zaQ-Jy-8CT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lw4-5E-4hL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2JR-52-527" firstAttribute="top" secondItem="1CI-6j-bok" secondAttribute="bottom" id="1rD-c6-BZR"/>
+                            <constraint firstItem="x4d-kI-rOq" firstAttribute="leading" secondItem="Lw4-5E-4hL" secondAttribute="leading" id="312-iT-v1V"/>
+                            <constraint firstItem="Lw4-5E-4hL" firstAttribute="trailing" secondItem="x4d-kI-rOq" secondAttribute="trailing" id="5eF-sX-QwW"/>
+                            <constraint firstItem="x4d-kI-rOq" firstAttribute="height" secondItem="o9g-OQ-bHI" secondAttribute="height" multiplier="0.2" id="8Q5-wP-XSg"/>
                             <constraint firstItem="2JR-52-527" firstAttribute="leading" secondItem="Lw4-5E-4hL" secondAttribute="leading" id="9Rq-qc-Tfm"/>
+                            <constraint firstItem="x4d-kI-rOq" firstAttribute="top" secondItem="2JR-52-527" secondAttribute="bottom" id="9zA-jq-dkS"/>
                             <constraint firstItem="1CI-6j-bok" firstAttribute="trailing" secondItem="Lw4-5E-4hL" secondAttribute="trailing" id="Bua-TM-apz"/>
                             <constraint firstItem="2JR-52-527" firstAttribute="height" secondItem="o9g-OQ-bHI" secondAttribute="height" multiplier="0.2" id="E7b-6z-vJD"/>
                             <constraint firstItem="Lw4-5E-4hL" firstAttribute="trailing" secondItem="2JR-52-527" secondAttribute="trailing" id="Kfy-mD-gqv"/>
@@ -120,12 +153,28 @@
                     <connections>
                         <outlet property="myProfileImageView" destination="YAK-rC-hma" id="6Zf-uD-Z8g"/>
                         <outlet property="opponentProfileImageView" destination="Wna-Os-ovu" id="LSE-hZ-81W"/>
+                        <outlet property="playButton" destination="eA3-md-tJG" id="drg-SI-9Ze"/>
                         <outlet property="roomIdLabel" destination="psD-DL-h4J" id="IOm-kg-waX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmc-49-DXv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-723" y="881"/>
+        </scene>
+        <!--Online Othello View Controller-->
+        <scene sceneID="bOh-fq-Pxl">
+            <objects>
+                <viewController storyboardIdentifier="FOOnlineOthelloViewController" id="SoP-PP-bMP" customClass="FOOnlineOthelloViewController" customModule="FaceOthello" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xqp-Lh-E9V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="keJ-Yr-0Zc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djs-P8-Sez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117" y="881"/>
         </scene>
         <!--Room Create Enter View Controller-->
         <scene sceneID="Dkj-3Y-m0O">
@@ -301,6 +350,9 @@
         </designable>
         <designable name="8TH-mu-jQ5">
             <size key="intrinsicContentSize" width="114" height="36"/>
+        </designable>
+        <designable name="eA3-md-tJG">
+            <size key="intrinsicContentSize" width="92" height="60"/>
         </designable>
     </designables>
     <resources>
