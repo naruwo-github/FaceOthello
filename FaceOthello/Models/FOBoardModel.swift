@@ -123,7 +123,7 @@ class FOBoardModel {
         for i in 0..<8 {
             let dx = DIRECTION[i][0]
             let dy = DIRECTION[i][1]
-            if (self.count_reversible(x: x, y: y, dx: dx, dy: dy, stone: stone) > 0) {
+            if self.count_reversible(x: x, y: y, dx: dx, dy: dy, stone: stone) > 0 {
                 return true
             }
         }
@@ -133,12 +133,12 @@ class FOBoardModel {
 
     //return available positon
     func available(stone: Int) -> [[Int]] {
-        var return_array:[[Int]] = []
+        var return_array: [[Int]] = []
         
         for x in 0..<Size {
             for y in 0..<Size {
-                if (self.is_available( x: x, y: y, stone: stone)) {
-                    return_array += [[x,y]]
+                if self.is_available( x: x, y: y, stone: stone) {
+                    return_array += [[x, y]]
                 }
             }
         }
@@ -146,7 +146,7 @@ class FOBoardModel {
         return return_array
     }
 
-    func put(x: Int, y:Int, stone: Int) {
+    func put(x: Int, y: Int, stone: Int) {
         Square[x][y] = stone
         
         for i in 0..<8 {
@@ -166,18 +166,18 @@ class FOBoardModel {
         var _y = y
         
         for i in 0..<Size {
-            _x = _x + dx
-            _y = _y + dy
+            _x += dx
+            _y += dy
             // 0 <= x < 4 : can't write <- Annoying!!!!
             if !(0 <= _x && _x < Size && 0 <= _y && _y < Size) {
                 return 0
             }
             
-            if (Square[_x][_y] == BLANK) {
+            if Square[_x][_y] == BLANK {
                 return 0
             }
             
-            if (Square[_x][_y] == stone) {
+            if Square[_x][_y] == stone {
                 return i
             }
         }

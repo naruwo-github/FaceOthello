@@ -17,6 +17,8 @@ class FOMatchingViewController: UIViewController {
     
     private var roomId: String?
     private var profileImage: UIImage?
+    
+    // TODO: socketやmanagerはシングルトンなはずなので、画面遷移の際は渡して初期化する
     private var manager: SocketManager?
     private var socket: SocketIOClient?
 
@@ -49,7 +51,7 @@ class FOMatchingViewController: UIViewController {
     }
     
     private func setupSocketIO() {
-        manager = SocketManager(socketURL: URL(string: FOHelper.urlType.initialUrl.rawValue)!,
+        manager = SocketManager(socketURL: URL(string: FOHelper.UrlType.initialUrl.rawValue)!,
                                 config: [.log(true), .forceWebsockets(true), .forcePolling(true)])
         socket = manager?.defaultSocket
         socket!.on(clientEvent: .connect) {data, ack in

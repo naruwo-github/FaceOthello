@@ -270,6 +270,7 @@
 				0511A99F23768DB9008944D1 /* Frameworks */,
 				0511A9A023768DB9008944D1 /* Resources */,
 				E024693DE10757A7DA519F3D /* [CP] Embed Pods Frameworks */,
+				0594D4D125352FAF007CC748 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -409,6 +410,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		0594D4D125352FAF007CC748 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		68EC71F987AF1BF0059AD50D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

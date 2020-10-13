@@ -48,7 +48,7 @@ class FOOthelloViewController: UIViewController {
         for i in 0..<BOARDSIZE {
             var x = 19
             for j in 0..<BOARDSIZE {
-                let button: UIButton = buttonClass(
+                let button: UIButton = ButtonClass(
                     x: i,
                     y: j,
                     frame:CGRect(x: x,y: y, width: boxSize,height: boxSize))
@@ -56,9 +56,9 @@ class FOOthelloViewController: UIViewController {
                 self.view.addSubview(button)
                 button.isEnabled = false
                 buttonArray.append(button)
-                x = x + boxSize + 1
+                x += boxSize + 1
             }
-            y = y + boxSize + 1
+            y += boxSize + 1
         }
         
         resetButton.frame = CGRect(x: 125, y: 575, width: 125, height: 45)
@@ -105,7 +105,7 @@ class FOOthelloViewController: UIViewController {
         passButton.isHidden = true
     }
 
-    @objc func pushed(mybtn: buttonClass){
+    @objc func pushed(mybtn: ButtonClass){
         mybtn.isEnabled = false
         board.put(x: mybtn.x, y: mybtn.y, stone: USER_COLOR)
         drawBoard()
@@ -165,7 +165,7 @@ class FOOthelloViewController: UIViewController {
 }
 
 extension FOOthelloViewController {
-    class buttonClass: UIButton {
+    class ButtonClass: UIButton {
         let x: Int
         let y: Int
         init(x:Int, y:Int, frame: CGRect) {

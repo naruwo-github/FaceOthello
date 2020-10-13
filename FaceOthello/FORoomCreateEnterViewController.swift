@@ -65,7 +65,7 @@ class FORoomCreateEnterViewController: UIViewController {
     }
     
     private func getRoomIdAsync() {
-        let urlString = FOHelper.urlType.createRoom.rawValue
+        let urlString = FOHelper.UrlType.createRoom.rawValue
         guard let url = URLComponents(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: url.url!) {(data, response, error) in
             if (error != nil) {
@@ -79,7 +79,7 @@ class FORoomCreateEnterViewController: UIViewController {
     }
     
     private func postRoomIdAsync(roomId: String) {
-        let urlString = FOHelper.urlType.enterRoom.rawValue + "/\(roomId)"
+        let urlString = FOHelper.UrlType.enterRoom.rawValue + "/\(roomId)"
         guard let url = URLComponents(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: url.url!) {(data, response, error) in
             if (error != nil) {
