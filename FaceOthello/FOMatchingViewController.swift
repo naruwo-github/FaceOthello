@@ -12,8 +12,8 @@ import HNToaster
 
 class FOMatchingViewController: UIViewController {
     
-    @IBOutlet private weak var myProfileImageView: UIImageView!
-    @IBOutlet private weak var opponentProfileImageView: UIImageView!
+    @IBOutlet private weak var myProfileImageView: FOCustomUIImageView!
+    @IBOutlet private weak var opponentProfileImageView: FOCustomUIImageView!
     @IBOutlet private weak var roomIdLabel: UILabel!
     @IBOutlet weak var playButton: FOCustomUIButton!
     
@@ -46,6 +46,12 @@ class FOMatchingViewController: UIViewController {
     
     @IBAction private func playButtonTapped(_ sender: Any) {
         if let onlineOthelloVC = R.storyboard.online.foOnlineOthelloViewController() {
+            if let myImage = self.myProfileImageView.image {
+                onlineOthelloVC.setupMyImage(myImage: myImage)
+            }
+            if let opponentImage = self.opponentProfileImageView.image {
+                onlineOthelloVC.setupOpponentImage(opponentImage: opponentImage)
+            }
             self.navigationController?.pushViewController(onlineOthelloVC, animated: true)
         }
     }
