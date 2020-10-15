@@ -24,10 +24,9 @@ class FOOthelloViewController: UIViewController {
     
     private let board = FOBoardModel()
     private let player = FOPlayerModel()
-    
     private let baseBoardImage = R.image.board()
-    private let whiteImage = R.image.white()
-    var blackImage = R.image.black()
+    private let cpuStoneImage = R.image.white()
+    var myStoneImage = R.image.black()
     
     private var buttonArray: [UIButton] = []
     
@@ -38,7 +37,7 @@ class FOOthelloViewController: UIViewController {
         self.createUI(w: self.screenSize.width, h: self.screenSize.height)
     }
 
-    func createUI(w: CGFloat, h: CGFloat) {
+    private func createUI(w: CGFloat, h: CGFloat) {
         board.start(size: BOARDSIZE)
         var y = 183
         let boxSize = 84 / (BOARDSIZE / 4)
@@ -59,6 +58,8 @@ class FOOthelloViewController: UIViewController {
             y += boxSize + 1
         }
         
+        self.switchButtonAppearance(button: self.passButton, isEnabled: false)
+        self.switchButtonAppearance(button: self.retryButton, isEnabled: false)
         drawBoard()
     }
 
@@ -67,30 +68,30 @@ class FOOthelloViewController: UIViewController {
         board.put(x: mybtn.x, y: mybtn.y, stone: USER_COLOR)
         drawBoard()
         if board.isGameOver() == true {
-            self.retryButton.isEnabled = true
+            self.switchButtonAppearance(button: self.retryButton, isEnabled: true)
         }
         self.CpuTurn()
     }
 
-    func CpuTurn() {
+    private func CpuTurn() {
         if board.available(stone: CPU_COLOR).count != 0 {
             let xy = player.play(board: board, stone: CPU_COLOR)
             board.put(x: xy.0, y: xy.1, stone: CPU_COLOR)
             drawBoard()
             if board.isGameOver() == true {
-                self.retryButton.isEnabled = true
+                self.switchButtonAppearance(button: self.retryButton, isEnabled: true)
             }
         }
         if board.isGameOver() == true {
-            self.retryButton.isEnabled = true
+            self.switchButtonAppearance(button: self.retryButton, isEnabled: true)
             self.navigationItem.hidesBackButton = false
         }
         if board.available(stone: USER_COLOR).count == 0 {
-            passButton.isEnabled = true
+            self.switchButtonAppearance(button: self.passButton, isEnabled: true)
         }
     }
 
-    func drawBoard() {
+    private func drawBoard() {
         let stonecount = self.board.returnStoneNumberOnTheBoard()
         self.myStoneCountLabel.text = "YOU: \(stonecount.0)"
         self.cpuStoneCountLabel.text = "CPU: \(stonecount.1)"
@@ -99,9 +100,9 @@ class FOOthelloViewController: UIViewController {
         for y in 0..<BOARDSIZE {
             for x in 0..<BOARDSIZE {
                 if _board[y][x] == USER_COLOR {
-                    buttonArray[count].setImage(blackImage, for: .normal)
+                    buttonArray[count].setImage(myStoneImage, for: .normal)
                 } else if _board[y][x] == CPU_COLOR {
-                    buttonArray[count].setImage(whiteImage, for: .normal)
+                    buttonArray[count].setImage(cpuStoneImage, for: .normal)
                 } else {
                     buttonArray[count].setImage(baseBoardImage, for: .normal)
                 }
@@ -117,16 +118,22 @@ class FOOthelloViewController: UIViewController {
         }
     }
     
+    private func switchButtonAppearance(button: FOCustomUIButton, isEnabled: Bool) {
+        let alpha: CGFloat = isEnabled ? 1.0 : 0.3
+        button.alpha = alpha
+        button.isEnabled = isEnabled
+    }
+    
     @IBAction private func passButtonTapped(_ sender: Any) {
         self.CpuTurn()
-        self.passButton.isEnabled = false
+        self.switchButtonAppearance(button: self.passButton, isEnabled: false)
     }
     
     @IBAction private func retryButtonTapped(_ sender: Any) {
         self.board.reset()
         self.drawBoard()
-        self.retryButton.isEnabled = false
-        self.passButton.isEnabled = false
+        self.switchButtonAppearance(button: self.retryButton, isEnabled: false)
+        self.switchButtonAppearance(button: self.passButton, isEnabled: false)
     }
     
 }
@@ -135,13 +142,16 @@ extension FOOthelloViewController {
     class ButtonClass: UIButton {
         let x: Int
         let y: Int
+        
         init(x: Int, y: Int, frame: CGRect) {
             self.x = x
             self.y = y
             super.init(frame: frame)
         }
+        
         required init?(coder aDecoder: NSCoder) {
             fatalError("error")
         }
+        
     }
 }
