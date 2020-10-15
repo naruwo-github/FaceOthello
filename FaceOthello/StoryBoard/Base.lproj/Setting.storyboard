@@ -310,8 +310,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8t-oK-8zJ" userLabel="Left View">
                                                 <rect key="frame" x="0.0" y="0.0" width="207" height="54.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBV-dC-VXw">
-                                                        <rect key="frame" x="70" y="10" width="67" height="34.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBV-dC-VXw">
+                                                        <rect key="frame" x="66" y="10" width="75.5" height="34.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -327,8 +327,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G35-U2-fMh" userLabel="Right View">
                                                 <rect key="frame" x="207" y="0.0" width="207" height="54.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent 15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rMd-DO-ClL">
-                                                        <rect key="frame" x="27" y="10" width="123.5" height="34.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPU 15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rMd-DO-ClL">
+                                                        <rect key="frame" x="53" y="10" width="71.5" height="34.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -375,6 +375,9 @@
                                                                 <real key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="passButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6rn-FQ-all"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -401,6 +404,9 @@
                                                                 <real key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="retryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qBf-y2-dNa"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -451,6 +457,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Oz8-kc-2AL"/>
+                    <connections>
+                        <outlet property="cpuStoneCountLabel" destination="rMd-DO-ClL" id="ITy-ov-rcW"/>
+                        <outlet property="myStoneCountLabel" destination="jBV-dC-VXw" id="nth-q1-ILO"/>
+                        <outlet property="othelloBoardView" destination="Gen-q1-B5h" id="bqd-wj-oVL"/>
+                        <outlet property="passButton" destination="8tf-za-yyP" id="SSp-42-rQr"/>
+                        <outlet property="profileImageView" destination="Qw0-Nb-2iA" id="uYs-g4-0kv"/>
+                        <outlet property="retryButton" destination="FsA-U6-3qq" id="AkP-5I-tRs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

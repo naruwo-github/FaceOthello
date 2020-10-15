@@ -9,6 +9,14 @@
 import UIKit
 
 class FOOthelloViewController: UIViewController {
+    
+    @IBOutlet private weak var profileImageView: FOCustomUIImageView!
+    @IBOutlet private weak var othelloBoardView: UIView!
+    @IBOutlet private weak var myStoneCountLabel: UILabel!
+    @IBOutlet private weak var cpuStoneCountLabel: UILabel!
+    @IBOutlet private weak var passButton: FOCustomUIButton!
+    @IBOutlet private weak var retryButton: FOCustomUIButton!
+    
     private let screenSize: CGSize = UIScreen.main.bounds.size
     private let BOARDSIZE = 8
     private let USER_COLOR = -1
@@ -16,10 +24,6 @@ class FOOthelloViewController: UIViewController {
     
     private let board = FOBoardModel()
     private let player = FOPlayerModel()
-
-    private let resetButton = UIButton()
-    private let passButton = UIButton()
-    private let viewStoneCount = UILabel()
     
     private let baseBoardImage = R.image.board()
     private let whiteImage = R.image.white()
@@ -39,12 +43,6 @@ class FOOthelloViewController: UIViewController {
         var y = 183
         let boxSize = 84 / (BOARDSIZE / 4)
         
-        viewStoneCount.frame = CGRect(x: 0, y: 0, width: w, height: 100)
-        viewStoneCount.textAlignment = NSTextAlignment.center
-        viewStoneCount.font = UIFont.systemFont(ofSize: 25)
-        viewStoneCount.center = CGPoint(x: w / 2, y: h - 100)
-        self.view.addSubview(viewStoneCount)
-        
         for i in 0..<BOARDSIZE {
             var x = 19
             for j in 0..<BOARDSIZE {
@@ -61,48 +59,7 @@ class FOOthelloViewController: UIViewController {
             y += boxSize + 1
         }
         
-        resetButton.frame = CGRect(x: 125, y: 575, width: 125, height: 45)
-        resetButton.addTarget(self, action: #selector(FOOthelloViewController.pushResetButton), for: .touchUpInside)
-        resetButton.isEnabled = false
-        resetButton.isHidden = true
-        resetButton.setTitle("RESET", for: .normal)
-        resetButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
-        resetButton.setTitleColor(.white, for: .normal)
-        resetButton.backgroundColor = UIColor(red: 0.3, green: 0.7, blue: 0.6, alpha: 1)
-        resetButton.layer.cornerRadius = 20
-        resetButton.layer.shadowOpacity = 0.5
-        resetButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.view.addSubview(resetButton)
-
-        passButton.frame = CGRect(x: 150, y: 500, width: 80, height: 30)
-        passButton.addTarget(self, action: #selector(FOOthelloViewController.pushPassButton), for: .touchUpInside)
-        passButton.isEnabled = false
-        passButton.isHidden = true
-        passButton.setTitle("PASS", for: .normal)
-        passButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
-        passButton.setTitleColor(.white, for: .normal)
-        passButton.backgroundColor = UIColor(red: 0.3, green: 0.7, blue: 0.6, alpha: 1)
-        passButton.layer.cornerRadius = 20
-        passButton.layer.shadowOpacity = 0.5
-        passButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.view.addSubview(passButton)
-        
         drawBoard()
-    }
-
-    @objc func pushPassButton() {
-        CpuTurn()
-        passButton.isEnabled = false
-        passButton.isHidden = true
-    }
-
-    @objc func pushResetButton() {
-        board.reset()
-        drawBoard()
-        resetButton.isEnabled = false
-        resetButton.isHidden = true
-        passButton.isEnabled = false
-        passButton.isHidden = true
     }
 
     @objc func pushed(mybtn: ButtonClass) {
@@ -110,8 +67,7 @@ class FOOthelloViewController: UIViewController {
         board.put(x: mybtn.x, y: mybtn.y, stone: USER_COLOR)
         drawBoard()
         if board.isGameOver() == true {
-            resetButton.isEnabled = true
-            resetButton.isHidden = false
+            self.retryButton.isEnabled = true
         }
         self.CpuTurn()
     }
@@ -122,24 +78,22 @@ class FOOthelloViewController: UIViewController {
             board.put(x: xy.0, y: xy.1, stone: CPU_COLOR)
             drawBoard()
             if board.isGameOver() == true {
-                resetButton.isHidden = false
-                resetButton.isEnabled = true
+                self.retryButton.isEnabled = true
             }
         }
         if board.isGameOver() == true {
-            resetButton.isHidden = false
-            resetButton.isEnabled = true
+            self.retryButton.isEnabled = true
             self.navigationItem.hidesBackButton = false
         }
         if board.available(stone: USER_COLOR).count == 0 {
-            passButton.isHidden = false
             passButton.isEnabled = true
         }
     }
 
     func drawBoard() {
-        let stonecount = board.returnStoneNumberOnTheBoard()
-        viewStoneCount.text = "○ User: " + String(stonecount.0) + "     ● CPU: " + String(stonecount.1)
+        let stonecount = self.board.returnStoneNumberOnTheBoard()
+        self.myStoneCountLabel.text = "YOU: \(stonecount.0)"
+        self.cpuStoneCountLabel.text = "CPU: \(stonecount.1)"
         var count = 0
         let _board = board.returnBoardState()
         for y in 0..<BOARDSIZE {
@@ -162,6 +116,19 @@ class FOOthelloViewController: UIViewController {
             buttonArray[x*BOARDSIZE+y].isEnabled = true
         }
     }
+    
+    @IBAction private func passButtonTapped(_ sender: Any) {
+        self.CpuTurn()
+        self.passButton.isEnabled = false
+    }
+    
+    @IBAction private func retryButtonTapped(_ sender: Any) {
+        self.board.reset()
+        self.drawBoard()
+        self.retryButton.isEnabled = false
+        self.passButton.isEnabled = false
+    }
+    
 }
 
 extension FOOthelloViewController {
