@@ -48,17 +48,17 @@ class FOOthelloViewController: UIViewController {
         for i in 0..<BOARDSIZE {
             var x = 19
             for j in 0..<BOARDSIZE {
-                let button: UIButton = buttonClass(
+                let button: UIButton = ButtonClass(
                     x: i,
                     y: j,
-                    frame:CGRect(x: x,y: y, width: boxSize,height: boxSize))
+                    frame: CGRect(x: x, y: y, width: boxSize, height: boxSize))
                 button.addTarget(self, action: #selector(FOOthelloViewController.pushed), for: .touchUpInside)
                 self.view.addSubview(button)
                 button.isEnabled = false
                 buttonArray.append(button)
-                x = x + boxSize + 1
+                x += boxSize + 1
             }
-            y = y + boxSize + 1
+            y += boxSize + 1
         }
         
         resetButton.frame = CGRect(x: 125, y: 575, width: 125, height: 45)
@@ -105,11 +105,11 @@ class FOOthelloViewController: UIViewController {
         passButton.isHidden = true
     }
 
-    @objc func pushed(mybtn: buttonClass){
+    @objc func pushed(mybtn: ButtonClass) {
         mybtn.isEnabled = false
         board.put(x: mybtn.x, y: mybtn.y, stone: USER_COLOR)
         drawBoard()
-        if (board.isGameOver() == true) {
+        if board.isGameOver() == true {
             resetButton.isEnabled = true
             resetButton.isHidden = false
         }
@@ -117,36 +117,36 @@ class FOOthelloViewController: UIViewController {
     }
 
     func CpuTurn() {
-        if (board.available(stone: CPU_COLOR).count != 0) {
+        if board.available(stone: CPU_COLOR).count != 0 {
             let xy = player.play(board: board, stone: CPU_COLOR)
             board.put(x: xy.0, y: xy.1, stone: CPU_COLOR)
             drawBoard()
-            if (board.isGameOver() == true) {
+            if board.isGameOver() == true {
                 resetButton.isHidden = false
                 resetButton.isEnabled = true
             }
         }
-        if (board.isGameOver() == true) {
+        if board.isGameOver() == true {
             resetButton.isHidden = false
             resetButton.isEnabled = true
             self.navigationItem.hidesBackButton = false
         }
-        if (board.available(stone: USER_COLOR).count == 0) {
+        if board.available(stone: USER_COLOR).count == 0 {
             passButton.isHidden = false
             passButton.isEnabled = true
         }
     }
 
-    func drawBoard(){
+    func drawBoard() {
         let stonecount = board.returnStoneNumberOnTheBoard()
         viewStoneCount.text = "○ User: " + String(stonecount.0) + "     ● CPU: " + String(stonecount.1)
         var count = 0
         let _board = board.returnBoardState()
-        for y in 0..<BOARDSIZE{
-            for x in 0..<BOARDSIZE{
-                if (_board[y][x] == USER_COLOR) {
+        for y in 0..<BOARDSIZE {
+            for x in 0..<BOARDSIZE {
+                if _board[y][x] == USER_COLOR {
                     buttonArray[count].setImage(blackImage, for: .normal)
-                } else if (_board[y][x] == CPU_COLOR ) {
+                } else if _board[y][x] == CPU_COLOR {
                     buttonArray[count].setImage(whiteImage, for: .normal)
                 } else {
                     buttonArray[count].setImage(baseBoardImage, for: .normal)
@@ -165,13 +165,13 @@ class FOOthelloViewController: UIViewController {
 }
 
 extension FOOthelloViewController {
-    class buttonClass: UIButton {
+    class ButtonClass: UIButton {
         let x: Int
         let y: Int
-        init(x:Int, y:Int, frame: CGRect) {
+        init(x: Int, y: Int, frame: CGRect) {
             self.x = x
             self.y = y
-            super.init(frame:frame)
+            super.init(frame: frame)
         }
         required init?(coder aDecoder: NSCoder) {
             fatalError("error")

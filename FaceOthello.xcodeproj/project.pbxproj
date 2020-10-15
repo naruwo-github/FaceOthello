@@ -7,21 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0510DDA3252A031F003BA7F6 /* FOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510DDA2252A031F003BA7F6 /* FOHelper.swift */; };
 		0511A9A623768DBA008944D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9A523768DBA008944D1 /* AppDelegate.swift */; };
 		0511A9A823768DBA008944D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9A723768DBA008944D1 /* SceneDelegate.swift */; };
 		0511A9AA23768DBA008944D1 /* FOOthelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9A923768DBA008944D1 /* FOOthelloViewController.swift */; };
-		0511A9AD23768DBA008944D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0511A9AB23768DBA008944D1 /* Main.storyboard */; };
+		0511A9AD23768DBA008944D1 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0511A9AB23768DBA008944D1 /* Setting.storyboard */; };
 		0511A9AF23768DBC008944D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0511A9AE23768DBC008944D1 /* Assets.xcassets */; };
 		0511A9B223768DBC008944D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0511A9B023768DBC008944D1 /* LaunchScreen.storyboard */; };
 		0511A9BD23768DBD008944D1 /* FaceOthelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9BC23768DBD008944D1 /* FaceOthelloTests.swift */; };
 		0511A9C823768DBD008944D1 /* FaceOthelloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9C723768DBD008944D1 /* FaceOthelloUITests.swift */; };
 		0511A9DA2376924F008944D1 /* FOBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9D92376924E008944D1 /* FOBoardModel.swift */; };
 		0511A9DC2376925E008944D1 /* FOPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511A9DB2376925E008944D1 /* FOPlayerModel.swift */; };
+		052762872524BDA2008FF606 /* FORoomCreateEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052762862524BDA2008FF606 /* FORoomCreateEnterViewController.swift */; };
 		052806F12522341A006E9385 /* FOCustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052806F02522341A006E9385 /* FOCustomUIButton.swift */; };
 		052807022522378F006E9385 /* FOCustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052807012522378F006E9385 /* FOCustomUIView.swift */; };
 		05280707252238B4006E9385 /* FOCustomUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05280706252238B4006E9385 /* FOCustomUIImageView.swift */; };
+		053446092530680900CF6419 /* Online.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 053446082530680900CF6419 /* Online.storyboard */; };
+		057B4CD925291A440007E81F /* FOMatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B4CD825291A440007E81F /* FOMatchingViewController.swift */; };
 		057FFB352518E81F00762612 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057FFB342518E81F00762612 /* R.generated.swift */; };
 		05B5D2B3238BCAA200B1B082 /* FOSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5D2B2238BCAA200B1B082 /* FOSettingViewController.swift */; };
+		05CC91C7253545FF00AC6ADB /* FOOnlineOthelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CC91C6253545FF00AC6ADB /* FOOnlineOthelloViewController.swift */; };
 		58E0BDE5A10352CFE3016A5E /* Pods_FaceOthelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55198A559A15B8A4778D0868 /* Pods_FaceOthelloTests.framework */; };
 		811B8916881648AD56F16499 /* Pods_FaceOthello_FaceOthelloUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2838C37A695F78A313D1E01 /* Pods_FaceOthello_FaceOthelloUITests.framework */; };
 		BE1C13534C8F4623F4560C5A /* Pods_FaceOthello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44320264D7A4338A5355DD3 /* Pods_FaceOthello.framework */; };
@@ -45,11 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0510DDA2252A031F003BA7F6 /* FOHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOHelper.swift; sourceTree = "<group>"; };
 		0511A9A223768DBA008944D1 /* FaceOthello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceOthello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0511A9A523768DBA008944D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0511A9A723768DBA008944D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0511A9A923768DBA008944D1 /* FOOthelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOOthelloViewController.swift; sourceTree = "<group>"; };
-		0511A9AC23768DBA008944D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0511A9AC23768DBA008944D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Setting.storyboard; sourceTree = "<group>"; };
 		0511A9AE23768DBC008944D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0511A9B123768DBC008944D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0511A9B323768DBC008944D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,11 +67,15 @@
 		0511A9C923768DBD008944D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0511A9D92376924E008944D1 /* FOBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOBoardModel.swift; sourceTree = "<group>"; };
 		0511A9DB2376925E008944D1 /* FOPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOPlayerModel.swift; sourceTree = "<group>"; };
+		052762862524BDA2008FF606 /* FORoomCreateEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FORoomCreateEnterViewController.swift; sourceTree = "<group>"; };
 		052806F02522341A006E9385 /* FOCustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOCustomUIButton.swift; sourceTree = "<group>"; };
 		052807012522378F006E9385 /* FOCustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOCustomUIView.swift; sourceTree = "<group>"; };
 		05280706252238B4006E9385 /* FOCustomUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOCustomUIImageView.swift; sourceTree = "<group>"; };
+		053446082530680900CF6419 /* Online.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Online.storyboard; sourceTree = "<group>"; };
+		057B4CD825291A440007E81F /* FOMatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOMatchingViewController.swift; sourceTree = "<group>"; };
 		057FFB342518E81F00762612 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		05B5D2B2238BCAA200B1B082 /* FOSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOSettingViewController.swift; sourceTree = "<group>"; };
+		05CC91C6253545FF00AC6ADB /* FOOnlineOthelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOOnlineOthelloViewController.swift; sourceTree = "<group>"; };
 		20275B75FE0C86DF619DFFF6 /* Pods-FaceOthello-FaceOthelloUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceOthello-FaceOthelloUITests.release.xcconfig"; path = "Target Support Files/Pods-FaceOthello-FaceOthelloUITests/Pods-FaceOthello-FaceOthelloUITests.release.xcconfig"; sourceTree = "<group>"; };
 		29FCE6F5A0547406F53FAA7A /* Pods-FaceOthello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceOthello.release.xcconfig"; path = "Target Support Files/Pods-FaceOthello/Pods-FaceOthello.release.xcconfig"; sourceTree = "<group>"; };
 		55198A559A15B8A4778D0868 /* Pods_FaceOthelloTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceOthelloTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0510DDA1252A02FA003BA7F6 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0510DDA2252A031F003BA7F6 /* FOHelper.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		0511A99923768DB9008944D1 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +152,7 @@
 				052806EE252233B1006E9385 /* ViewControllers */,
 				0511A9D823769231008944D1 /* Models */,
 				0511A9D7237691D4008944D1 /* Views */,
+				0510DDA1252A02FA003BA7F6 /* Helper */,
 				0511A9D6237691B0008944D1 /* StoryBoard */,
 				0511A9D523769199008944D1 /* Delegate */,
 				0511A9B323768DBC008944D1 /* Info.plist */,
@@ -172,7 +191,8 @@
 		0511A9D6237691B0008944D1 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
-				0511A9AB23768DBA008944D1 /* Main.storyboard */,
+				0511A9AB23768DBA008944D1 /* Setting.storyboard */,
+				053446082530680900CF6419 /* Online.storyboard */,
 				0511A9B023768DBC008944D1 /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoard;
@@ -200,6 +220,9 @@
 			children = (
 				0511A9A923768DBA008944D1 /* FOOthelloViewController.swift */,
 				05B5D2B2238BCAA200B1B082 /* FOSettingViewController.swift */,
+				052762862524BDA2008FF606 /* FORoomCreateEnterViewController.swift */,
+				057B4CD825291A440007E81F /* FOMatchingViewController.swift */,
+				05CC91C6253545FF00AC6ADB /* FOOnlineOthelloViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -250,6 +273,7 @@
 				0511A99F23768DB9008944D1 /* Frameworks */,
 				0511A9A023768DB9008944D1 /* Resources */,
 				E024693DE10757A7DA519F3D /* [CP] Embed Pods Frameworks */,
+				0594D4D125352FAF007CC748 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -306,7 +330,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Narumi Nogawa";
 				TargetAttributes = {
 					0511A9A123768DB9008944D1 = {
@@ -348,8 +372,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0511A9B223768DBC008944D1 /* LaunchScreen.storyboard in Resources */,
+				053446092530680900CF6419 /* Online.storyboard in Resources */,
 				0511A9AF23768DBC008944D1 /* Assets.xcassets in Resources */,
-				0511A9AD23768DBA008944D1 /* Main.storyboard in Resources */,
+				0511A9AD23768DBA008944D1 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +413,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		0594D4D125352FAF007CC748 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		68EC71F987AF1BF0059AD50D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -496,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0510DDA3252A031F003BA7F6 /* FOHelper.swift in Sources */,
 				0511A9AA23768DBA008944D1 /* FOOthelloViewController.swift in Sources */,
 				057FFB352518E81F00762612 /* R.generated.swift in Sources */,
 				0511A9A623768DBA008944D1 /* AppDelegate.swift in Sources */,
@@ -504,7 +548,10 @@
 				052806F12522341A006E9385 /* FOCustomUIButton.swift in Sources */,
 				0511A9DA2376924F008944D1 /* FOBoardModel.swift in Sources */,
 				0511A9DC2376925E008944D1 /* FOPlayerModel.swift in Sources */,
+				057B4CD925291A440007E81F /* FOMatchingViewController.swift in Sources */,
+				05CC91C7253545FF00AC6ADB /* FOOnlineOthelloViewController.swift in Sources */,
 				0511A9A823768DBA008944D1 /* SceneDelegate.swift in Sources */,
+				052762872524BDA2008FF606 /* FORoomCreateEnterViewController.swift in Sources */,
 				05B5D2B3238BCAA200B1B082 /* FOSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,12 +588,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0511A9AB23768DBA008944D1 /* Main.storyboard */ = {
+		0511A9AB23768DBA008944D1 /* Setting.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0511A9AC23768DBA008944D1 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Setting.storyboard;
 			sourceTree = "<group>";
 		};
 		0511A9B023768DBC008944D1 /* LaunchScreen.storyboard */ = {
@@ -586,6 +633,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -646,6 +694,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

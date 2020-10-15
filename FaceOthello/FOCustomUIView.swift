@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class FOCustomUIView : UIView {
+class FOCustomUIView: UIView {
     @IBInspectable var borderColor: UIColor = UIColor.clear {
         didSet {
             layer.borderColor = self.borderColor.cgColor
@@ -76,4 +76,3 @@ class FOCustomUIView : UIView {
         layer.shadowOpacity = self.shadowOpacity
     }
 }
-
