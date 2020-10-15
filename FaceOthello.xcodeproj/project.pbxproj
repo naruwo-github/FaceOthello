@@ -26,6 +26,7 @@
 		057B4CD925291A440007E81F /* FOMatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B4CD825291A440007E81F /* FOMatchingViewController.swift */; };
 		057FFB352518E81F00762612 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057FFB342518E81F00762612 /* R.generated.swift */; };
 		05B5D2B3238BCAA200B1B082 /* FOSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5D2B2238BCAA200B1B082 /* FOSettingViewController.swift */; };
+		05CC91C7253545FF00AC6ADB /* FOOnlineOthelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CC91C6253545FF00AC6ADB /* FOOnlineOthelloViewController.swift */; };
 		58E0BDE5A10352CFE3016A5E /* Pods_FaceOthelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55198A559A15B8A4778D0868 /* Pods_FaceOthelloTests.framework */; };
 		811B8916881648AD56F16499 /* Pods_FaceOthello_FaceOthelloUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2838C37A695F78A313D1E01 /* Pods_FaceOthello_FaceOthelloUITests.framework */; };
 		BE1C13534C8F4623F4560C5A /* Pods_FaceOthello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44320264D7A4338A5355DD3 /* Pods_FaceOthello.framework */; };
@@ -74,6 +75,7 @@
 		057B4CD825291A440007E81F /* FOMatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOMatchingViewController.swift; sourceTree = "<group>"; };
 		057FFB342518E81F00762612 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		05B5D2B2238BCAA200B1B082 /* FOSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOSettingViewController.swift; sourceTree = "<group>"; };
+		05CC91C6253545FF00AC6ADB /* FOOnlineOthelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOOnlineOthelloViewController.swift; sourceTree = "<group>"; };
 		20275B75FE0C86DF619DFFF6 /* Pods-FaceOthello-FaceOthelloUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceOthello-FaceOthelloUITests.release.xcconfig"; path = "Target Support Files/Pods-FaceOthello-FaceOthelloUITests/Pods-FaceOthello-FaceOthelloUITests.release.xcconfig"; sourceTree = "<group>"; };
 		29FCE6F5A0547406F53FAA7A /* Pods-FaceOthello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceOthello.release.xcconfig"; path = "Target Support Files/Pods-FaceOthello/Pods-FaceOthello.release.xcconfig"; sourceTree = "<group>"; };
 		55198A559A15B8A4778D0868 /* Pods_FaceOthelloTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceOthelloTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +222,7 @@
 				05B5D2B2238BCAA200B1B082 /* FOSettingViewController.swift */,
 				052762862524BDA2008FF606 /* FORoomCreateEnterViewController.swift */,
 				057B4CD825291A440007E81F /* FOMatchingViewController.swift */,
+				05CC91C6253545FF00AC6ADB /* FOOnlineOthelloViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				0511A9DA2376924F008944D1 /* FOBoardModel.swift in Sources */,
 				0511A9DC2376925E008944D1 /* FOPlayerModel.swift in Sources */,
 				057B4CD925291A440007E81F /* FOMatchingViewController.swift in Sources */,
+				05CC91C7253545FF00AC6ADB /* FOOnlineOthelloViewController.swift in Sources */,
 				0511A9A823768DBA008944D1 /* SceneDelegate.swift in Sources */,
 				052762872524BDA2008FF606 /* FORoomCreateEnterViewController.swift in Sources */,
 				05B5D2B3238BCAA200B1B082 /* FOSettingViewController.swift in Sources */,

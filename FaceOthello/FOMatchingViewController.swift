@@ -8,17 +8,20 @@
 
 import UIKit
 import SocketIO
+import HNToaster
 
 class FOMatchingViewController: UIViewController {
     
     @IBOutlet private weak var myProfileImageView: UIImageView!
     @IBOutlet private weak var opponentProfileImageView: UIImageView!
     @IBOutlet private weak var roomIdLabel: UILabel!
+    @IBOutlet weak var playButton: FOCustomUIButton!
     
     private var roomId: String?
     private var profileImage: UIImage?
+    private var sendImageFlag: Bool = false
     
-    // TODO: socketやmanagerはシングルトンなはずなので、画面遷移の際は渡して初期化する
+    // socketやmanagerはシングルトンなはずなので、画面遷移の際は渡す
     private var manager: SocketManager?
     private var socket: SocketIOClient?
 
@@ -32,15 +35,6 @@ class FOMatchingViewController: UIViewController {
         super.viewDidAppear(animated)
         
         self.setupSocketIO()
-        // TODO: 画像の送信は時間がかかるので、一度だけにしたい
-        // 相手がルームに入っていることを検出し、1, 2度だけ送るように実装する
-        // 画像の送受信の処理が重すぎるため
-        Timer.scheduledTimer(timeInterval: 10.0,
-                             target: self,
-                             selector: #selector(self.sendProfileImageOnce(_:)),
-                             userInfo: nil,
-                             repeats: true
-        )
     }
     
     func setup(roomId: String, profileImage: UIImage?) {
@@ -50,21 +44,42 @@ class FOMatchingViewController: UIViewController {
         }
     }
     
+    @IBAction private func playButtonTapped(_ sender: Any) {
+        if let onlineOthelloVC = R.storyboard.online.foOnlineOthelloViewController() {
+            self.navigationController?.pushViewController(onlineOthelloVC, animated: true)
+        }
+    }
+    
     private func setupSocketIO() {
         manager = SocketManager(socketURL: URL(string: FOHelper.UrlType.initialUrl.rawValue)!,
                                 config: [.log(true), .forceWebsockets(true), .forcePolling(true)])
         socket = manager?.defaultSocket
         socket!.on(clientEvent: .connect) {_, _ in
-               print("socket connected")
-           }
+            print("socket connected")
+        }
         socket!.on(clientEvent: .disconnect) { _, _ in
             print("socket disconnected!!")
+        }
+        socket!.on("enter") { data, _ in
+            if let _data = data.first as? Int {
+                if _data == 2 {
+                    self.setupPlayButton(enabled: true)
+                    Toaster.toast(onView: self.view, message: "Other player is online!")
+                    // 画像を送る処理は一旦保留
+//                    !self.sendImageFlag ? self.sendProfileImageOnce() : ()
+                }
+            }
+        }
+        socket!.on("exit") { data, _ in
+            if let _data = data.first as? String {
+                print("exit: " + _data)
+            }
         }
         socket!.on("send image") { data, _ in
             if let imageDataBase64 = data.first as? String {
                 let imageData = NSData(base64Encoded: imageDataBase64, options: .ignoreUnknownCharacters)
                 self.opponentProfileImageView.image = UIImage(data: imageData! as Data)
-                print("image received!")
+                print("profile image received!")
             }
         }
         socket!.connect()
@@ -73,9 +88,21 @@ class FOMatchingViewController: UIViewController {
     private func setupView() {
         self.myProfileImageView.image = self.profileImage
         self.roomIdLabel.text = self.roomId
+        self.setupPlayButton(enabled: false)
     }
     
-    @objc private func sendProfileImageOnce(_ sender: Timer) {
+    private func setupPlayButton(enabled: Bool) {
+        // true/falseでplayボタンの活性/非活性を設定する
+        self.playButton.isEnabled = enabled
+        if enabled {
+            self.playButton.layer.opacity = 1.0
+        } else {
+            self.playButton.layer.opacity = 0.2
+        }
+    }
+    
+    private func sendProfileImageOnce() {
+        self.sendImageFlag = true
         if let image = self.profileImage {
             let imageData = image.pngData()! as NSData
             let base64String = imageData.base64EncodedString(options: .lineLength64Characters)

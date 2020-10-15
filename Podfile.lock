@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.2.2)
   - CropViewController (2.5.2)
+  - HNToaster (1.0.0)
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
@@ -12,6 +13,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - CropViewController
+  - HNToaster
   - R.swift
   - Socket.IO-Client-Swift (~> 15.2.0)
   - SwiftLint
@@ -20,6 +22,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - CropViewController
+    - HNToaster
     - R.swift
     - R.swift.Library
     - Socket.IO-Client-Swift
@@ -29,12 +32,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
+  HNToaster: fe379384ffe698f05e6535525362bc45b8be6f19
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftLint: 1216c910d27c2633ade33b4f071bb6b930982e62
 
-PODFILE CHECKSUM: 58e1f636265a88802e1b2bce68f9216c33475296
+PODFILE CHECKSUM: 14c0d2a4f8e0139343723a8e15027b4089cca773
 
 COCOAPODS: 1.8.4

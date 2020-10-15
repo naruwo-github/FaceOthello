@@ -11,6 +11,7 @@ target 'FaceOthello' do
   pod 'Alamofire'
   pod 'Socket.IO-Client-Swift', '~> 15.2.0'
   pod 'SwiftLint'
+  pod 'HNToaster'
 
   target 'FaceOthelloTests' do
     inherit! :search_paths
