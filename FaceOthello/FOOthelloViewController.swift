@@ -18,6 +18,7 @@ class FOOthelloViewController: UIViewController {
     @IBOutlet private weak var retryButton: FOCustomUIButton!
     
     private let screenSize: CGSize = UIScreen.main.bounds.size
+    private let screenHeight: CGFloat = UIScreen.main.bounds.height
     private let BOARDSIZE = 8
     private let USER_COLOR = -1
     private let CPU_COLOR = 1
@@ -38,9 +39,9 @@ class FOOthelloViewController: UIViewController {
     }
 
     private func createUI(w: CGFloat, h: CGFloat) {
-        board.start(size: BOARDSIZE)
-        var y = 183
-        let boxSize = 84 / (BOARDSIZE / 4)
+        self.board.start(size: BOARDSIZE)
+        var y: Int = Int(screenHeight / 4)
+        let boxSize: Int = Int(self.othelloBoardView.frame.width) / (BOARDSIZE + 1)
         
         for i in 0..<BOARDSIZE {
             var x = 19

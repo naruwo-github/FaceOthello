@@ -21,7 +21,6 @@ class FOBoardModel {
     var Size: Int = 0
     var Square: [[Int]] = []
 
-    //Initialization method of Othello board
     func start(size: Int) {
         self.Size = size
         let center = size / 2
