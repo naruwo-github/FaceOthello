@@ -113,7 +113,6 @@ class FOBoardModel {
         return false
     }
 
-    //return weather blank or not
     func is_available( x: Int, y: Int, stone: Int) -> Bool {
         if  Square[x][y] != BLANK {
             return false
@@ -130,7 +129,6 @@ class FOBoardModel {
         return false
     }
 
-    //return available positon
     func available(stone: Int) -> [[Int]] {
         var return_array: [[Int]] = []
         
@@ -159,7 +157,6 @@ class FOBoardModel {
         }
     }
 
-    //return reversible stone position
     func count_reversible(x: Int, y: Int, dx: Int, dy: Int, stone: Int) -> Int {
         var _x = x
         var _y = y

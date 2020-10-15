@@ -40,11 +40,11 @@ class FOOthelloViewController: UIViewController {
 
     private func createUI(w: CGFloat, h: CGFloat) {
         self.board.start(size: BOARDSIZE)
-        var y: Int = Int(screenHeight / 4)
+        var y: Int = Int(screenHeight / 4) - 8
         let boxSize: Int = Int(self.othelloBoardView.frame.width) / (BOARDSIZE + 1)
         
         for i in 0..<BOARDSIZE {
-            var x = 19
+            var x = 12
             for j in 0..<BOARDSIZE {
                 let button: UIButton = ButtonClass(
                     x: i,

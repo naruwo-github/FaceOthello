@@ -294,7 +294,7 @@
                                     <constraint firstItem="Qw0-Nb-2iA" firstAttribute="centerY" secondItem="6jM-0k-Lyk" secondAttribute="centerY" id="hw3-IJ-SLM"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gen-q1-B5h" userLabel="Othello Board View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gen-q1-B5h" userLabel="Othello Board View">
                                 <rect key="frame" x="10" y="251" width="394" height="394"/>
                                 <color key="backgroundColor" red="0.6036032925" green="1" blue="0.45906511909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
