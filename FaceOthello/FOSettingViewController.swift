@@ -12,7 +12,7 @@ import CropViewController
 
 class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet fileprivate weak var profileImageView: UIImageView!
+    @IBOutlet fileprivate weak var profileImageView: FOCustomUIImageView!
     @IBOutlet private weak var selectPhotoButton: FOCustomUIButton!
     @IBOutlet private weak var playWithCpuButton: FOCustomUIButton!
     @IBOutlet private weak var bluetoothButton: FOCustomUIButton!
