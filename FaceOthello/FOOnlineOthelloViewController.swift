@@ -10,6 +10,7 @@ import UIKit
 
 class FOOnlineOthelloViewController: UIViewController {
 
+    @IBOutlet private weak var othelloBoardView: UIView!
     @IBOutlet private weak var myImageView: FOCustomUIImageView!
     @IBOutlet private weak var opponentImageView: FOCustomUIImageView!
     @IBOutlet private weak var myStoneCountLabel: UILabel!

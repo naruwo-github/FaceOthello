@@ -414,6 +414,7 @@
                         <outlet property="myStoneCountLabel" destination="aTq-CQ-5lV" id="XFa-cy-cL8"/>
                         <outlet property="opponentImageView" destination="0GY-Np-55P" id="kQd-GK-ngM"/>
                         <outlet property="opponentStoneCountLabel" destination="4mT-eO-v0U" id="72m-90-fO0"/>
+                        <outlet property="othelloBoardView" destination="R96-aT-q7N" id="Lbf-Nv-RRW"/>
                         <outlet property="passButton" destination="fKO-Qb-UbT" id="a6g-Vn-qId"/>
                         <outlet property="retryButton" destination="JrD-qz-l4Y" id="va3-Vd-dlG"/>
                     </connections>
