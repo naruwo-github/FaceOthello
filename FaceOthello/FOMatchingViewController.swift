@@ -46,6 +46,12 @@ class FOMatchingViewController: UIViewController {
     
     @IBAction private func playButtonTapped(_ sender: Any) {
         if let onlineOthelloVC = R.storyboard.online.foOnlineOthelloViewController() {
+            if let myImage = self.myProfileImageView.image {
+                onlineOthelloVC.setupMyImage(myImage: myImage)
+            }
+            if let opponentImage = self.opponentProfileImageView.image {
+                onlineOthelloVC.setupOpponentImage(opponentImage: opponentImage)
+            }
             self.navigationController?.pushViewController(onlineOthelloVC, animated: true)
         }
     }
