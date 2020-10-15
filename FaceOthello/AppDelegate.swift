@@ -12,22 +12,8 @@ import SocketIO
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-//    var socket: SocketIOClient!
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // アプリ開始時に接続する場合は、ここに記述する
-//        let manager = SocketManager(socketURL: URL(string: FOHelper.urlType.initialUrl.rawValue)!, config: [.log(true), .compress])
-//        socket = manager.defaultSocket
-//        socket.on("connect") { data, ack  in
-//            print("socket connected!!")
-//        }
-//        socket.on("disconnect") { data, ack in
-//            print("socket disconnected!!")
-//        }
-//        socket.connect()
-        
         return true
     }
 
