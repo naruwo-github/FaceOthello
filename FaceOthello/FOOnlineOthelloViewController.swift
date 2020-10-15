@@ -10,8 +10,8 @@ import UIKit
 
 class FOOnlineOthelloViewController: UIViewController {
 
-    @IBOutlet private weak var myImageView: UIImageView!
-    @IBOutlet private weak var opponentImageView: UIImageView!
+    @IBOutlet private weak var myImageView: FOCustomUIImageView!
+    @IBOutlet private weak var opponentImageView: FOCustomUIImageView!
     
     private var myImage: UIImage?
     private var opponentImage: UIImage?

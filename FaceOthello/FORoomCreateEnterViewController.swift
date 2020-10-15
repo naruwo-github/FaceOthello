@@ -10,7 +10,7 @@ import UIKit
 
 class FORoomCreateEnterViewController: UIViewController {
     
-    @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var profileImageView: FOCustomUIImageView!
     @IBOutlet private weak var roomIdTextField: UITextField!
     
     private var profileImage: UIImage?

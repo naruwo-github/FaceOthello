@@ -12,8 +12,8 @@ import HNToaster
 
 class FOMatchingViewController: UIViewController {
     
-    @IBOutlet private weak var myProfileImageView: UIImageView!
-    @IBOutlet private weak var opponentProfileImageView: UIImageView!
+    @IBOutlet private weak var myProfileImageView: FOCustomUIImageView!
+    @IBOutlet private weak var opponentProfileImageView: FOCustomUIImageView!
     @IBOutlet private weak var roomIdLabel: UILabel!
     @IBOutlet weak var playButton: FOCustomUIButton!
     
