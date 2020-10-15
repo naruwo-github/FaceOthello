@@ -12,6 +12,10 @@ class FOOnlineOthelloViewController: UIViewController {
 
     @IBOutlet private weak var myImageView: FOCustomUIImageView!
     @IBOutlet private weak var opponentImageView: FOCustomUIImageView!
+    @IBOutlet private weak var myStoneCountLabel: UILabel!
+    @IBOutlet private weak var opponentStoneCountLabel: UILabel!
+    @IBOutlet private weak var passButton: FOCustomUIButton!
+    @IBOutlet private weak var retryButton: FOCustomUIButton!
     
     private var myImage: UIImage?
     private var opponentImage: UIImage?
@@ -29,5 +33,11 @@ class FOOnlineOthelloViewController: UIViewController {
         self.opponentImage = opponentImage
         self.opponentImageView.image = self.opponentImage
     }
-
+    
+    @IBAction private func passButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction private func retryButtonTapped(_ sender: Any) {
+    }
+    
 }
