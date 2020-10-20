@@ -37,31 +37,33 @@ class FOOthelloViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         self.createUI(w: self.screenSize.width, h: self.screenSize.height)
     }
-
+    
     private func createUI(w: CGFloat, h: CGFloat) {
-        self.board.start(size: BOARDSIZE)
-        var y: Int = Int(screenHeight / 4) - 8
-        let boxSize: Int = Int(self.othelloBoardView.frame.width) / (BOARDSIZE + 1)
+        self.board.start(size: self.BOARDSIZE)
+        let stoneSideLength = w / CGFloat(BOARDSIZE + 1)
+        let stoneStartX = w / 2 - (stoneSideLength + 1) * 4
+        let stoneStartY = h / 2 - (stoneSideLength + 1) * 4
         
-        for i in 0..<BOARDSIZE {
-            var x = 12
-            for j in 0..<BOARDSIZE {
+        for i in 0..<self.BOARDSIZE {
+            let x = stoneStartX + CGFloat(i) * (stoneSideLength + 1)
+            
+            for j in 0..<self.BOARDSIZE {
+                let y = stoneStartY + CGFloat(j) * (stoneSideLength + 1)
+                
                 let button: UIButton = ButtonClass(
                     x: i,
                     y: j,
-                    frame: CGRect(x: x, y: y, width: boxSize, height: boxSize))
+                    frame: CGRect(x: x, y: y, width: stoneSideLength, height: stoneSideLength))
                 button.addTarget(self, action: #selector(FOOthelloViewController.pushed), for: .touchUpInside)
                 self.view.addSubview(button)
                 button.isEnabled = false
-                buttonArray.append(button)
-                x += boxSize + 1
+                self.buttonArray.append(button)
             }
-            y += boxSize + 1
         }
         
         self.switchButtonAppearance(button: self.passButton, isEnabled: false)
         self.switchButtonAppearance(button: self.retryButton, isEnabled: false)
-        drawBoard()
+        self.drawBoard()
     }
 
     @objc func pushed(mybtn: ButtonClass) {
@@ -71,7 +73,10 @@ class FOOthelloViewController: UIViewController {
         if board.isGameOver() == true {
             self.switchButtonAppearance(button: self.retryButton, isEnabled: true)
         }
-        self.CpuTurn()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.CpuTurn()
+        }
     }
 
     private func CpuTurn() {
@@ -96,6 +101,7 @@ class FOOthelloViewController: UIViewController {
         let stonecount = self.board.returnStoneNumberOnTheBoard()
         self.myStoneCountLabel.text = "YOU: \(stonecount.0)"
         self.cpuStoneCountLabel.text = "CPU: \(stonecount.1)"
+        
         var count = 0
         let _board = board.returnBoardState()
         for y in 0..<BOARDSIZE {
