@@ -9,13 +9,12 @@
 import Foundation
 
 class FOPlayerModel {
-    //execute random play
+    
     func play(board: FOBoardModel, stone: Int) -> (Int, Int) {
-        return Random(available: board.available(stone: stone))
+        return self.Random(available: board.available(stone: stone))
     }
 
-    //random playing
-    func Random(available: [[Int]]) -> (Int, Int) {
+    private func Random(available: [[Int]]) -> (Int, Int) {
         let int = Int.random(in: 0..<available.count)
         return (available[int][0], available[int][1])
     }
