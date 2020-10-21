@@ -35,11 +35,12 @@ class FOOthelloViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
+        self.profileImageView.image = myStoneImage
         self.createUI(w: self.screenSize.width, h: self.screenSize.height)
     }
     
     private func createUI(w: CGFloat, h: CGFloat) {
-        self.board.start(size: self.BOARDSIZE)
+        self.board.start(size: self.BOARDSIZE, isFirstStrike: true)
         let stoneSideLength = w / CGFloat(BOARDSIZE + 1)
         let stoneStartX = w / 2 - (stoneSideLength + 1) * 4
         let stoneStartY = h / 2 - (stoneSideLength + 1) * 4
@@ -74,7 +75,7 @@ class FOOthelloViewController: UIViewController {
             self.switchButtonAppearance(button: self.retryButton, isEnabled: true)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.CpuTurn()
         }
     }
