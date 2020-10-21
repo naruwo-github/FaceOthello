@@ -60,9 +60,10 @@ class FOOnlineOthelloViewController: UIViewController {
         self.socket = socket
         
         self.socket!.on("put stone") { data, _ in
-            if let _data = data.first as? (Int, Int) {
+            if let _data = data.first as? [Int] {
                 print(_data)
-                self.opponentTurn(opponentStone: _data)
+                let position = (_data.first!, _data.last!)
+                self.opponentTurn(opponentStone: position)
                 self.isMyTurn = true
             }
         }
@@ -124,7 +125,8 @@ class FOOnlineOthelloViewController: UIViewController {
         }
         
         // 対戦相手に送る
-        self.socket?.emit("put stone", (mybtn.x, mybtn.y) as! SocketData)
+        let sendData = [mybtn.x, mybtn.y]
+        self.socket?.emit("put stone", sendData as SocketData)
         self.isMyTurn = false
         
     }
