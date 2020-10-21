@@ -21,7 +21,7 @@ class FOBoardModel {
     var Size: Int = 0
     var Square: [[Int]] = []
 
-    func start(size: Int) {
+    func start(size: Int, isFirstStrike: Bool) {
         self.Size = size
         let center = size / 2
         
@@ -33,10 +33,18 @@ class FOBoardModel {
             Square += [array]
         }
         
-        Square[center-1][center-1] = self.WHITE
-        Square[center-1][center] = self.BLACK
-        Square[center][center-1] = self.BLACK
-        Square[center][center] = self.WHITE
+        if isFirstStrike {
+            Square[center-1][center-1] = self.WHITE
+            Square[center-1][center] = self.BLACK
+            Square[center][center-1] = self.BLACK
+            Square[center][center] = self.WHITE
+        } else {
+            Square[center-1][center-1] = self.BLACK
+            Square[center-1][center] = self.WHITE
+            Square[center][center-1] = self.WHITE
+            Square[center][center] = self.BLACK
+        }
+        
     }
 
     func returnStoneNumberOnTheBoard() -> (Int, Int) {

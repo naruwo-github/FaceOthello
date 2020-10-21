@@ -21,9 +21,12 @@ class FOMatchingViewController: UIViewController {
     private var profileImage: UIImage?
     private var sendImageFlag: Bool = false
     
-    // socketやmanagerはシングルトンなはずなので、画面遷移の際は渡す
+    // socketやmanagerはシングルトンなはずなので、画面遷移の際は渡す/渡される
     private var manager: SocketManager?
     private var socket: SocketIOClient?
+    
+    // 自分が先攻かどうかのフラグ
+    private var isFirstStrike: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +40,12 @@ class FOMatchingViewController: UIViewController {
         self.setupSocketIO()
     }
     
-    func setup(roomId: String, profileImage: UIImage?) {
+    func setup(roomId: String, profileImage: UIImage?, isFirstStrike: Bool) {
         self.roomId = roomId
         if let image = profileImage {
             self.profileImage = image
         }
+        self.isFirstStrike = isFirstStrike
     }
     
     @IBAction private func playButtonTapped(_ sender: Any) {
@@ -52,6 +56,10 @@ class FOMatchingViewController: UIViewController {
             if let opponentImage = self.opponentProfileImageView.image {
                 onlineOthelloVC.setupOpponentImage(opponentImage: opponentImage)
             }
+            if self.isFirstStrike {
+                onlineOthelloVC.setupFirstStrikeFlag()
+            }
+            onlineOthelloVC.setupSocketIO(manager: self.manager, socket: self.socket)
             self.navigationController?.pushViewController(onlineOthelloVC, animated: true)
         }
     }
