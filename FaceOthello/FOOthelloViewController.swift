@@ -70,7 +70,7 @@ class FOOthelloViewController: UIViewController {
     @objc func pushed(mybtn: ButtonClass) {
         mybtn.isEnabled = false
         self.board.put(x: mybtn.x, y: mybtn.y, stone: self.USER_COLOR)
-        drawBoard()
+        self.drawBoard()
         if self.board.isGameOver() == true {
             self.switchButtonAppearance(button: self.retryButton, isEnabled: true)
         }
@@ -113,6 +113,7 @@ class FOOthelloViewController: UIViewController {
                     self.buttonArray[count].setImage(self.cpuStoneImage, for: .normal)
                 } else {
                     self.buttonArray[count].setImage(self.baseBoardImage, for: .normal)
+//                    self.buttonArray[count].backgroundColor = R.color.boardColor()
                 }
                 self.buttonArray[count].isEnabled = false
                 count += 1

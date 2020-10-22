@@ -79,8 +79,7 @@ class FOMatchingViewController: UIViewController {
                 if _data == 2 {
                     self.setupPlayButton(enabled: true)
                     Toaster.toast(onView: self.view, message: "Other player is online!")
-                    // 画像を送る処理は一旦保留
-//                    !self.sendImageFlag ? self.sendProfileImageOnce() : ()
+                    !self.sendImageFlag ? self.sendProfileImageOnce() : ()
                 }
             }
         }
@@ -106,7 +105,6 @@ class FOMatchingViewController: UIViewController {
     }
     
     private func setupPlayButton(enabled: Bool) {
-        // true/falseでplayボタンの活性/非活性を設定する
         self.playButton.isEnabled = enabled
         if enabled {
             self.playButton.layer.opacity = 1.0
@@ -116,11 +114,12 @@ class FOMatchingViewController: UIViewController {
     }
     
     private func sendProfileImageOnce() {
+        guard let _image = self.profileImage else { return }
+        guard let _sendImage = _image.resized(withPercentage: 0.1) else { return }
+        
+        let imageData = _sendImage.pngData()! as NSData
+        let base64String = imageData.base64EncodedString(options: .lineLength64Characters)
+        socket!.emit("send image", base64String)
         self.sendImageFlag = true
-        if let image = self.profileImage {
-            let imageData = image.pngData()! as NSData
-            let base64String = imageData.base64EncodedString(options: .lineLength64Characters)
-            socket!.emit("send image", base64String)
-        }
     }
 }
