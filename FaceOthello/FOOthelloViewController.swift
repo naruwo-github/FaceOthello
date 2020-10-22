@@ -32,17 +32,33 @@ class FOOthelloViewController: UIViewController {
     var myStoneImageShaped = R.image.black()
     
     private var buttonArray: [UIButton] = []
+    private var isFirstStrike: Bool = true
+    private var isMyTurn: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
         self.profileImageView.image = myStoneImage
-        self.createUI(w: self.screenSize.width, h: self.screenSize.height)
+        self.decideFirstStrike {
+            self.createUI(w: self.screenSize.width, h: self.screenSize.height)
+        }
+    }
+    
+    private func decideFirstStrike(completion: () -> Void) {
+        // 1から10の中でランダムに値を出す→偶数だったら後攻にする
+        let random = Int.random(in: 1...10)
+        if random % 2 == 0 {
+            // 偶数の場合は、CPUから
+            self.isFirstStrike = false
+            self.isMyTurn = false
+        }
+        
+        completion()
     }
     
     private func createUI(w: CGFloat, h: CGFloat) {
-        self.board.start(size: self.BOARDSIZE, isFirstStrike: true)
+        self.board.start(size: self.BOARDSIZE, isFirstStrike: self.isFirstStrike)
         let stoneSideLength = w / CGFloat(self.BOARDSIZE + 1)
         let stoneStartX = w / 2 - (stoneSideLength + 1) * 4
         let stoneStartY = h / 2 - (stoneSideLength + 1) * 4
@@ -67,9 +83,19 @@ class FOOthelloViewController: UIViewController {
         self.switchButtonAppearance(button: self.passButton, isEnabled: false)
         self.switchButtonAppearance(button: self.retryButton, isEnabled: false)
         self.drawBoard()
+        
+        // この時点で後攻だったら、CPUから一手目を始める
+        if !self.isMyTurn {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.CpuTurn()
+            }
+        }
     }
 
     @objc func pushed(mybtn: ButtonClass) {
+        guard self.isMyTurn else { return }
+        self.isMyTurn = false
+        
         mybtn.isEnabled = false
         self.board.put(x: mybtn.x, y: mybtn.y, stone: self.USER_COLOR)
         self.drawBoard()
@@ -98,6 +124,8 @@ class FOOthelloViewController: UIViewController {
         if self.board.available(stone: self.USER_COLOR).count == 0 {
             self.switchButtonAppearance(button: self.passButton, isEnabled: true)
         }
+        
+        self.isMyTurn = true
     }
 
     private func drawBoard() {
