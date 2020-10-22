@@ -23,6 +23,7 @@
 		052807022522378F006E9385 /* FOCustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052807012522378F006E9385 /* FOCustomUIView.swift */; };
 		05280707252238B4006E9385 /* FOCustomUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05280706252238B4006E9385 /* FOCustomUIImageView.swift */; };
 		053446092530680900CF6419 /* Online.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 053446082530680900CF6419 /* Online.storyboard */; };
+		056B40A62541676800E49AD5 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056B40A52541676800E49AD5 /* ColorAssets.xcassets */; };
 		057B4CD925291A440007E81F /* FOMatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B4CD825291A440007E81F /* FOMatchingViewController.swift */; };
 		057FFB352518E81F00762612 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057FFB342518E81F00762612 /* R.generated.swift */; };
 		05B5D2B3238BCAA200B1B082 /* FOSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5D2B2238BCAA200B1B082 /* FOSettingViewController.swift */; };
@@ -72,6 +73,7 @@
 		052807012522378F006E9385 /* FOCustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOCustomUIView.swift; sourceTree = "<group>"; };
 		05280706252238B4006E9385 /* FOCustomUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOCustomUIImageView.swift; sourceTree = "<group>"; };
 		053446082530680900CF6419 /* Online.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Online.storyboard; sourceTree = "<group>"; };
+		056B40A52541676800E49AD5 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		057B4CD825291A440007E81F /* FOMatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOMatchingViewController.swift; sourceTree = "<group>"; };
 		057FFB342518E81F00762612 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		05B5D2B2238BCAA200B1B082 /* FOSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOSettingViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				0511A9D523769199008944D1 /* Delegate */,
 				0511A9B323768DBC008944D1 /* Info.plist */,
 				0511A9AE23768DBC008944D1 /* Assets.xcassets */,
+				056B40A52541676800E49AD5 /* ColorAssets.xcassets */,
 			);
 			path = FaceOthello;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056B40A62541676800E49AD5 /* ColorAssets.xcassets in Resources */,
 				0511A9B223768DBC008944D1 /* LaunchScreen.storyboard in Resources */,
 				053446092530680900CF6419 /* Online.storyboard in Resources */,
 				0511A9AF23768DBC008944D1 /* Assets.xcassets in Resources */,

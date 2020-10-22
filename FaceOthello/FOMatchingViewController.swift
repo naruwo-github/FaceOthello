@@ -40,6 +40,19 @@ class FOMatchingViewController: UIViewController {
         self.setupSocketIO()
     }
     
+    // NavigationController の「戻る」、「進む」で didMove() が呼ばれる
+    override func didMove(toParent parent: UIViewController?) {
+        if parent == nil {
+            // 「戻る」場合の処理
+            super.didMove(toParent: nil)
+            self.exitRoomAsync()
+            self.sendImageFlag = false
+            socket!.emit("disconnect", [])
+            return
+        }
+        // 「進む」場合の処理
+    }
+    
     func setup(roomId: String, profileImage: UIImage?, isFirstStrike: Bool) {
         self.roomId = roomId
         if let image = profileImage {
@@ -79,14 +92,16 @@ class FOMatchingViewController: UIViewController {
                 if _data == 2 {
                     self.setupPlayButton(enabled: true)
                     Toaster.toast(onView: self.view, message: "Other player is online!")
-                    // 画像を送る処理は一旦保留
-//                    !self.sendImageFlag ? self.sendProfileImageOnce() : ()
+                    !self.sendImageFlag ? self.sendProfileImageOnce() : ()
                 }
             }
         }
         socket!.on("exit") { data, _ in
             if let _data = data.first as? String {
-                print("exit: " + _data)
+                self.opponentProfileImageView.image = nil
+                self.setupPlayButton(enabled: false)
+                self.sendImageFlag = false
+                Toaster.toast(onView: self.view, message: _data)
             }
         }
         socket!.on("send image") { data, _ in
@@ -106,7 +121,6 @@ class FOMatchingViewController: UIViewController {
     }
     
     private func setupPlayButton(enabled: Bool) {
-        // true/falseでplayボタンの活性/非活性を設定する
         self.playButton.isEnabled = enabled
         if enabled {
             self.playButton.layer.opacity = 1.0
@@ -116,11 +130,26 @@ class FOMatchingViewController: UIViewController {
     }
     
     private func sendProfileImageOnce() {
+        guard let _image = self.profileImage else { return }
+        guard let _sendImage = _image.resized(withPercentage: 0.1) else { return }
+        
+        let imageData = _sendImage.pngData()! as NSData
+        let base64String = imageData.base64EncodedString(options: .lineLength64Characters)
+        socket!.emit("send image", base64String)
         self.sendImageFlag = true
-        if let image = self.profileImage {
-            let imageData = image.pngData()! as NSData
-            let base64String = imageData.base64EncodedString(options: .lineLength64Characters)
-            socket!.emit("send image", base64String)
-        }
     }
+    
+    private func exitRoomAsync() {
+        let urlString = FOHelper.UrlType.exitRoom.rawValue
+        guard let url = URLComponents(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: url.url!) {(data, _, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            guard let _data = data, let _roomId = String(data: _data, encoding: .utf8) else { return }
+            print("(exited) roomId = " + _roomId)
+        }
+        task.resume()
+    }
+    
 }
