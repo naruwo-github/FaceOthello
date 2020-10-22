@@ -12,7 +12,7 @@ import CropViewController
 
 class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet fileprivate weak var profileImageView: UIImageView!
+    @IBOutlet fileprivate weak var profileImageView: FOCustomUIImageView!
     @IBOutlet private weak var selectPhotoButton: FOCustomUIButton!
     @IBOutlet private weak var playWithCpuButton: FOCustomUIButton!
     @IBOutlet private weak var bluetoothButton: FOCustomUIButton!
@@ -48,7 +48,7 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
     @IBAction private func playWithCpuButtonTapped(_ sender: Any) {
         if let othelloVC = R.storyboard.setting.foOthelloViewController() {
             if let image = self.profileImageView.image {
-                othelloVC.blackImage = image
+                othelloVC.myStoneImage = image
             }
             self.navigationController?.pushViewController(othelloVC, animated: true)
         }

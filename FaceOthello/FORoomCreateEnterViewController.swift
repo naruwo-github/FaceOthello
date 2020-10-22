@@ -10,7 +10,7 @@ import UIKit
 
 class FORoomCreateEnterViewController: UIViewController {
     
-    @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var profileImageView: FOCustomUIImageView!
     @IBOutlet private weak var roomIdTextField: UITextField!
     
     private var profileImage: UIImage?
@@ -43,7 +43,7 @@ class FORoomCreateEnterViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 if self.canEnterFlag,
                    let matchingVC = R.storyboard.online.foMatchingViewController() {
-                    matchingVC.setup(roomId: _roomId, profileImage: self.profileImage)
+                    matchingVC.setup(roomId: _roomId, profileImage: self.profileImage, isFirstStrike: true)
                     self.navigationController?.pushViewController(matchingVC, animated: true)
                 }
             }
@@ -57,7 +57,7 @@ class FORoomCreateEnterViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 if self.canEnterFlag,
                    let matchingVC = R.storyboard.online.foMatchingViewController() {
-                    matchingVC.setup(roomId: _roomId, profileImage: self.profileImage)
+                    matchingVC.setup(roomId: _roomId, profileImage: self.profileImage, isFirstStrike: false)
                     self.navigationController?.pushViewController(matchingVC, animated: true)
                 }
             }

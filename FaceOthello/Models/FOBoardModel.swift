@@ -21,8 +21,7 @@ class FOBoardModel {
     var Size: Int = 0
     var Square: [[Int]] = []
 
-    //Initialization method of Othello board
-    func start(size: Int) {
+    func start(size: Int, isFirstStrike: Bool) {
         self.Size = size
         let center = size / 2
         
@@ -34,10 +33,18 @@ class FOBoardModel {
             Square += [array]
         }
         
-        Square[center-1][center-1] = self.WHITE
-        Square[center-1][center] = self.BLACK
-        Square[center][center-1] = self.BLACK
-        Square[center][center] = self.WHITE
+        if isFirstStrike {
+            Square[center-1][center-1] = self.WHITE
+            Square[center-1][center] = self.BLACK
+            Square[center][center-1] = self.BLACK
+            Square[center][center] = self.WHITE
+        } else {
+            Square[center-1][center-1] = self.BLACK
+            Square[center-1][center] = self.WHITE
+            Square[center][center-1] = self.WHITE
+            Square[center][center] = self.BLACK
+        }
+        
     }
 
     func returnStoneNumberOnTheBoard() -> (Int, Int) {
@@ -114,7 +121,6 @@ class FOBoardModel {
         return false
     }
 
-    //return weather blank or not
     func is_available( x: Int, y: Int, stone: Int) -> Bool {
         if  Square[x][y] != BLANK {
             return false
@@ -131,7 +137,6 @@ class FOBoardModel {
         return false
     }
 
-    //return available positon
     func available(stone: Int) -> [[Int]] {
         var return_array: [[Int]] = []
         
@@ -160,7 +165,6 @@ class FOBoardModel {
         }
     }
 
-    //return reversible stone position
     func count_reversible(x: Int, y: Int, dx: Int, dy: Int, stone: Int) -> Int {
         var _x = x
         var _y = y
