@@ -40,6 +40,19 @@ class FOMatchingViewController: UIViewController {
         self.setupSocketIO()
     }
     
+    // NavigationController の「戻る」、「進む」で didMove() が呼ばれる
+    override func didMove(toParent parent: UIViewController?) {
+        if parent == nil {
+            // 「戻る」場合の処理
+            super.didMove(toParent: nil)
+            self.exitRoomAsync()
+            self.sendImageFlag = false
+            socket!.emit("disconnect", [])
+            return
+        }
+        // 「進む」場合の処理
+    }
+    
     func setup(roomId: String, profileImage: UIImage?, isFirstStrike: Bool) {
         self.roomId = roomId
         if let image = profileImage {
@@ -85,7 +98,10 @@ class FOMatchingViewController: UIViewController {
         }
         socket!.on("exit") { data, _ in
             if let _data = data.first as? String {
-                print("exit: " + _data)
+                self.opponentProfileImageView.image = nil
+                self.setupPlayButton(enabled: false)
+                self.sendImageFlag = false
+                Toaster.toast(onView: self.view, message: _data)
             }
         }
         socket!.on("send image") { data, _ in
@@ -122,4 +138,18 @@ class FOMatchingViewController: UIViewController {
         socket!.emit("send image", base64String)
         self.sendImageFlag = true
     }
+    
+    private func exitRoomAsync() {
+        let urlString = FOHelper.UrlType.exitRoom.rawValue
+        guard let url = URLComponents(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: url.url!) {(data, _, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            guard let _data = data, let _roomId = String(data: _data, encoding: .utf8) else { return }
+            print("(exited) roomId = " + _roomId)
+        }
+        task.resume()
+    }
+    
 }
