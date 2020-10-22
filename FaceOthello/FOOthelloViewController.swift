@@ -27,21 +27,39 @@ class FOOthelloViewController: UIViewController {
     private let player = FOPlayerModel()
     private let baseBoardImage = R.image.board()
     private let cpuStoneImage = R.image.white()
+    
     var myStoneImage = R.image.black()
+    var myStoneImageShaped = R.image.black()
     
     private var buttonArray: [UIButton] = []
+    private var isFirstStrike: Bool = true
+    private var isMyTurn: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
         self.profileImageView.image = myStoneImage
-        self.createUI(w: self.screenSize.width, h: self.screenSize.height)
+        self.decideFirstStrike {
+            self.createUI(w: self.screenSize.width, h: self.screenSize.height)
+        }
+    }
+    
+    private func decideFirstStrike(completion: () -> Void) {
+        // 1から10の中でランダムに値を出す→偶数だったら後攻にする
+        let random = Int.random(in: 1...10)
+        if random % 2 == 0 {
+            // 偶数の場合は、CPUから
+            self.isFirstStrike = false
+            self.isMyTurn = false
+        }
+        
+        completion()
     }
     
     private func createUI(w: CGFloat, h: CGFloat) {
-        self.board.start(size: self.BOARDSIZE, isFirstStrike: true)
-        let stoneSideLength = w / CGFloat(BOARDSIZE + 1)
+        self.board.start(size: self.BOARDSIZE, isFirstStrike: self.isFirstStrike)
+        let stoneSideLength = w / CGFloat(self.BOARDSIZE + 1)
         let stoneStartX = w / 2 - (stoneSideLength + 1) * 4
         let stoneStartY = h / 2 - (stoneSideLength + 1) * 4
         
@@ -65,13 +83,23 @@ class FOOthelloViewController: UIViewController {
         self.switchButtonAppearance(button: self.passButton, isEnabled: false)
         self.switchButtonAppearance(button: self.retryButton, isEnabled: false)
         self.drawBoard()
+        
+        // この時点で後攻だったら、CPUから一手目を始める
+        if !self.isMyTurn {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.CpuTurn()
+            }
+        }
     }
 
     @objc func pushed(mybtn: ButtonClass) {
+        guard self.isMyTurn else { return }
+        self.isMyTurn = false
+        
         mybtn.isEnabled = false
-        board.put(x: mybtn.x, y: mybtn.y, stone: USER_COLOR)
-        drawBoard()
-        if board.isGameOver() == true {
+        self.board.put(x: mybtn.x, y: mybtn.y, stone: self.USER_COLOR)
+        self.drawBoard()
+        if self.board.isGameOver() == true {
             self.switchButtonAppearance(button: self.retryButton, isEnabled: true)
         }
         
@@ -81,21 +109,23 @@ class FOOthelloViewController: UIViewController {
     }
 
     private func CpuTurn() {
-        if board.available(stone: CPU_COLOR).count != 0 {
-            let xy = player.play(board: board, stone: CPU_COLOR)
-            board.put(x: xy.0, y: xy.1, stone: CPU_COLOR)
-            drawBoard()
-            if board.isGameOver() == true {
+        if self.board.available(stone: self.CPU_COLOR).count != 0 {
+            let xy = player.play(board: self.board, stone: self.CPU_COLOR)
+            self.board.put(x: xy.0, y: xy.1, stone: self.CPU_COLOR)
+            self.drawBoard()
+            if self.board.isGameOver() == true {
                 self.switchButtonAppearance(button: self.retryButton, isEnabled: true)
             }
         }
-        if board.isGameOver() == true {
+        if self.board.isGameOver() == true {
             self.switchButtonAppearance(button: self.retryButton, isEnabled: true)
             self.navigationItem.hidesBackButton = false
         }
-        if board.available(stone: USER_COLOR).count == 0 {
+        if self.board.available(stone: self.USER_COLOR).count == 0 {
             self.switchButtonAppearance(button: self.passButton, isEnabled: true)
         }
+        
+        self.isMyTurn = true
     }
 
     private func drawBoard() {
@@ -104,25 +134,25 @@ class FOOthelloViewController: UIViewController {
         self.cpuStoneCountLabel.text = "CPU: \(stonecount.1)"
         
         var count = 0
-        let _board = board.returnBoardState()
-        for y in 0..<BOARDSIZE {
-            for x in 0..<BOARDSIZE {
-                if _board[y][x] == USER_COLOR {
-                    buttonArray[count].setImage(myStoneImage, for: .normal)
-                } else if _board[y][x] == CPU_COLOR {
-                    buttonArray[count].setImage(cpuStoneImage, for: .normal)
+        let _board = self.board.returnBoardState()
+        for y in 0..<self.BOARDSIZE {
+            for x in 0..<self.BOARDSIZE {
+                if _board[y][x] == self.USER_COLOR {
+                    self.buttonArray[count].setImage(self.myStoneImageShaped, for: .normal)
+                } else if _board[y][x] == self.CPU_COLOR {
+                    self.buttonArray[count].setImage(self.cpuStoneImage, for: .normal)
                 } else {
-                    buttonArray[count].setImage(baseBoardImage, for: .normal)
+                    self.buttonArray[count].setImage(self.baseBoardImage, for: .normal)
                 }
-                buttonArray[count].isEnabled = false
+                self.buttonArray[count].isEnabled = false
                 count += 1
             }
         }
-        let availableList = board.available(stone: USER_COLOR)
+        let availableList = self.board.available(stone: self.USER_COLOR)
         for i in 0..<(availableList.count) {
             let x = availableList[i][0]
             let y = availableList[i][1]
-            buttonArray[x*BOARDSIZE+y].isEnabled = true
+            self.buttonArray[x * self.BOARDSIZE + y].isEnabled = true
         }
     }
     

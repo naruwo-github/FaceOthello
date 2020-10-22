@@ -20,7 +20,9 @@ class FOOnlineOthelloViewController: UIViewController {
     @IBOutlet private weak var retryButton: FOCustomUIButton!
     
     private var myImage: UIImage?
+    private var myImageShaped: UIImage?
     private var opponentImage: UIImage?
+    private var opponentImageShaped: UIImage?
     // socketやmanagerはシングルトンなはずなので、画面遷移の際は渡す/渡される
     private var manager: SocketManager?
     private var socket: SocketIOClient?
@@ -73,14 +75,28 @@ class FOOnlineOthelloViewController: UIViewController {
     private func setup() {
         if let myImage = self.myImage {
             self.myImageView.image = myImage
+            
+            // 整形したプロフィール画像
+            let boardImage = R.image.board()!
+            let resizedFrameImage = myImage.resize(size: boardImage.size)
+            let roundImage = resizedFrameImage!.roundImage()
+            self.myImageShaped = boardImage.composite(image: roundImage)
         } else {
             self.myImage = R.image.black()
+            self.myImageShaped = self.myImage
         }
         
         if let opponentImage = self.opponentImage {
             self.opponentImageView.image = opponentImage
+            
+            // 整形したプロフィール画像
+            let boardImage = R.image.board()!
+            let resizedFrameImage = opponentImage.resize(size: boardImage.size)
+            let roundImage = resizedFrameImage!.roundImage()
+            self.opponentImageShaped = boardImage.composite(image: roundImage)
         } else {
             self.opponentImage = R.image.white()
+            self.opponentImageShaped = self.opponentImage
         }
         
     }
@@ -141,9 +157,9 @@ class FOOnlineOthelloViewController: UIViewController {
         for y in 0..<self.BOARDSIZE {
             for x in 0..<self.BOARDSIZE {
                 if _board[y][x] == self.USER_COLOR {
-                    self.buttonArray[count].setImage(self.myImage, for: .normal)
+                    self.buttonArray[count].setImage(self.myImageShaped, for: .normal)
                 } else if _board[y][x] == self.OPPONENT_COLOR {
-                    self.buttonArray[count].setImage(self.opponentImage, for: .normal)
+                    self.buttonArray[count].setImage(self.opponentImageShaped, for: .normal)
                 } else {
                     self.buttonArray[count].setImage(self.baseBoardImage, for: .normal)
                 }
