@@ -27,7 +27,9 @@ class FOOthelloViewController: UIViewController {
     private let player = FOPlayerModel()
     private let baseBoardImage = R.image.board()
     private let cpuStoneImage = R.image.white()
+    
     var myStoneImage = R.image.black()
+    var myStoneImageShaped = R.image.black()
     
     private var buttonArray: [UIButton] = []
     
@@ -108,12 +110,11 @@ class FOOthelloViewController: UIViewController {
         for y in 0..<self.BOARDSIZE {
             for x in 0..<self.BOARDSIZE {
                 if _board[y][x] == self.USER_COLOR {
-                    self.buttonArray[count].setImage(self.myStoneImage, for: .normal)
+                    self.buttonArray[count].setImage(self.myStoneImageShaped, for: .normal)
                 } else if _board[y][x] == self.CPU_COLOR {
                     self.buttonArray[count].setImage(self.cpuStoneImage, for: .normal)
                 } else {
                     self.buttonArray[count].setImage(self.baseBoardImage, for: .normal)
-//                    self.buttonArray[count].backgroundColor = R.color.boardColor()
                 }
                 self.buttonArray[count].isEnabled = false
                 count += 1

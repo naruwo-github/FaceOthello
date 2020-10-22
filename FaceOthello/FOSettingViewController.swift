@@ -49,6 +49,12 @@ class FOSettingViewController: UIViewController, UIImagePickerControllerDelegate
         if let othelloVC = R.storyboard.setting.foOthelloViewController() {
             if let image = self.profileImageView.image {
                 othelloVC.myStoneImage = image
+                // ここで丸くした画像を送り、オセロ用の画像として整形してから送る
+                let boardImage = R.image.board()!
+                let resizedFrameImage = image.resize(size: boardImage.size)
+                let roundImage = resizedFrameImage!.roundImage()
+                let sendImage = boardImage.composite(image: roundImage)
+                othelloVC.myStoneImageShaped = sendImage
             }
             self.navigationController?.pushViewController(othelloVC, animated: true)
         }
