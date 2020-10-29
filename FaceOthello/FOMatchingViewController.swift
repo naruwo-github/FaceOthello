@@ -131,7 +131,7 @@ class FOMatchingViewController: UIViewController {
     
     private func sendProfileImageOnce() {
         guard let _image = self.profileImage else { return }
-        guard let _sendImage = _image.resized(withPercentage: 0.1) else { return }
+        guard let _sendImage = _image.resized(withPercentage: 0.3) else { return }
         
         let imageData = _sendImage.pngData()! as NSData
         let base64String = imageData.base64EncodedString(options: .lineLength64Characters)
